@@ -1,0 +1,31 @@
+*{
+    box-sizing: border-box;
+    margin: none;
+    padding: none;
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+}
+
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+
+body{
+    background-color: black;
+}
+
+header{
+    width: 100vw;
+    background-color: bisque;
+
+}
+
+.preview-wrapper{
+    width: 100vw;
+    display: flex;
+    background-color: aliceblue;
+    padding: 20px 10px;
+    overflow: auto;
+}
+
+.preview{
+    height: 20rem;
+    margin: 0px 5px;
+}
