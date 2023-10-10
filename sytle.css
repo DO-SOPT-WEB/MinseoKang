@@ -3,6 +3,9 @@
     margin: none;
     padding: none;
     font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+    font-size: 16px;
+    color: red;
+
 }
 
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
@@ -14,14 +17,17 @@ body{
 header{
     width: 100vw;
     background-color: bisque;
-
+    padding: 1rem;
+    font-weight: 600s;
+    font-size: 1rem;
 }
+
 
 .preview-wrapper{
     width: 100vw;
     display: flex;
     background-color: aliceblue;
-    padding: 20px 10px;
+    padding: 20px 0px;
     overflow: auto;
 }
 
@@ -29,3 +35,61 @@ header{
     height: 20rem;
     margin: 0px 5px;
 }
+
+.nav-items{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-explanation{
+    text-align: center;
+}
+
+
+
+.nav-wrapper{
+    align-items: center;
+    width: 100vw;
+    background-color: bisque;
+    padding: 1.5rem 1rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+
+}
+
+.index{
+    padding: 1rem;
+    width: 100vw;
+    background-color: aquamarine;
+}
+
+
+.section{
+    width: 100vw;
+    height: 300px;
+    display: flex;
+    overflow: hidden;
+    /* flex-flow: row wrap; */
+    
+        /* grid-template-columns: repeat(auto-fill); */
+}
+
+footer{
+    text-align: center;
+    padding: 1rem;
+}
+
+
+.button{
+    position: fixed;
+    bottom: 80px;
+    right: 80px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    box-shadow: 0 0 3px 3px #ffffff;
+    color: #fe5000;
+    color: #ffffff;
+  }
