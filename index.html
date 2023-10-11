@@ -12,7 +12,7 @@
 </head>
 <body>
     
-    <header>Time Playlist</header>
+    <header id="pageTop">Time Playlist</header>
     <section class="preview-wrapper">
         <img class="preview" src="/asset/preview_1.png">
         <img class="preview" src="/asset/preview_2.png">
@@ -29,9 +29,9 @@
             </section>
             <section class="nav-items">
             
-                <a href="#1">1번으로 이동</a>
-                <a href="#2">2번으로 이동</a>
-                <a href="#3">3번으로 이동</a>
+                <a href="#1" class="link">1번으로 이동</a>
+                <a href="#2" class="link">2번으로 이동</a>
+                <a href="#3" class="link">3번으로 이동</a>
             </section>
         </section>
     </nav>
@@ -83,11 +83,11 @@
 
     <section class="section three">
         <div class="three-grid">
-            <div class="three-gird-image"></div>
-            <div class="three-gird-image"></div>
-            <div class="three-gird-image"></div>
-            <div class="three-gird-image"></div>
-            <div class="three-gird-image"></div>
+            <div class="three-grid-item1">1</div>
+            <div class="three-grid-item2">2</div>
+            <div class="three-grid-item3">3</div>
+            <div class="three-grid-item4">4</div>
+            <div class="three-grid-item5">5</div>
             <!-- <img src="/asset/section1_1.png">
             <img src="/asset/section1_2.png">
             <img src="/asset/section1_3.png">
@@ -99,10 +99,10 @@
     </section>
 
     <footer>더 알아보기</footer>
-
-    <div class="button">
-        <a href="#header"></a>
-        <!-- <img src="asset/button.png"> -->
-    </div>
+    <a href="#pageTop" id="onclick">
+        <div class="button">
+        </div>
+    </a>
+    
 </body>
 </html>

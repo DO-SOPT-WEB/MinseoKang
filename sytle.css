@@ -13,6 +13,8 @@
 
 body{
     background-color: black;
+    margin: 0;
+
 }
 
 header{
@@ -35,6 +37,7 @@ header{
 }
 
 .preview{
+
     height: 20rem;
     margin: 0px 5px;
     flex: 1;
@@ -49,19 +52,33 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
+
+}
+
+.link{
+    margin: 0.7rem 0.5rem;
+    color: black;
+    text-decoration: none;
+    font-weight: 800;
+}
+
+.link:hover{
+    color: green;
+    text-decoration: underline;
 }
 
 .nav-explanation{
     text-align: center;
+    font-weight: 400;
 }
 
 
 
 .nav-wrapper{
     align-items: center;
-    width: 100%vw;
+    width: 100vw;
     background-color: white;
-    padding: 1.5rem 1rem;
+    padding:1.5rem;
     font-size: 0.8rem;
     font-weight: 500;
 
@@ -80,28 +97,33 @@ header{
 .section{
     background-color: red;
     width: 90vw;
-    margin: 0 5vw;
+    margin: 1rem 5vw;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
 
 }
+
+
 
 .section.one img{
     flex: 1;
     max-width: 20%;
-    margin: 5px 0px;
+    margin: 0.3rem 0px;
 }
+
 
 
 .two-main-image{
     flex: 1;
-}
+    width: 50%;
+} 
 
 .two-image-grid{
     flex: 1;
     display: flex;
     flex-wrap: wrap;
+
 }
 
 .two-image-grid-item{
@@ -109,26 +131,48 @@ header{
 
 }
 
-/* 
-.section.three:nth-child(1){
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-} */
 
 
-/* .three-grid{
+
+
+.three-grid{
     width: 100%;
-    /* display: grid;
-    grid-template-columns: repeat(4, 1fr) */
-/* } */
+    height: 40rem;
+    background-color: antiquewhite;
+    display: grid;
+    grid-template-areas: 
+    'item1 item1 item2 item2'
+    'item3 item3 item2 item2'
+    'item4 item4 item4 item5'
+    'item4 item4 item4 item5';
+    grid-gap: 0.6rem;
+    margin: 0.3rem 0;}
 
-/* .three-gird-image{
-    width: 20%;
-    height: 300px;
-    border: #ffffff;
+
+    .three-grid-item1{
+        grid-area: item1;
+        background-color: aqua;}
+    
+    .three-grid-item2{
+        grid-area: item2;
+        background-color: blue;
+    }
+
+    .three-grid-item3{
+        grid-area: item3;
+        background-color: blueviolet;
+    } 
+
+    .three-grid-item4{
+        grid-area: item4;
+        background-color: rgb(105, 90, 120);
+    }
+
+    .three-grid-item5{
+        grid-area: item5;
+        background-color: rgb(105, 90, 120);}
 
 
-} */ 
 
 
 footer{
