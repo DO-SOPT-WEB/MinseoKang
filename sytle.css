@@ -4,7 +4,8 @@
     padding: none;
     font-family: 'Spoqa Han Sans Neo', 'sans-serif';
     font-size: 16px;
-    color: red;
+    font-weight: 500;
+    object-fit: cover
 
 }
 
@@ -16,17 +17,19 @@ body{
 
 header{
     width: 100vw;
-    background-color: bisque;
+    background-color:  black;
+    color: white;
     padding: 1rem;
+    font-family: 'Questrial', sans-serif;
     font-weight: 600s;
-    font-size: 1rem;
+    font-size: 2rem;
 }
 
 
 .preview-wrapper{
     width: 100vw;
     display: flex;
-    background-color: aliceblue;
+    background-color:  black;
     padding: 20px 0px;
     overflow: auto;
 }
@@ -34,9 +37,15 @@ header{
 .preview{
     height: 20rem;
     margin: 0px 5px;
+    flex: 1;
+}
+
+.helper-text{
+    width: 100%;
 }
 
 .nav-items{
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -50,8 +59,8 @@ header{
 
 .nav-wrapper{
     align-items: center;
-    width: 100vw;
-    background-color: bisque;
+    width: 100%vw;
+    background-color: white;
     padding: 1.5rem 1rem;
     font-size: 0.8rem;
     font-weight: 500;
@@ -62,34 +71,81 @@ header{
     padding: 1rem;
     width: 100vw;
     background-color: aquamarine;
+    position: sticky;
+    top: 0px;
+    left: 0px;
 }
 
 
 .section{
-    width: 100vw;
-    height: 300px;
+    background-color: red;
+    width: 90vw;
+    margin: 0 5vw;
     display: flex;
-    overflow: hidden;
-    /* flex-flow: row wrap; */
-    
-        /* grid-template-columns: repeat(auto-fill); */
+    flex-wrap: wrap;
+    justify-content: space-between;
+
 }
+
+.section.one img{
+    flex: 1;
+    max-width: 20%;
+    margin: 5px 0px;
+}
+
+
+.two-main-image{
+    flex: 1;
+}
+
+.two-image-grid{
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.two-image-grid-item{
+    width: 50%;
+
+}
+
+/* 
+.section.three:nth-child(1){
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+} */
+
+
+/* .three-grid{
+    width: 100%;
+    /* display: grid;
+    grid-template-columns: repeat(4, 1fr) */
+/* } */
+
+/* .three-gird-image{
+    width: 20%;
+    height: 300px;
+    border: #ffffff;
+
+
+} */ 
+
 
 footer{
     text-align: center;
     padding: 1rem;
+    color: white;
 }
 
 
 .button{
     position: fixed;
-    bottom: 80px;
-    right: 80px;
+    bottom: 40px;
+    right: 40px;
     width: 60px;
     height: 60px;
     border-radius: 50%;
     background-color: #ffffff;
     box-shadow: 0 0 3px 3px #ffffff;
-    color: #fe5000;
     color: #ffffff;
   }
