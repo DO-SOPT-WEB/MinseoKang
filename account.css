@@ -23,8 +23,9 @@ header{
     width: 100vw;
     height: 3rem;
     background-color: #ffffff;
-    padding-left: 1rem;
-    /* text-align: center; */
+    /* padding-left: 1rem; */
+    text-align: center;
+    
     line-height: 3rem;
     font-size: 1.3rem;
     font-weight: 500;
@@ -198,6 +199,10 @@ p{
     box-shadow: 0px 3px 3px 0px rgb(212, 212, 212);
 }
 
+.historylist-items:nth-last-child(1){
+    background-color: transparent;
+}
+
 
 .historylist-category{
     font-size: 0.8rem;
@@ -214,7 +219,7 @@ p{
     position: absolute;
     line-height: 3.6rem;
     left: 5rem;
-    width: 13em;
+    width: 10rem;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
