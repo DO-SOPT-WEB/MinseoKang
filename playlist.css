@@ -165,10 +165,10 @@ header{
 
 .two-main-image{
     flex:1;
-    margin: 0.25rem 0;
+    margin: 0.25rem 0.25rem 0 0;
 }
 .two-main-image img{
-    height:100%
+    width:100%
 }
 
 .two-image-grid{
@@ -183,6 +183,23 @@ header{
     width: calc((100% - 1rem)/2);
     margin: 0.25rem;
 }
+
+
+@media screen and (max-width: 1000px){
+        
+        .section.two{
+            display: block;
+        }
+        }
+        .two-image-grid{
+            width: 100%;}
+        .two-image-grid img{
+            min-width: calc((100% - 6rem)/2);
+            margin-left: 0;
+            flex-grow: 1; 
+        }
+
+    
 
 
 
