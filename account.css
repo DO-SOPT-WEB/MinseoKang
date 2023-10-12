@@ -4,6 +4,7 @@
     padding: none;
     font-family: 'Spoqa Han Sans Neo', 'sans-serif';
     font-size: 16px;
+    color: #191F28;
 
 }
 
@@ -14,29 +15,35 @@ body{
     /* align-items: center;
     vertical-align: middle; */
     height: 100vh;
+    background-color: #efeff3;
 
 }
 
 header{
     width: 100vw;
     height: 3rem;
-    background-color: bisque;
-    text-align: center;
+    background-color: #ffffff;
+    padding-left: 1rem;
+    /* text-align: center; */
     line-height: 3rem;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 500;
+    color: #283951;
 
 }
 
 h1{
     text-align: center;
+    color: #878d94;
+    font-weight: 500;
 }
 
 p{
     font-size: 2.2rem;
-    margin: 1.2rem;
+    margin: 1.4rem 0 0.7rem 0;
     font-weight: 500;
     text-align: center;
+    color: #191F28;
     
     
 }
@@ -44,15 +51,17 @@ p{
 .asset-wrapper{
     margin: 2rem auto;
     padding: 0.1rem;
+    padding-bottom: 0.8rem;;
+    box-shadow: 0px 4px 4px 0px rgb(194, 194, 194);
     /* display: inline-block; */
     /* position: absolute */
 
-    background-color: aquamarine;
+    background-color: rgb(255, 255, 255);
     width: 80vw;
     height: 10rem;
     border-radius: 10px;
-    border-style: solid;
-    border-color: black;
+    /* border-style: solid; */
+    /* border-color: black; */
     align-items: center;
     justify-content: center;
 }
@@ -65,13 +74,13 @@ p{
 
 .asset-type-plus{
     margin-right: 0.3rem;
-    color: red;
+    color: #F04452;
     font-weight: 500;
 }
 
 .asset-type-minus{
     margin-left: 0.3rem;
-    color: blue;
+    color: #3182F6;
     font-weight: 500;
 }
 
@@ -83,9 +92,10 @@ p{
     width: 100vw;
     height: 3rem;
     padding: 0.7rem;
-    background-color: grey;
-    border-top: solid 1px;
-    border-bottom: solid 0.5px;
+    background-color: #ffffff;
+    /* border-top: solid 1px; */
+    border-bottom: solid 0.5px #878d94;
+    border-radius: 7px 7px 0 0;
     
 }
 
@@ -119,15 +129,47 @@ p{
 }
 
 
+.selectbox{
+    height: 2.5rem;
+}
+
+
+
+/* 기존 체크박스를 숨기기 위한 코드 */
+.custom-input {
+    display: none;}
+  /* 커스텀 체크박스를 위한 코드 */
+.custom-label .custom-label-checked {
+    display: none;}
+.custom-input:checked + .custom-label .custom-label-checked {
+    display: inline-block;
+    height: 100%;}
+.custom-input:checked + .custom-label .custom-label-unchecked {
+    display: none;}
+
+.earn,.use {
+    height: 2.3rem;
+    margin: 0.1rem 0;}
+
+
+
+
 .selectbox-wrapper{
     display: flex;
     width: 100%;
-    line-height: 2rem;
+    line-height: 2.5rem;
     font-weight: 500;
     padding: 0 5vw;
-    background-color: beige;
-    height: 2rem;
+    background-color: rgb(221, 221, 221);
+    height: 2.5rem;
 }
+
+.checkbox-wrapper{
+    position: absolute;
+    right: 5vw;
+    
+}
+
 
 
 .selectbox{
@@ -138,7 +180,7 @@ p{
 
 .historylist-wrapper{
     width: 100%;
-    height: calc(100vh - 24rem); 
+    height: calc(100vh - 23.5rem); 
     overflow-x: scroll;
 }
 
@@ -152,13 +194,14 @@ p{
     height: 3.6rem;
     padding:0 0.6rem;
     width: 90%;
-    background-color: antiquewhite;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 3px 3px 0px rgb(212, 212, 212);
 }
 
 
 .historylist-category{
     font-size: 0.8rem;
-    color: grey;
+    color: #333D4B;
     position: absolute;
     left: 1rem;
     line-height: 3.6rem;
@@ -170,7 +213,11 @@ p{
     font-weight: 500;
     position: absolute;
     line-height: 3.6rem;
-    left: 4rem;
+    left: 5rem;
+    width: 13em;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .historylist-amount{
@@ -178,15 +225,14 @@ p{
     font-weight: 500;
     position: absolute;
     /* transform-origin: 100% 0; */
-    right: 4rem;
+    right: 3rem;
 }
 
 .historylist-amount.minus{
-    color: blue;
-}
+    color: #3182F6;}
 
 .historylist-amount.plus{
-    color: red;
+    color: #F04452;
 }
 
 
@@ -194,7 +240,7 @@ p{
     position: absolute;
     line-height: 3.6rem;
     font-size: 0.9rem;
-    color: rgb(128, 128, 128);
+    color: #B0B8C1;
     right: 1rem;
     
 
@@ -203,24 +249,28 @@ p{
 
 
 footer{
-    background-color: #f2f2f2;
+    background-color: #ffffff;
     height: 4rem;
     position: fixed;
     width: 100%;
     bottom: 0;
     left: 0;
     z-index: 5;
+    border-top: solid;
+    border-width: 0.3px;
+    border-color: #B1B8C0
 }
 
 .button{
     text-align: center;
     font-size: 3.5rem;
     border-radius: 30%;
-    margin-top: 0.1rem;
-    height: 3.8rem;
-    width: 3.8rem;
+    height: 4rem;
+    width: 4rem;
     margin: auto;
     background-color: rgb(255, 255, 255);
+    box-shadow: 0px 3px 3px 0px #a8b6ca;
+    color: #3182F6
 
     
 }
