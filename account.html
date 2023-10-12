@@ -13,12 +13,13 @@
 <body>
     <header>민서의 가계부</header>
 
-    <section class="assets">
+    <section class="asset-wrapper">
         <h1>나의 자산</h1>
             <p>249700</p>
-
-        <div class="asset-plus"> 300000</div>
-        <div class="asset-minus"> 300000</div>
+        <div class="asset-type">
+            <div class="asset-type-plus"> 300000</div>
+            <div class="asset-type-minus"> 1000</div>
+        </div>
     </section>
     <nav>
         <section class="date-wrapper">
@@ -27,16 +28,43 @@
             <div class="date-right"></div>
         </section>
 
-        <section class="list">
+        <section class="selectbox">
             <div class>내역 리스트</div>
-            <button>수입</button>
-            <button>지출</button>
+            <div>
+                <input type="checkbox" id="type" value="income" checked/>
+                <label for="income">수입</label>
+            </div>
+            <div>
+                <input type="checkbox" id="type" value="expenditure" checked/>
+                <label for="income">지출</label>
+            </div>
         </section>
-
     </nav>
 
-    <table>
-        
+    <table class="historylist">
+        <div class="historylist-box one">
+            <div class="historylist-category">식비</div>
+            <div class="historylist-contents">버거킹 문정역점</div>
+            <div class="historylist-amount">-10800</div>
+            <div class="historylist-delete">X</div>
+        </div>
     </table>
+
+    <table class="historylist">
+        <div class="historylist-box one">
+            <div class="historylist-category">식비</div>
+            <div class="historylist-contents">버거킹 문정역점</div>
+            <div class="historylist-amount">-10800</div>
+            <div class="historylist-delete">X</div>
+        </div>
+    </table>
+
+    <footer>
+        <div></div>
+    </footer>
+    
+    
+
+        
 </body>
 </html>

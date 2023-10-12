@@ -9,6 +9,56 @@
 
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
 
-.date-wrapper{
+body{
+    margin: 0;
+    align-items: center;
+
+}
+
+header{
+    width: 100vw;
+    height: 3rem;
+    background-color: bisque;
+    text-align: center;
+    line-height: 3rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+
+}
+
+p{
+    font-size: 2.2rem;
+    margin: 1.2rem;
+    font-weight: 500;
     
+}
+
+.asset-wrapper{
+    margin: 2rem auto;
+    padding: 0.1rem;
+
+    background-color: aquamarine;
+    max-width: 80vw;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: black;
+    text-align: center;
+}
+
+.asset-type{
+    display: flex;
+}
+
+.asset-type-plus{
+    color: red;
+    margin-right: 0.5rem;
+}
+
+.asset-type-minus{
+    color: blue;
+    margin-left: 0.5rem;
+}
+
+.date-wrapper{
+    display: flex;
 }
