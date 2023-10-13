@@ -141,21 +141,22 @@ header{
 
 .section{
     width: 90vw;
-    margin: 1rem 5vw;
     display: flex;
     flex-wrap: wrap;
+    margin: 1rem 5vw;;
     justify-content: center;
 
 }
 
 
 
-
 .section.one img{
     flex: 1;
+    width: 100%;
     min-width: 16rem;
     margin: 0.2rem;
     transition: transform 250ms;
+    flex-grow: 1;
 
 }
 
