@@ -13,6 +13,7 @@
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
 
 body{
+    scroll-behavior: smooth;
     background-color: black;
     margin: 0;
     padding: 0;
