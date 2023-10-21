@@ -7,6 +7,7 @@
   box-sizing: border-box;
   font-family: "Spoqa Han Sans Neo", "sans-serif";
   font-size: 16px;
+  font-style: none;
 }
 
 body {
@@ -46,10 +47,10 @@ p {
   padding: 0.1rem;
   margin: 2rem auto;
   padding-bottom: 0.8rem;
-  box-shadow: 0px 4px 4px 0px rgb(194, 194, 194);
+  box-shadow: 0 0.25rem 0.25rem rgb(194, 194, 194);
 
   background-color: rgb(255, 255, 255);
-  border-radius: 10px;
+  border-radius: 0.625rem;
 
   align-items: center;
   justify-content: center;
@@ -63,13 +64,29 @@ p {
 
 .asset-type-plus {
   color: #f04452;
-  margin-right: 0.3rem;
+  margin-right: 1rem;
   font-weight: 500;
+}
+
+.sign {
+  background-color: #efeff3;
+  border-radius: 60%;
+  border-style: none;
+  font-weight: 700;
+  line-height: 1.2rem;
+  width: 1.3rem;
+  height: 1.3rem;
+}
+
+.sign.plus {
+  color: #f04452;
+}
+.sign.minus {
+  color: #3182f6;
 }
 
 .asset-type-minus {
   color: #3182f6;
-  margin-left: 0.3rem;
   font-weight: 500;
 }
 
@@ -79,8 +96,8 @@ p {
   height: 3rem;
   padding: 0.7rem;
   background-color: #ffffff;
-  border-bottom: solid 0.5px #878d94;
-  border-radius: 7px 7px 0 0;
+  border-bottom: solid 0.03rem #878d94;
+  border-radius: 0.45rem 0 0 0;
 }
 
 .date-wrapper-button {
@@ -168,9 +185,9 @@ p {
   height: 3.6rem;
   padding: 0 0.6rem;
   margin: 0.6rem auto;
-  border-radius: 7px;
+  border-radius: 0.45rem;
   background-color: rgb(255, 255, 255);
-  box-shadow: 0px 3px 3px 0px rgb(212, 212, 212);
+  box-shadow: 0 0.2rem 0.2rem 0 rgb(212, 212, 212);
 }
 
 #category {
@@ -225,7 +242,7 @@ footer {
   left: 0;
   z-index: 5;
   border-top: solid;
-  border-width: 0.3px;
+  border-width: 0.01rem;
   border-color: #b1b8c0;
 }
 
@@ -238,5 +255,5 @@ footer {
   font-size: 3.5rem;
   border-radius: 30%;
   background-color: rgb(255, 255, 255);
-  box-shadow: 0px 3px 3px 0px #a8b6ca;
+  box-shadow: 0 0.18rem 0.18rem 0 #a8b6ca;
 }
