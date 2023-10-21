@@ -1,271 +1,242 @@
-@import "reset.css";
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
 
-*{
-    box-sizing: border-box;
-    margin: none;
-    padding: none;
-    font-family: 'Spoqa Han Sans Neo', 'sans-serif';
-    font-size: 16px;
-    color: #191F28;
-
+* {
+  padding: none;
+  margin: none;
+  color: #191f28;
+  box-sizing: border-box;
+  font-family: "Spoqa Han Sans Neo", "sans-serif";
+  font-size: 16px;
 }
 
-
-body{
-    margin: 0;
-    height: 100vh;
-    background-color: #efeff3;
-
+body {
+  height: 100vh;
+  margin: 0;
+  background-color: #efeff3;
 }
 
-header{
-    width: 100vw;
-    height: 3rem;
-    background-color: #ffffff;
-    text-align: center;
-    line-height: 3rem;
-    font-size: 1.3rem;
-    font-weight: 500;
-    color: #283951;
-
+header {
+  width: 100vw;
+  height: 3rem;
+  color: #283951;
+  text-align: center;
+  background-color: #ffffff;
+  line-height: 3rem;
+  font-size: 1.3rem;
+  font-weight: 500;
 }
 
-h1{
-    text-align: center;
-    color: #878d94;
-    font-weight: 500;
+h1 {
+  color: #878d94;
+  text-align: center;
+  font-weight: 500;
 }
 
-p{
-    font-size: 2.2rem;
-    margin: 1.4rem 0 0.7rem 0;
-    font-weight: 500;
-    text-align: center;
-    color: #191F28;
-    
-    
+p {
+  margin: 1.4rem 0 0.7rem 0;
+  color: #191f28;
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 500;
 }
 
-.asset-wrapper{
-    margin: 2rem auto;
-    padding: 0.1rem;
-    padding-bottom: 0.8rem;;
-    box-shadow: 0px 4px 4px 0px rgb(194, 194, 194);
+.asset-wrapper {
+  width: 80vw;
+  height: 10rem;
+  padding: 0.1rem;
+  margin: 2rem auto;
+  padding-bottom: 0.8rem;
+  box-shadow: 0px 4px 4px 0px rgb(194, 194, 194);
 
-    background-color: rgb(255, 255, 255);
-    width: 80vw;
-    height: 10rem;
-    border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
 
-    align-items: center;
-    justify-content: center;
+  align-items: center;
+  justify-content: center;
 }
 
-.asset-type{
-    width: auto;
-    text-align: center;
-    margin-left: auto;
+.asset-type {
+  width: auto;
+  text-align: center;
+  margin-left: auto;
 }
 
-.asset-type-plus{
-    margin-right: 0.3rem;
-    color: #F04452;
-    font-weight: 500;
+.asset-type-plus {
+  color: #f04452;
+  margin-right: 0.3rem;
+  font-weight: 500;
 }
 
-.asset-type-minus{
-    margin-left: 0.3rem;
-    color: #3182F6;
-    font-weight: 500;
+.asset-type-minus {
+  color: #3182f6;
+  margin-left: 0.3rem;
+  font-weight: 500;
 }
 
-
-
-
-.date-wrapper{
-    position: relative;
-    width: 100vw;
-    height: 3rem;
-    padding: 0.7rem;
-    background-color: #ffffff;
-    border-bottom: solid 0.5px #878d94;
-    border-radius: 7px 7px 0 0;
-    
+.date-wrapper {
+  position: relative;
+  width: 100vw;
+  height: 3rem;
+  padding: 0.7rem;
+  background-color: #ffffff;
+  border-bottom: solid 0.5px #878d94;
+  border-radius: 7px 7px 0 0;
 }
 
-.date-wrapper-button{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    margin: 0 auto;
-
+.date-wrapper-button {
+  display: flex;
+  position: absolute;
+  margin: 0 auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.date-today {
+  margin: 0 1rem;
 }
 
-.date-today{
-    margin: 0 1rem;
-
-
+.date-left,
+.date-right {
+  font-weight: 700;
 }
 
-.date-left, .date-right{
-    font-weight: 700;
+.date-left {
+  left: 40vw;
 }
 
-.date-left{
-    left: 40vw;
+.date-right {
+  right: 40vw;
 }
 
-.date-right{
-    right: 40vw;
+.selectbox {
+  height: 2.5rem;
 }
-
-
-.selectbox{
-    height: 2.5rem;
-}
-
-
 
 /* 기존 체크박스를 숨기기 위한 코드 */
 .custom-input {
-    display: none;}
-  /* 커스텀 체크박스를 위한 코드 */
+  display: none;
+}
+/* 커스텀 체크박스를 위한 코드 */
 .custom-label .custom-label-checked {
-    display: none;}
+  display: none;
+}
 .custom-input:checked + .custom-label .custom-label-checked {
-    display: inline-block;
-    height: 100%;}
+  display: inline-block;
+  height: 100%;
+}
 .custom-input:checked + .custom-label .custom-label-unchecked {
-    display: none;}
-
-.earn,.use {
-    height: 2.3rem;
-    margin: 0.1rem 0;}
-
-
-
-
-.selectbox-wrapper{
-    display: flex;
-    width: 100%;
-    line-height: 2.5rem;
-    font-weight: 500;
-    padding: 0 5vw;
-    background-color: rgb(221, 221, 221);
-    height: 2.5rem;
+  display: none;
 }
 
-.checkbox-wrapper{
-    position: absolute;
-    right: 5vw;
-    
+.earn,
+.use {
+  height: 2.3rem;
+  margin: 0.1rem 0;
 }
 
-
-
-.selectbox{
-    position: absolute;
-    right: 5vw;
+.selectbox-wrapper {
+  display: flex;
+  width: 100%;
+  height: 2.5rem;
+  padding: 0 5vw;
+  line-height: 2.5rem;
+  font-weight: 500;
+  background-color: rgb(221, 221, 221);
 }
 
-
-.historylist-wrapper{
-    width: 100%;
-    height: calc(100vh - 23.5rem); 
-    overflow-x: scroll;
+.checkbox-wrapper {
+  position: absolute;
+  right: 5vw;
 }
 
-
-
-#historylist-items{
-    position: relative;
-    border-radius: 7px;
-    display: flex;
-    margin: 0.6rem auto;
-    height: 3.6rem;
-    padding:0 0.6rem;
-    width: 90%;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0px 3px 3px 0px rgb(212, 212, 212);
-    list-style: none;
+.selectbox {
+  position: absolute;
+  right: 5vw;
 }
 
-
-#category{
-    font-size: 0.8rem;
-    color: #333D4B;
-    position: absolute;
-    left: 1rem;
-    line-height: 3.6rem;
-
-    
+.historylist-wrapper {
+  width: 100%;
+  height: calc(100vh - 23.5rem);
+  overflow: scroll;
 }
 
-#content{
-    font-weight: 500;
-    position: absolute;
-    line-height: 3.6rem;
-    left: 5rem;
-    width: 10rem;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+#historylist-items {
+  display: flex;
+  list-style: none;
+  position: relative;
+  width: 90%;
+  height: 3.6rem;
+  padding: 0 0.6rem;
+  margin: 0.6rem auto;
+  border-radius: 7px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 3px 3px 0px rgb(212, 212, 212);
 }
 
-#amount{
-    line-height: 3.6rem;
-    font-weight: 500;
-    position: absolute;
-    /* transform-origin: 100% 0; */
-    right: 3rem;
+#category {
+  position: absolute;
+  color: #333d4b;
+  font-size: 0.8rem;
+  left: 1rem;
+  line-height: 3.6rem;
 }
 
-#amount.minus{
-    color: #3182F6;}
-
-.amount.plus{
-    color: #F04452;
+#content {
+  position: absolute;
+  width: 10rem;
+  white-space: nowrap;
+  font-weight: 500;
+  line-height: 3.6rem;
+  left: 5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-
-#delete{
-    position: absolute;
-    line-height: 3.6rem;
-    font-size: 0.9rem;
-    color: #B0B8C1;
-    right: 1rem;
-    
-
+#amount {
+  position: absolute;
+  line-height: 3.6rem;
+  font-weight: 500;
+  /* transform-origin: 100% 0; */
+  right: 3rem;
 }
 
-
-
-footer{
-    background-color: #ffffff;
-    height: 4rem;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    left: 0;
-    z-index: 5;
-    border-top: solid;
-    border-width: 0.3px;
-    border-color: #B1B8C0
+#amount.minus {
+  color: #3182f6;
 }
 
-.button{
-    text-align: center;
-    font-size: 3.5rem;
-    border-radius: 30%;
-    height: 4rem;
-    width: 4rem;
-    margin: auto;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0px 3px 3px 0px #a8b6ca;
-    color: #3182F6
+.amount.plus {
+  color: #f04452;
+}
 
-    
+#delete {
+  position: absolute;
+  color: #b0b8c1;
+  line-height: 3.6rem;
+  font-size: 0.9rem;
+  right: 1rem;
+}
+
+footer {
+  position: fixed;
+  width: 100%;
+  height: 4rem;
+  background-color: #ffffff;
+  bottom: 0;
+  left: 0;
+  z-index: 5;
+  border-top: solid;
+  border-width: 0.3px;
+  border-color: #b1b8c0;
+}
+
+.button {
+  width: 4rem;
+  height: 4rem;
+  margin: auto;
+  color: #3182f6;
+  text-align: center;
+  font-size: 3.5rem;
+  border-radius: 30%;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 3px 3px 0px #a8b6ca;
 }
