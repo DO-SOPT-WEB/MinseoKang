@@ -1,11 +1,25 @@
 import { HISTORY_DATA } from "./Data.js";
 
 let historyData = [];
-const initBalance = 0;
+let initBalance = 0;
+
+function calculateBalance() {
+  historyData.forEach((item) => {
+    if (item.amount[0].status === "income") {
+      initBalance += item.amount[0].name;
+    } else if (item.amount[0].status === "outcome") {
+      initBalance -= item.amount[0].name;
+    }
+  });
+}
+
+const balanceElement = document.getElementById("balance");
+balanceElement.textContent = initBalance;
 
 window.onload = () => {
-  const historyData = JSON.parse(localStorage.getItem("history_data")); // localstorage 저장된 목록 가져오기
+  historyData = JSON.parse(localStorage.getItem("history_data")); // localstorage 저장된 목록 가져오기
   mylist(historyData);
+  calculateBalance();
 };
 
 function mylist(list) {
@@ -13,13 +27,13 @@ function mylist(list) {
   const historyTemplate = document.getElementById("history-template"); //템플릿
   historySection.innerHtml = "";
   list.forEach((item) => {
-    let todocontent = historyTemplate.content.cloneNode(true);
+    let historycontent = historyTemplate.content.cloneNode(true);
 
-    todocontent.querySelector("#category").textContent = item.category;
-    todocontent.querySelector("#content").textContent = item.content;
-    todocontent.querySelector("#amount").textContent = item.amount[0].name;
+    historycontent.querySelector("#category").textContent = item.category;
+    historycontent.querySelector("#content").textContent = item.content;
+    historycontent.querySelector("#amount").textContent = item.amount[0].name;
 
-    historySection.appendChild(todocontent);
+    historySection.appendChild(historycontent);
   });
 
   //모달 입력폼
@@ -55,8 +69,6 @@ function mylist(list) {
 
     const contentPrice = inputPrice.value; //새로운 변수에 복사
     const contentValue = inputContent.value; //
-    //   console.log(`가격: ${contentPrice}`);
-    //   console.log(`내용: ${contentValue}`);
     lists.push(contentPrice);
     makeList(contentPrice); //makelist로 전송
     //   saveList(contentPrice); //savelist로 전송
