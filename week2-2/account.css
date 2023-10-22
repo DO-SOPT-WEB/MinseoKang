@@ -129,8 +129,7 @@ p {
   height: 2.5rem;
 }
 
-.plus_price,
-.minus_price {
+.inout {
   display: none;
 }
 
@@ -336,13 +335,13 @@ input:checked + .slt_inout {
   color: #333d4b;
 }
 
-#enter_modal {
+#insert_modal {
   padding: 3rem 2rem;
   list-style: none;
   line-height: 2rem;
 }
 
-#enter_modal > li {
+#insert_modal > li {
   padding: 1.3rem 0;
   font-size: 1.4rem;
 }

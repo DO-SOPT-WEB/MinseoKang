@@ -38,9 +38,9 @@
             <div>내역 리스트</div>
             <div class="checkbox-wrapper">
                 
-                <input class="plus_price" type="checkbox" id="plus_p" checked />
+                <input class="inout" type="checkbox" id="plus_p" checked />
                 <label for="plus_p" class="slt_box">수입</label>
-                <input class="minus_price" type="checkbox" id="minus_p" checked/>
+                <input class="inout" type="checkbox" id="minus_p" checked/>
                 <label for="minus_p" class="slt_box">지출</label>
             </div>
         </section>
@@ -50,12 +50,9 @@
 
     
     <section id="historylist-wrapper">
-        <!-- <ul id="historylist-items">
-            <!-- <li id="category"></li>
-            <li id="content"></li>
-            <li id="amount"></li>
-            <button id="delete"></button> -->
-        <!-- </ul> --> 
+        <div id="historylist_items">
+ 
+         </div>
     </section>
 
 
@@ -69,16 +66,18 @@
     <div class="modal_wrap">
         <button id="modal_close"><i class="fa-solid fa-x"></i></button>
         <section class="modal_title">내역 추가</section>
-            <ul id="enter_modal">
-                <li class="create-new-history">
+        <form id="input-form">   
+            <ul id="insert_modal">
+                <li>
                     
-                    <input class="plus_price" type="checkbox" id="in_p" checked />
+                    <input class="inout modal" type="checkbox" id="in_p" checked />
                         <label for="in_p" class="slt_inout">수입</label>
-                    <input class="minus_price" type="checkbox" id="out_p" />
+                    <input class="inout modal" type="checkbox" id="out_p" />
                         <label for="out_p" class="slt_inout">지출</label>
    
-                </li>
-                <li class="create-new-history">
+                </li> 
+                
+                <li>
                     <label class="modal_item">
                     종류<br>
                     <select form="selectcategory">
@@ -87,26 +86,27 @@
                     </select>
                     </label>
                 </li>
-                <li class="create-new-history">
+                <li>
                     <label class="modal_item">
-                    금액
-                    <form id="input-form">
-                        <input type="number">
-                    </form>
+                    금액<br>
+                    
+                        <input class="price-input" type="number">
+                    
                     </label>
                 </li>
-                <li class="create-new-history">
+                <li>
                     <label class="modal_item">
-                    내용
-                    <form id="input-form">
-                        <input type="text">
-                    </form>
+                    내용<br>
+                    
+                        <input class="content-input" type="text">
+                    
                     </label>
                 </li>
             </ul>
-
+             <input type="submit" class="save"></input>
+        </form> 
     <div class= "button-container">
-        <button type="button" class="save">저장하기</button>
+       
     </div>
     
 
@@ -114,14 +114,19 @@
     </div>
 
 
-    <!-- <template id="history-template">
+    <template id="history-template">
             <ul id="historylist-items">
                 <li id="category">{category_name}</li>
                 <li id="content">{price_contents}</li>
                 <li id="amount">{price_num}</li>
                 <button id="delete">x</button>
             </ul>
-    </template> -->
+    </template>
+
+               <!-- <li id="category"></li>
+            <li id="content"></li>
+            <li id="amount"></li>
+            <button id="delete"></button> -->
 
     <script type="module" src="./script.js"></script>
 </body>
