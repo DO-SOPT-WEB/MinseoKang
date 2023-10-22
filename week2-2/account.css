@@ -129,26 +129,25 @@ p {
   height: 2.5rem;
 }
 
-/* 기존 체크박스를 숨기기 위한 코드 */
-.custom-input {
-  display: none;
-}
-/* 커스텀 체크박스를 위한 코드 */
-.custom-label .custom-label-checked {
-  display: none;
-}
-.custom-input:checked + .custom-label .custom-label-checked {
-  display: inline-block;
-  height: 100%;
-}
-.custom-input:checked + .custom-label .custom-label-unchecked {
+.plus_price,
+.minus_price {
   display: none;
 }
 
-.earn,
-.use {
-  height: 2.3rem;
-  margin: 0.1rem 0;
+.slt_box {
+  padding: 0.5em 0.8rem;
+  font-size: 1rem;
+  background-color: #f2f4f6;
+  border-radius: 0.5rem;
+  color: #333d4b;
+}
+
+input:checked + .slt_box {
+  padding: 0.5em 0.8rem;
+  font-size: 1rem;
+  background-color: #3182f6;
+  border-radius: 0.5rem;
+  color: white;
 }
 
 .selectbox-wrapper {
@@ -173,7 +172,7 @@ p {
 
 .historylist-wrapper {
   width: 100%;
-  height: calc(100vh - 23.5rem);
+  height: calc(100vh - 26.5rem);
   overflow: scroll;
 }
 
@@ -213,7 +212,6 @@ p {
   position: absolute;
   line-height: 3.6rem;
   font-weight: 500;
-  /* transform-origin: 100% 0; */
   right: 3rem;
 }
 
@@ -246,6 +244,7 @@ footer {
   border-color: #b1b8c0;
 }
 
+/* 모달 구조 */
 #modal_btn {
   width: 4rem;
   height: 4rem;
@@ -296,4 +295,67 @@ footer {
 
 .fa-solid {
   color: #333d4b;
+}
+
+/* 모달 내부 */
+.modal_title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  width: 100vw;
+  text-align: center;
+  padding-top: 0.6rem;
+}
+
+/* 수입 지출 커스텀*/
+
+.slt_inout {
+  margin: 0 auto;
+  padding: 0.8em 2.6rem;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: #f2f4f6;
+  border-radius: 0.5rem;
+  color: #333d4b;
+  cursor: pointer;
+}
+
+input:checked + .slt_inout {
+  padding: 0.8em 2.6rem;
+  font-size: 1rem;
+  background-color: #3182f6;
+  border-radius: 0.5rem;
+  color: white;
+}
+
+#enter_modal {
+  padding: 3rem 2rem;
+  list-style: none;
+  line-height: 2rem;
+}
+
+#enter_modal > li {
+  padding: 1.3rem 0;
+  font-size: 1.4rem;
+}
+
+.button-container {
+  width: 100vw;
+  height: 4rem;
+  position: absolute;
+  bottom: 2rem;
+}
+
+.save {
+  padding: 0.8rem 3.8rem;
+  background-color: #3182f6;
+  color: white;
+  border-radius: 0.8rem;
+  border-style: none;
+  font-weight: 500;
+  font-size: 1.3rem;
+  display: block;
+  margin: 0 auto;
 }

@@ -38,26 +38,10 @@
             <div>내역 리스트</div>
             <div class="checkbox-wrapper">
                 
-                <input class="custom-input" type="checkbox" id="custom-check-1" checked />
-                <label class="custom-label" for="custom-check-1">
-                    <span class="custom-label-checked">
-                        <img class="use on" src="/asset/earn_on.png">
-                    </span>
-                    <span class="custom-label-unchecked">
-                        <img class="use off" src="/asset/earn_off.png">
-                    </span>
-                </label>
-
-
-                <input class="custom-input" type="checkbox" id="custom-check-2" checked/>
-                <label class="custom-label" for="custom-check-2">
-                    <span class="custom-label-checked">
-                        <img class="use on" src="/asset/use_on.png">
-                    </span>
-                    <span class="custom-label-unchecked">
-                        <img class="use off" src="/asset/use_off.png">
-                    </span>
-                </label>
+                <input class="plus_price" type="checkbox" id="plus_p" checked />
+                <label for="plus_p" class="slt_box">수입</label>
+                <input class="minus_price" type="checkbox" id="minus_p" checked/>
+                <label for="minus_p" class="slt_box">지출</label>
             </div>
         </section>
     </nav>
@@ -65,12 +49,12 @@
 
 
     
-    <section class="history-wrapper">
+    <section class="historylist-wrapper">
         <ul id="historylist-items">
             <li id="category"></li>
             <li id="content"></li>
             <li id="amount"></li>
-            <button id="delete"></ㅠ>
+            <button id="delete"></button>
         </ul>
     </section>
 
@@ -84,53 +68,60 @@
     <div class="modal_background"></div>
     <div class="modal_wrap">
         <button id="modal_close"><i class="fa-solid fa-x"></i></button>
-        <div>
-                <ul>
-      <li>
-        <input class="check in" type="checkbox" value="in" checked="true" />수입
-        <input class="check out" type="checkbox" value="out" />지출
-      </li>
-      <li>
-        <label>
-          종류
-          <select id="selectcategory">
-            <option>식비</option>
-            <option>쇼핑</option>
-          </select>
-        </label>
-      </li>
-      <li>
-        <label>
-          금액
-          <form id="input-form">
-            <input type="number" />
-          </form>
-        </label>
-      </li>
-      <li>
-        <label>
-          내용
-          <form id="input-form">
-            <input type="text" />
-          </form>
-        </label>
-      </li>
-    </ul>
+        <section class="modal_title">내역 추가</section>
+            <ul id="enter_modal">
+                <li>
+                    
+                    <input class="plus_price" type="checkbox" id="in_p" checked />
+                        <label for="in_p" class="slt_inout">수입</label>
+                    <input class="minus_price" type="checkbox" id="out_p" />
+                        <label for="out_p" class="slt_inout">지출</label>
+   
+                </li>
+                <li>
+                    <label>
+                    종류<br>
+                    <select form="selectcategory">
+                        <option>식비</option>
+                        <option>쇼핑</option>
+                    </select>
+                    </label>
+                </li>
+                <li>
+                    <label>
+                    금액
+                    <form id="input-form">
+                        <input type="number" />
+                    </form>
+                    </label>
+                </li>
+                <li>
+                    <label>
+                    내용
+                    <form id="input-form">
+                        <input type="text" />
+                    </form>
+                    </label>
+                </li>
+            </ul>
 
-    <button>저장하기</button>
+    <div class= "button-container">
+        <button type="button" class="save">저장하기</button>
+    </div>
+    
 
-        </div>
+        </span>
     </div>
 
 
-    <template id="history-template">
+    <!-- <template id="history-template">
             <ul id="historylist-items">
                 <li id="category">{category_name}</li>
                 <li id="content">{price_contents}</li>
                 <li id="amount">{price_num}</li>
                 <button id="delete">x</button>
             </ul>
-    </template>
+    </template> -->
 
     <script type="module" src="./script.js"></script>
 </body>
