@@ -49,13 +49,13 @@
 
 
     
-    <section class="historylist-wrapper">
-        <ul id="historylist-items">
-            <li id="category"></li>
+    <section id="historylist-wrapper">
+        <!-- <ul id="historylist-items">
+            <!-- <li id="category"></li>
             <li id="content"></li>
             <li id="amount"></li>
-            <button id="delete"></button>
-        </ul>
+            <button id="delete"></button> -->
+        <!-- </ul> --> 
     </section>
 
 
@@ -70,7 +70,7 @@
         <button id="modal_close"><i class="fa-solid fa-x"></i></button>
         <section class="modal_title">내역 추가</section>
             <ul id="enter_modal">
-                <li>
+                <li class="create-new-history">
                     
                     <input class="plus_price" type="checkbox" id="in_p" checked />
                         <label for="in_p" class="slt_inout">수입</label>
@@ -78,8 +78,8 @@
                         <label for="out_p" class="slt_inout">지출</label>
    
                 </li>
-                <li>
-                    <label>
+                <li class="create-new-history">
+                    <label class="modal_item">
                     종류<br>
                     <select form="selectcategory">
                         <option>식비</option>
@@ -87,19 +87,19 @@
                     </select>
                     </label>
                 </li>
-                <li>
-                    <label>
+                <li class="create-new-history">
+                    <label class="modal_item">
                     금액
                     <form id="input-form">
-                        <input type="number" />
+                        <input type="number">
                     </form>
                     </label>
                 </li>
-                <li>
-                    <label>
+                <li class="create-new-history">
+                    <label class="modal_item">
                     내용
                     <form id="input-form">
-                        <input type="text" />
+                        <input type="text">
                     </form>
                     </label>
                 </li>

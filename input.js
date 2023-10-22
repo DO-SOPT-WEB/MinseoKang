@@ -1,33 +1,27 @@
 const inputForm = document.getElementById("input-form");
 const inputPrice = inputForm.querySelector("input");
 const myHistory = document.getElementById("history-list");
-const categoryChange = document.getElementById("category");
+// const categoryChange = document.getElementById("category");
+
+function makeTodo(newHistory) {
+  const box = document.createElement("li");
+
+  const content = document.createElement("span");
+  content.innerText = newHistory;
+
+  const deletion = document.createElement("button");
+  deletion.innerText = "x";
+
+  box.appendChild(content);
+  box.appendChild(deletion);
+  myHistory.appendChild(box);
+}
 
 function handleHistorySubmit(event) {
-    function categoryChange
+  event.preventDefault();
+  const newHistory = inputPrice.value;
+  // inputPrice.value = "";
+  makeTodo(newHistory);
+}
 
-
-//   event.preventDefault();
-//   const newHistory = inputPrice.value;
-//   console.log(inputPrice.value); //새로운 변수에 복사
-//   inputPrice.value = "";
-// }
-
-// inputForm.addEventListener("submit", handleHistorySubmit);
-
-
-window.onload = function() {
- 
-    function onClick() {
-        document.querySelector('.modal_wrap').style.display ='block';
-        document.querySelector('.black_bg').style.display ='block';
-    }   
-    function offClick() {
-        document.querySelector('.modal_wrap').style.display ='none';
-        document.querySelector('.black_bg').style.display ='none';
-    }
- 
-    document.getElementById('modal_btn').addEventListener('click', onClick);
-    document.querySelector('.modal_close').addEventListener('click', offClick);
- 
-};
+inputForm.addEventListener("submit", handleHistorySubmit);

@@ -28,3 +28,37 @@ function modalClose() {
 //버튼 클릭리스너 달기
 document.querySelector("#modal_btn").addEventListener("click", modalOpen);
 document.querySelector("#modal_close").addEventListener("click", modalClose);
+
+function deleteHistory(event) {
+  const ul = event.target.parentElement;
+  ul.remove();
+}
+
+//모달 입력 정보
+const inputForm = document.getElementById("input-form");
+const inputPrice = inputForm.querySelector("input");
+const myHistory = document.getElementById("historylist-wrapper");
+
+function makeList(newHistory) {
+  const wrapper = document.createElement("ul");
+
+  const content = document.createElement("li");
+  content.innerText = newHistory;
+
+  const deletion = document.createElement("button");
+  deletion.innerText = "x";
+  deletion.addEventListener("click", deleteHistory);
+
+  wrapper.appendChild(content);
+  wrapper.appendChild(deletion);
+  myHistory.appendChild(wrapper);
+}
+
+function handleHistorySubmit(event) {
+  event.preventDefault(); // 새로고침 방지
+  const newHistory = inputPrice.value; //새로운 변수에 복사
+  inputPrice.value = "";
+  makeList(newHistory); //makelist로 전송
+}
+
+inputForm.addEventListener("submit", handleHistorySubmit);

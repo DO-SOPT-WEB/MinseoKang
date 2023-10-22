@@ -170,7 +170,7 @@ input:checked + .slt_box {
   right: 5vw;
 }
 
-.historylist-wrapper {
+#historylist-wrapper {
   width: 100%;
   height: calc(100vh - 26.5rem);
   overflow: scroll;
@@ -244,7 +244,6 @@ footer {
   border-color: #b1b8c0;
 }
 
-/* 모달 구조 */
 #modal_btn {
   width: 4rem;
   height: 4rem;
@@ -257,10 +256,11 @@ footer {
   box-shadow: 0 0.18rem 0.18rem 0 #a8b6ca;
 }
 
+/* 모달 구조 */
 .modal_wrap {
   display: none;
   width: 100vw;
-  height: 85vh;
+  height: 70vh;
   position: absolute;
   border-radius: 0.7rem 0.7rem 0 0;
 
@@ -328,6 +328,12 @@ input:checked + .slt_inout {
   background-color: #3182f6;
   border-radius: 0.5rem;
   color: white;
+}
+
+.modal_item {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #333d4b;
 }
 
 #enter_modal {
