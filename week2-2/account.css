@@ -246,7 +246,7 @@ footer {
   border-color: #b1b8c0;
 }
 
-.button {
+#modal_btn {
   width: 4rem;
   height: 4rem;
   margin: auto;
@@ -256,4 +256,44 @@ footer {
   border-radius: 30%;
   background-color: rgb(255, 255, 255);
   box-shadow: 0 0.18rem 0.18rem 0 #a8b6ca;
+}
+
+.modal_wrap {
+  display: none;
+  width: 100vw;
+  height: 85vh;
+  position: absolute;
+  border-radius: 0.7rem 0.7rem 0 0;
+
+  bottom: 0;
+  left: 0;
+  background: #ffffff;
+  z-index: 7;
+}
+
+.modal_background {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  z-index: 6;
+}
+#modal_close {
+  width: 3rem;
+  height: 3rem;
+  position: absolute;
+  background-color: rgb(255, 0, 43);
+  background: transparent;
+  border-style: none;
+
+  top: 0.6rem;
+  right: 0.6rem;
+  z-index: 8;
+}
+
+.fa-solid {
+  color: #333d4b;
 }
