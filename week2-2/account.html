@@ -84,7 +84,42 @@
     <div class="modal_background"></div>
     <div class="modal_wrap">
         <button id="modal_close"><i class="fa-solid fa-x"></i></button>
-        <div>여기에 새로운 입력값 들어가기</div>
+        <div>
+                <ul>
+      <li>
+        <input class="check in" type="checkbox" value="in" checked="true" />수입
+        <input class="check out" type="checkbox" value="out" />지출
+      </li>
+      <li>
+        <label>
+          종류
+          <select id="selectcategory">
+            <option>식비</option>
+            <option>쇼핑</option>
+          </select>
+        </label>
+      </li>
+      <li>
+        <label>
+          금액
+          <form id="input-form">
+            <input type="number" />
+          </form>
+        </label>
+      </li>
+      <li>
+        <label>
+          내용
+          <form id="input-form">
+            <input type="text" />
+          </form>
+        </label>
+      </li>
+    </ul>
+
+    <button>저장하기</button>
+
+        </div>
     </div>
 
 
