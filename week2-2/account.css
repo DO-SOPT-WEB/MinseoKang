@@ -214,11 +214,11 @@ input:checked + .slt_box {
   right: 3rem;
 }
 
-#amount.minus {
+.minus {
   color: #3182f6;
 }
 
-.amount.plus {
+.plus {
   color: #f04452;
 }
 

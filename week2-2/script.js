@@ -13,26 +13,39 @@ function getHistoryObj(select, text, price) {
 
 const historyList = document.getElementById("historylist_items");
 const template = document.getElementById("history-template");
-console.log(template.content);
 
 window.onload = () => {
   let storedData = JSON.stringify(HISTORY_DATA);
   localStorage.setItem("historyData", storedData);
   let bringData = JSON.parse(localStorage.getItem("historyData"));
 
-  console.log(bringData);
   bringData.forEach((item) => {
     const templateClone = document.importNode(template.content, true); // 복사하기
-    console.log(templateClone);
-    templateClone.querySelector("#category").textContent = item.select;
-    templateClone.querySelector("#text").textContent = item.text;
-    templateClone.querySelector("#price").textContent = item.price[0].name;
+    const categoryElement = templateClone.querySelector("#category");
+    const textElement = templateClone.querySelector("#text");
+    const priceElement = templateClone.querySelector("#price");
 
-    console.log(templateClone.querySelector("#category").textContent);
-    console.log(item.text);
+    categoryElement.textContent = item.select;
+    textElement.textContent = item.text;
+    priceElement.textContent = item.price[0].name;
+
+    if (item.price[0].status === "minus") {
+      priceElement.textContent = `-${Math.abs(item.price[0].name)}`;
+      priceElement.classList.add("minus");
+    } else if (item.price[0].status === "plus") {
+      priceElement.textContent = `+${item.price[0].name}`;
+      priceElement.classList.add("plus");
+    }
+
     historyList.appendChild(templateClone);
   });
 };
+
+// if (item.price[0].status === "minus") {
+//   priceElement.textContent
+
+//   pric
+// }
 
 //모달 입력폼
 const inputForm = document.getElementById("input-form"); //전체 모달
