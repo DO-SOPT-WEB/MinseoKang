@@ -2,22 +2,21 @@ export const HISTORY_DATA = [
   {
     select: "식비",
     text: "청년다방 건대점",
-    price: 5000,
+    price: [{ name: 40000, status: "outcome" }],
   },
-
   {
-    category: "교통비",
+    select: "교통비",
     text: "지하철 요금",
-    price: 4000,
+    price: [{ name: 40000, status: "outcome" }],
   },
   {
-    category: "식비",
+    select: "식비",
     text: "라밥 김밥구매",
-    price: 5000,
+    price: [{ name: 5000, status: "outcome" }],
   },
   {
-    category: "알바비",
+    select: "알바비",
     text: "레디피부과",
-    price: 300000,
+    price: [{ name: 300000, status: "income" }],
   },
 ];

@@ -40,7 +40,7 @@
                 
                 <input class="inout" type="checkbox" id="plus_p" checked />
                 <label for="plus_p" class="slt_box">수입</label>
-                <input class="inout" type="checkbox" id="minus_p" checked/>
+                <input class="inout" type="checkbox" id="minus_p" checked />
                 <label for="minus_p" class="slt_box">지출</label>
             </div>
         </section>
@@ -50,9 +50,7 @@
 
     
     <section id="historylist-wrapper">
-        <div id="historylist_items">
- 
-         </div>
+        <div id="historylist_items"></div>
     </section>
 
 
@@ -70,21 +68,22 @@
             <ul id="insert_modal">
                 <li>
                     
-                    <input class="inout modal" type="checkbox" id="in_p" checked />
-                        <label for="in_p" class="slt_inout">수입</label>
-                    <input class="inout modal" type="checkbox" id="out_p" />
-                        <label for="out_p" class="slt_inout">지출</label>
+                    <input class="inout modal" type="checkbox" id="checkbox1" checked>
+                        <label for="checkbox1" class="slt_inout">수입</label>
+                    <input class="inout modal" type="checkbox" id="checkbox2" />
+                        <label for="checkbox2" class="slt_inout">지출</label>
    
                 </li> 
                 
                 <li>
                     <label class="modal_item">
                     종류<br>
-                    <select id="select-category">
-                        <option>식비</option>
-                        <option>쇼핑</option>
-                        <option>쇼핑</option>
+                    <select id="select">
+                        <!-- <option value="option1">옵션 1</option>
+                        <option value="option2">옵션 2</option> -->
                     </select>
+ 
+            
                     </label>
                 </li>
                 <li>
@@ -118,8 +117,8 @@
     <template id="history-template">
             <ul id="historylist-items">
                 <li id="category">{category_name}</li>
-                <li id="content">{price_contents}</li>
-                <li id="amount">{price_num}</li>
+                <li id="text">{price_contents}</li>
+                <li id="price">{price_num}</li>
                 <button id="delete"><i class="fa-solid fa-x fa-2xs" style="color: #a8b6ca"></i></button>
             </ul>
     </template>

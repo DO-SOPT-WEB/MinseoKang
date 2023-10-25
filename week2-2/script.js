@@ -5,30 +5,50 @@ let initBalance = 0;
 
 function getHistoryObj(select, text, price) {
   return {
-    id: String(Date.now()),
     select: select,
     text: text,
     price: price,
   };
 }
 
+const historyList = document.getElementById("historylist_items");
+const template = document.getElementById("history-template");
+console.log(template.content);
+
 window.onload = () => {
-  let storedData = JSON.parse(localStorage.getItem("history_data")); // localstorage 저장된 목록 가져오기
-  if (!Array.isArray(storedData)) {
-    localStorage.setItem("history_data", JSON.stringify(HISTORY_DATA));
-    storedData = HISTORY_DATA;
-  }
-  historyArr = storedData;
-  mylist();
+  let storedData = JSON.stringify(HISTORY_DATA);
+  localStorage.setItem("historyData", storedData);
+  let bringData = JSON.parse(localStorage.getItem("historyData"));
+
+  console.log(bringData);
+  bringData.forEach((item) => {
+    const templateClone = document.importNode(template.content, true); // 복사하기
+    console.log(templateClone);
+    templateClone.querySelector("#category").textContent = item.select;
+    templateClone.querySelector("#text").textContent = item.text;
+    templateClone.querySelector("#price").textContent = item.price[0].name;
+
+    console.log(templateClone.querySelector("#category").textContent);
+    console.log(item.text);
+    historyList.appendChild(templateClone);
+  });
 };
+
+//모달 입력폼
+const inputForm = document.getElementById("input-form"); //전체 모달
+const SelectPlusMinus = inputForm.querySelector(".inout.modal"); //수입,지출 선택
+const SelectCategory = inputForm.querySelector("#select-category"); // 종류 선택
+const inputPrice = inputForm.querySelector(".price-input"); // 금액 입력창
+const inputContent = inputForm.querySelector(".content-input"); //내용 입력창
+const myHistory = document.getElementById("historylist-wrapper"); //스크롤 되는 영역
 
 function mylist() {
   const historySection = document.getElementById("historylist-wrapper"); //타겟
-  const historyTemplate = document.getElementById("history-template"); //템플릿
-  historySection.innerHTML = "";
+  const Template = document.getElementById("history-template"); //템플릿
 
+  historySection.innerHTML = "";
   historyArr.forEach((item) => {
-    let historycontent = historyTemplate.content.cloneNode(true);
+    let historycontent = Template.content.cloneNode(true);
 
     historycontent.querySelector("#category").textContent = item.select;
     historycontent.querySelector("#content").textContent = item.text;
@@ -37,42 +57,30 @@ function mylist() {
     historySection.appendChild(historycontent);
   });
 
-  //모달 입력폼
-  const inputForm = document.getElementById("input-form"); //전체 모달
-  const SelectPlusMinus = inputForm.querySelector(".inout.modal"); //수입,지출 선택
-  const SelectCategory = inputForm.querySelector("#select-category"); // 종류 선택
-  const inputPrice = inputForm.querySelector(".price-input"); // 금액 입력창
-  const inputContent = inputForm.querySelector(".content-input"); //내용 입력창
-  const myHistory = document.getElementById("historylist-wrapper"); //스크롤 되는 영역
+  const wrapper = document.createElement("ul");
+  const priceItem = document.createElement("li");
+  const contentItem = document.createElement("li");
+  const categoryItem = document.createElement("li");
 
-  function paintHistory(insertedHistory) {
-    const wrapper = document.createElement("ul");
-    const inputPrice = document.createElement("li");
-    const inputItem = document.createElement("li");
-    const inputCategory = document.createElement("li");
+  inputPrice.innerText = insertedHistory.price;
 
-    inputPrice.innerText = insertedHistory.price;
-    inputItem.innnerText = insertedHistory.text;
-    inputCategory.innerText = insertedHistory.select;
+  wrapper.appendChild(priceItem);
+  wrapper.appendChild(contentItem);
+  wrapper.appendChild(categoryItem);
+  myHistory.appendChild(wrapper);
+}
 
-    wrapper.appendChild(inputPrice);
-    wrapper.appendChild(inputItem);
-    wrapper.appendChild(inputCategory);
-    myHistory.appendChild(wrapper);
-  }
+function handleHistorySubmit(event) {
+  event.preventDefault(); // 새로고침 방지
+  const signing = SelectPlusMinus.value;
+  const select = SelectCategory.value;
+  const price = parseFloat(inputPrice.value);
+  const content = inputContent.value;
 
-  function handleHistorySubmit(event) {
-    event.preventDefault(); // 새로고침 방지
-
-    const select = SelectPlusMinus.value;
-    const category = SelectCategory.value;
-    const price = parseFloat(inputPrice.value);
-    const content = inputContent.value;
-
-    const historyEntry = getHistoryObj(select, content, price);
-
-    historyArr.push(historyEntry); //historyEntry로 전송
-    paintHistory(historyEntry); //paintHistory로 전송
+  if (signing === "plus" || signing === "minus") {
+    const historyEntry = getHistoryObj(signing, content, price);
+    historyArr.push(historyEntry);
+    mylist(historyEntry);
 
     inputPrice.value = "";
     inputContent.value = "";
@@ -94,3 +102,40 @@ function modalClose() {
 
 document.querySelector("#modal_btn").addEventListener("click", modalOpen);
 document.querySelector("#modal_close").addEventListener("click", modalClose);
+
+//수입, 지출에 따라 선택 달라지게
+
+const checkbox1 = document.getElementById("checkbox1");
+const checkbox2 = document.getElementById("checkbox2");
+const signing = document.getElementById("select");
+
+function updateSelectbox(event) {
+  signing.innerHTML = "";
+  // const targetId = event.target.id;
+  // console.log(targetId);
+
+  // if targetId {
+
+  // }
+  if (checkbox1.checked) {
+    checkbox2.checked = false;
+    const options = ["용돈", "음식"];
+    options.forEach(function (optionText) {
+      const option = document.createElement("option");
+      option.text = optionText;
+      signing.appendChild(option);
+    });
+  } else if (checkbox2.checked) {
+    checkbox2.checked = false;
+    const options = ["식비", "교통비"];
+    options.forEach(function (optionText) {
+      const option = document.createElement("option");
+      option.text = optionText;
+      signing.appendChild(option);
+    });
+  }
+}
+
+checkbox1.addEventListener("change", updateSelectbox);
+checkbox2.addEventListener("change", updateSelectbox);
+// updateSelectbox();

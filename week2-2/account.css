@@ -196,7 +196,7 @@ input:checked + .slt_box {
   line-height: 3.6rem;
 }
 
-#content {
+#text {
   position: absolute;
   width: 10rem;
   white-space: nowrap;
@@ -207,7 +207,7 @@ input:checked + .slt_box {
   text-overflow: ellipsis;
 }
 
-#amount {
+#price {
   position: absolute;
   line-height: 3.6rem;
   font-weight: 500;
