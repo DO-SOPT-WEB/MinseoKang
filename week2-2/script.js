@@ -13,6 +13,9 @@ function getHistoryObj(select, text, price) {
 
 const historyList = document.getElementById("historylist_items");
 const template = document.getElementById("history-template");
+const plusBalance = document.getElementsByClassName("asset-type-plus")[0];
+const minusBalance = document.getElementsByClassName("asset-type-minus")[0];
+const wholeBalance = document.getElementById("balance");
 
 window.onload = () => {
   let storedData = JSON.stringify(HISTORY_DATA);
@@ -39,6 +42,24 @@ window.onload = () => {
 
     historyList.appendChild(templateClone);
   });
+
+  const plusItems = bringData.filter((item) => item.price[0].status === "plus");
+  const minusItems = bringData.filter(
+    (item) => item.price[0].status === "minus"
+  );
+  const plusTotal = plusItems.reduce(
+    (total, item) => total + item.price[0].name,
+    0
+  );
+  const minusTotal = minusItems.reduce(
+    (total, item) => total + item.price[0].name,
+    0
+  );
+
+  const finalBalance = plusTotal - minusTotal;
+  plusBalance.innerText = plusTotal;
+  minusBalance.innerText = minusTotal;
+  wholeBalance.innerText = finalBalance;
 };
 
 // if (item.price[0].status === "minus") {
