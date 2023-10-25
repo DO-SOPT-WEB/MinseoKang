@@ -267,7 +267,7 @@ footer {
 .modal_wrap {
   display: none;
   width: 100vw;
-  height: 70vh;
+  height: 76vh;
   position: absolute;
   border-radius: 0.7rem 0.7rem 0 0;
 
@@ -350,25 +350,34 @@ input:checked + .slt_inout {
 }
 
 #insert_modal > li {
-  padding: 1.3rem 0;
+  padding: 1rem 0;
   font-size: 1.4rem;
 }
 
-.button-container {
-  width: 100vw;
-  height: 4rem;
-  position: absolute;
-  bottom: 2rem;
+.button-wrapper {
+  position: fixed;
+  bottom: 3rem;
+}
+
+.button {
+  width: 80vw;
+  height: 3.2rem;
+  color: white;
+  border-radius: 0.5rem;
+  border-style: none;
+  font-weight: 400;
+  font-size: 1.2rem;
 }
 
 .save {
-  padding: 0.8rem 3.8rem;
   background-color: #3182f6;
-  color: white;
-  border-radius: 0.8rem;
-  border-style: none;
-  font-weight: 500;
-  font-size: 1.3rem;
-  display: block;
-  margin: 0 auto;
+  position: relative;
+  margin: 0.3rem 10vw;
+}
+
+.close {
+  background-color: #efeff3;
+  color: #878d94;
+
+  margin: 0.3rem 10vw;
 }

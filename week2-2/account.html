@@ -67,12 +67,12 @@
         <form id="input-form">   
             <ul id="insert_modal">
                 <li>
-                    
-                    <input class="inout modal" type="checkbox" id="checkbox1" checked>
-                        <label for="checkbox1" class="slt_inout">수입</label>
-                    <input class="inout modal" type="checkbox" id="checkbox2" />
-                        <label for="checkbox2" class="slt_inout">지출</label>
-   
+                    <div class="checkbox-wrapper-modal">
+                        <input class="inout modal" type="checkbox" id="checkbox1" checked>
+                            <label for="checkbox1" class="slt_inout">수입</label>
+                        <input class="inout modal" type="checkbox" id="checkbox2" />
+                            <label for="checkbox2" class="slt_inout">지출</label>
+                    </div>
                 </li> 
                 
                 <li>
@@ -103,11 +103,13 @@
                     </label>
                 </li>
             </ul>
-             <input type="submit" class="save"></input>
+            <div class="button-wrapper">
+                <input type="button" value= "저장하기" class="button save"
+                onclick='alert("저장되었습니다")'></input>
+                <input type="button" value= "닫기" class="button close"></input>
+            </div> 
         </form> 
-    <div class= "button-container">
-       
-    </div>
+
     
 
 </span>
