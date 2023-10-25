@@ -16,6 +16,8 @@ const template = document.getElementById("history-template");
 const plusBalance = document.getElementsByClassName("asset-type-plus")[0];
 const minusBalance = document.getElementsByClassName("asset-type-minus")[0];
 const wholeBalance = document.getElementById("balance");
+const inputCheckbox = document.getElementById("plus_p");
+const outlayCheckbox = document.getElementById("minus_p");
 
 window.onload = () => {
   let storedData = JSON.stringify(HISTORY_DATA);
@@ -40,13 +42,13 @@ window.onload = () => {
       priceElement.classList.add("plus");
     }
 
-    historyList.appendChild(templateClone);
+    historyList.appendChild(templateClone); //초기 데이터 등록되게 하기
   });
 
   const plusItems = bringData.filter((item) => item.price[0].status === "plus");
   const minusItems = bringData.filter(
     (item) => item.price[0].status === "minus"
-  );
+  ); // 빨간색, 파란색, - 뜨게 하기
   const plusTotal = plusItems.reduce(
     (total, item) => total + item.price[0].name,
     0
@@ -59,14 +61,36 @@ window.onload = () => {
   const finalBalance = plusTotal - minusTotal;
   plusBalance.innerText = plusTotal;
   minusBalance.innerText = minusTotal;
-  wholeBalance.innerText = finalBalance;
+  wholeBalance.innerText = finalBalance; //총 자산 계산
+
+  // function updateHList(items) {
+  //   historyList.innerHTML = ""; // 목록 초기화
+  //   if (inputCheckbox.checked && !outlayCheckbox.checked) {
+  //     updateList(plusItems);
+  //   } else if (outlayCheckbox.checked && !inputCheckbox.checked) {
+  //     updateList(minusItems);
+  //   } else {
+  //     updateList(bringData);
+  //   }//왜 작동이 안됨!
+  // }
 };
 
-// if (item.price[0].status === "minus") {
-//   priceElement.textContent
+const deleteHistory = document.getElementById("historylist-wrapper");
+deleteHistory.addEventListener("click", function (event) {
+  if (event.target && event.target.id === "delete") {
+    const listItem = event.target.closest("ul"); // "삭제" 버튼이 속한 부모 <ul> 요소를 찾기
+    const priceElement = listItem.querySelector("#price");
+    const price = parseFloat(priceElement.textContent);
 
-//   pric
-// }
+    if (price > 0) {
+      plusBalance.innerText = parseFloat(plusBalance.innerText) - price;
+    } else {
+      minusBalance.innerText = parseFloat(minusBalance.innerText) + price;
+    }
+    wholeBalance.innerText = parseFloat(wholeBalance.innerText) - price;
+    listItem.remove();
+  }
+});
 
 //모달 입력폼
 const inputForm = document.getElementById("input-form"); //전체 모달
