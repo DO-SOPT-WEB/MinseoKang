@@ -23,8 +23,8 @@ const outlayCheckbox = document.getElementById("minus_p");
 function loadAndDisplayData() {
   let storedData = localStorage.getItem("historyData");
   if (!storedData) {
-    localStorage.setItem("historyData", JSON.stringify(HISTORY_DATA));
     storedData = JSON.stringify(HISTORY_DATA);
+    localStorage.setItem("historyData", storedData);
   }
 
   historyArr = JSON.parse(storedData);
@@ -39,7 +39,6 @@ function loadAndDisplayData() {
     categoryElement.textContent = item.select;
     textElement.textContent = item.text;
     priceElement.textContent = item.price;
-    console.log(historyArr);
 
     if (item.status === "minus") {
       priceElement.textContent = `-${Math.abs(item.price)}`;
@@ -55,57 +54,67 @@ function loadAndDisplayData() {
 
 function updateBalance() {
   const plusItems = historyArr.filter((item) => item.status === "plus");
-  const minusItems = historyArr.filter((item) => item.status === "minus"); // 빨간색, 파란색, - 뜨게 하기
+  const minusItems = historyArr.filter((item) => item.status === "minus");
   const plusTotal = plusItems.reduce((total, item) => total + item.price, 0);
   const minusTotal = minusItems.reduce((total, item) => total + item.price, 0);
 
   const finalBalance = plusTotal - minusTotal;
-  plusBalance.innerText = plusTotal;
-  minusBalance.innerText = minusTotal;
-  wholeBalance.innerText = finalBalance;
+  plusBalance.innerText = plusTotal.toString();
+  minusBalance.innerText = minusTotal.toString();
+  wholeBalance.innerText =
+    parseFloat(plusBalance.innerText) - parseFloat(minusBalance.innerText);
+}
 
-  loadAndDisplayData();
-} //총 자산 계산 }
-updateBalance();
 window.onload = () => {
   loadAndDisplayData();
+  updateBalance();
 };
 
-const deleteHistory = document.getElementById("historylist-wrapper");
-deleteHistory.addEventListener("click", function (event) {
-  if (event.target && event.target.id === "delete") {
-    const listItem = event.target.closest("ul"); // "삭제" 버튼이 속한 부모 <ul> 요소를 찾기
-    const priceElement = listItem.querySelector("#price");
-    const price = priceElement.value;
+function deleteHistory(listItem) {
+  const priceElement = listItem.querySelector("#price");
+  const price = parseFloat(priceElement.textContent.replace(/[^\d.-]/g, ""));
 
-    historyArr = historyArr.filter((item) => item !== historyArr[listItem]);
+  listItem.remove();
+  // historyArr에서 해당 항목을 제거
+  historyArr = historyArr.filter((item) => item.price !== price);
 
-    let storedData = localStorage.getItem("historyData");
-    if (storedData) {
-      let localStorageData = JSON.parse(storedData);
-      localStorageData = localStorageData.filter(
-        (item) => item.price !== price
-      );
-      localStorage.setItem("historyData", JSON.stringify(localStorageData));
-    }
-    if (price > 0) {
-      plusBalance.value = plusBalance.value - price;
-    } else {
-      minusBalance.value = minusBalance.value + price;
-    }
-    wholeBalance.value = wholeBalance.value - price;
-    listItem.remove();
-    loadAndDisplayData();
+  // let storedData = localStorage.getItem("historyData");
+  // if (storedData) {
+  //   let localStorageData = JSON.parse(storedData);
+  //   localStorageData = localStorageData.filter((item) => item.price !== price);
+  //   localStorage.setItem("historyData", JSON.stringify(localStorageData));
+  // }
+
+  // 자산 업데이트
+  if (price > 0) {
+    plusBalance.innerText = (
+      parseFloat(plusBalance.innerText) - price
+    ).toString();
+  } else {
+    minusBalance.innerText = (
+      parseFloat(minusBalance.innerText) + price
+    ).toString();
   }
-}); //삭제 가능하게 하는 코드
+  wholeBalance.innerText = (
+    parseFloat(plusBalance.innerText) - parseFloat(minusBalance.innerText)
+  ).toString();
+}
 
-//모달 입력폼
+document.addEventListener("click", function (event) {
+  if (event.target && event.target.id === "delete") {
+    const listItem = event.target.closest("ul");
+    deleteHistory(listItem);
+  }
+});
+
+loadAndDisplayData();
+
 const inputForm = document.getElementById("input-form"); //전체 모달
 const saveButton = inputForm.querySelector(".button.save");
+const SelectCategory = inputForm.querySelector("#select-category"); // 종류 선택
 
 saveButton.addEventListener("click", function () {
   const SelectPlusMinus = inputForm.querySelector(".inout.modal"); //수입,지출 선택
-  const SelectCategory = inputForm.querySelector("#select-category"); // 종류 선택
   const textHolderContent = inputForm.querySelector(".content-input"); //내용 입력창
   const textHolderPrice = inputForm.querySelector(".price-input"); // 금액 입력창
 
@@ -114,13 +123,19 @@ saveButton.addEventListener("click", function () {
   const inputText = textHolderContent.value;
   const inputPrice = textHolderPrice.value;
 
+  if (inputPrice > 0) {
+    plusBalance.innerText = parseFloat(plusBalance.innerText) + inputPrice;
+  } else {
+    minusBalance.innerText = parseFloat(minusBalance.innerText) - inputPrice;
+  }
+  wholeBalance.innerText = parseFloat(plusBalance.innerText) - minusBalance;
+
   const historyEntry = getHistoryObj(
     inputSelect,
     inputText,
     inputPrice,
     inputStatus
   );
-  historyArr.push(historyEntry);
 
   localStorage.setItem("historyData", JSON.stringify(historyArr));
 
@@ -164,6 +179,7 @@ saveButton.addEventListener("click", function () {
     wrapper.appendChild(categoryItem);
     wrapper.appendChild(deleteButton);
     historySection.appendChild(wrapper);
+    historyArr.push(insertedHistory);
   }
 });
 
@@ -189,7 +205,7 @@ const checkbox2 = document.getElementById("checkbox2");
 const signing = document.getElementById("select-category");
 
 function updateSelectbox(event) {
-  signing.innerHTML = "";
+  SelectCategory.innerHTML = "";
   if (checkbox1.checked) {
     const options = ["알바", "용돈"];
     options.forEach(function (optionText) {
@@ -202,7 +218,7 @@ function updateSelectbox(event) {
     options.forEach(function (optionText) {
       const option = document.createElement("option");
       option.text = optionText;
-      signing.appendChild(option);
+      SelectCategory.appendChild(option);
     });
   }
 }
