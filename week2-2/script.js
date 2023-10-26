@@ -174,7 +174,7 @@ const inputForm = document.getElementById("input-form"); //전체 모달
 const saveButton = inputForm.querySelector(".button.save");
 const SelectCategory = inputForm.querySelector("#select-category"); // 종류 선택
 
-saveButton.addEventListener("click", function () {
+function handleSaveButtonClick() {
   const SelectPlusMinus = inputForm.querySelector(".inout.modal"); //수입,지출 선택
   const textHolderContent = inputForm.querySelector(".content-input"); //내용 입력창
   const textHolderPrice = inputForm.querySelector(".price-input"); // 금액 입력창
@@ -207,54 +207,55 @@ saveButton.addEventListener("click", function () {
   textHolderPrice.value = "";
   textHolderContent.value = "";
 
-  function addList(insertedHistory) {
-    const historySection = document.getElementById("historylist-wrapper"); //타겟
-    const Template = document.getElementById("history-template"); //템플릿
+  updateBalance();
+  updateBalanceDisplay();
+}
 
-    const signPlus = document.getElementById("checkbox1");
-    const signMinus = document.getElementById("checkbox2");
+function addList(insertedHistory) {
+  const historySection = document.getElementById("historylist-wrapper"); //타겟
+  const Template = document.getElementById("history-template"); //템플릿
 
-    const wrapper = document.createElement("ul");
-    const categoryItem = document.createElement("li");
-    const priceItem = document.createElement("li");
-    const textItem = document.createElement("li");
-    const deleteButton = document.createElement("button");
-    const deleteIcon = document.createElement("i");
+  const signPlus = document.getElementById("checkbox1");
+  const signMinus = document.getElementById("checkbox2");
 
-    wrapper.id = "historylist-items";
-    categoryItem.id = "category";
-    priceItem.id = "price";
-    textItem.id = "text";
+  const wrapper = document.createElement("ul");
+  const categoryItem = document.createElement("li");
+  const priceItem = document.createElement("li");
+  const textItem = document.createElement("li");
+  const deleteButton = document.createElement("button");
+  const deleteIcon = document.createElement("i");
 
-    deleteButton.id = "delete";
-    deleteIcon.className = "fa-solid fa-x fa-2xs";
-    deleteIcon.style.color = "#a8b6ca";
+  wrapper.id = "historylist-items";
+  categoryItem.id = "category";
+  priceItem.id = "price";
+  textItem.id = "text";
 
-    deleteButton.appendChild(deleteIcon);
+  deleteButton.id = "delete";
+  deleteIcon.className = "fa-solid fa-x fa-2xs";
+  deleteIcon.style.color = "#a8b6ca";
 
-    categoryItem.innerText = insertedHistory.select;
-    textItem.innerText = insertedHistory.text;
+  deleteButton.appendChild(deleteIcon);
 
-    if (signMinus.checked) {
-      priceItem.textContent = `-${Math.abs(insertedHistory.price)}`;
-      priceItem.classList.add("minus");
-    } else if (signPlus.checked) {
-      priceItem.textContent = `+${insertedHistory.price}`;
-      priceItem.classList.add("plus");
-    }
+  categoryItem.innerText = insertedHistory.select;
+  textItem.innerText = insertedHistory.text;
 
-    wrapper.appendChild(priceItem);
-    wrapper.appendChild(textItem);
-    wrapper.appendChild(categoryItem);
-    wrapper.appendChild(deleteButton);
-    historySection.appendChild(wrapper);
-
-    historyArr.push(insertedHistory);
-    localStorage.setItem("historyData", JSON.stringify(historyArr));
-
-    updateBalance();
+  if (signMinus.checked) {
+    priceItem.textContent = `-${Math.abs(insertedHistory.price)}`;
+    priceItem.classList.add("minus");
+  } else if (signPlus.checked) {
+    priceItem.textContent = `+${insertedHistory.price}`;
+    priceItem.classList.add("plus");
   }
-});
+
+  wrapper.appendChild(priceItem);
+  wrapper.appendChild(textItem);
+  wrapper.appendChild(categoryItem);
+  wrapper.appendChild(deleteButton);
+  historySection.appendChild(wrapper);
+
+  historyArr.push(insertedHistory);
+  localStorage.setItem("historyData", JSON.stringify(historyArr));
+}
 
 // 모달 열기
 function modalOpen() {
@@ -273,16 +274,17 @@ document.getElementById("modal_btn").addEventListener("click", function () {
 });
 document.querySelector(".button.close").addEventListener("click", function () {
   modalClose();
-  // 저장 버튼 이벤트 핸들러를 제거합니다.
   saveButton.removeEventListener("click", handleSaveButtonClick);
 });
 document.getElementById("modal_close").addEventListener("click", modalClose);
 
 //수입, 지출에 따라 선택 달라지게
 
-const checkbox1 = document.getElementById("checkbox1");
-const checkbox2 = document.getElementById("checkbox2");
-const signing = document.getElementById("select-category");
+updateSelectbox({ target: checkbox1 });
+
+// 수입, 지출에 따라 선택 달라지게
+checkbox1.addEventListener("change", updateSelectbox);
+checkbox2.addEventListener("change", updateSelectbox);
 
 function updateSelectbox(event) {
   SelectCategory.innerHTML = "";
@@ -294,9 +296,3 @@ function updateSelectbox(event) {
     SelectCategory.appendChild(option);
   });
 }
-
-checkbox1.addEventListener("change", updateSelectbox);
-checkbox2.addEventListener("change", updateSelectbox);
-checkbox1.addEventListener("change", updateSelectbox);
-checkbox2.addEventListener("change", updateSelectbox);
-// updateSelectbox();
