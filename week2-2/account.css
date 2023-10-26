@@ -134,6 +134,7 @@ p {
 }
 
 .slt_box {
+  cursor: pointer;
   padding: 0.5em 0.8rem;
   font-size: 1rem;
   background-color: #f2f4f6;
