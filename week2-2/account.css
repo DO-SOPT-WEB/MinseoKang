@@ -173,7 +173,6 @@ input:checked + .slt_box {
   width: 100vw;
   height: calc(100vh - 26.5rem);
   overflow-y: scroll;
-  -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none;
   background-color: #efeff3;
 }
