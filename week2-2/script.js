@@ -19,62 +19,63 @@ const wholeBalance = document.getElementById("balance");
 const inputCheckbox = document.getElementById("plus_p");
 const outlayCheckbox = document.getElementById("minus_p");
 
-function loadAndDisplayData() {
-  let storedData = localStorage.getItem("historyData");
-  if (storedData) {
-    historyArr = JSON.parse(storedData);
+window.onload = () => {
+  function loadAndDisplayData() {
+    if (!localStorage.getItem("historyData")) {
+      localStorage.setItem("historyData", JSON.stringify(HISTORY_DATA));
+    }
 
-    historyList.innerHTML = "";
-    historyArr.forEach((item) => {
-      const templateClone = document.importNode(template.content, true); // 복사하기
-      const categoryElement = templateClone.querySelector("#category");
-      const textElement = templateClone.querySelector("#text");
-      const priceElement = templateClone.querySelector("#price");
+    let storedData = localStorage.getItem("historyData");
+    if (storedData) {
+      historyArr = JSON.parse(storedData);
 
-      categoryElement.textContent = item.select;
-      textElement.textContent = item.text;
-      priceElement.textContent = item.price[0].name;
+      historyList.innerHTML = "";
+      historyArr.forEach((item) => {
+        const templateClone = document.importNode(template.content, true); // 복사하기
+        const categoryElement = templateClone.querySelector("#category");
+        const textElement = templateClone.querySelector("#text");
+        const priceElement = templateClone.querySelector("#price");
 
-      if (item.price[0].status === "minus") {
-        priceElement.textContent = `-${Math.abs(item.price[0].name)}`;
-        priceElement.classList.add("minus");
-      } else if (item.price[0].status === "plus") {
-        priceElement.textContent = `+${item.price[0].name}`;
-        priceElement.classList.add("plus");
-      }
+        categoryElement.textContent = item.select;
+        textElement.textContent = item.text;
+        priceElement.textContent = item.price;
+        console.log(historyArr);
 
-      historyList.appendChild(templateClone); //초기 데이터 등록되게 하기
-    });
-    const plusItems = historyArr.filter(
-      (item) => item.price[0].status === "plus"
-    );
-    const minusItems = historyArr.filter(
-      (item) => item.price[0].status === "minus"
-    ); // 빨간색, 파란색, - 뜨게 하기
-    const plusTotal = plusItems.reduce(
-      (total, item) => total + item.price[0].name,
-      0
-    );
-    const minusTotal = minusItems.reduce(
-      (total, item) => total + item.price[0].name,
-      0
-    );
+        if (item.status === "minus") {
+          priceElement.textContent = `-${Math.abs(item.price)}`;
+          priceElement.classList.add("minus");
+        } else if (item.status === "plus") {
+          priceElement.textContent = `+${item.price}`;
+          priceElement.classList.add("plus");
+        }
 
-    const finalBalance = plusTotal - minusTotal;
-    plusBalance.innerText = plusTotal;
-    minusBalance.innerText = minusTotal;
-    wholeBalance.innerText = finalBalance; //총 자산 계산
+        historyList.appendChild(templateClone); //초기 데이터 등록되게 하기
+      });
+      const plusItems = historyArr.filter((item) => item.status === "plus");
+      const minusItems = historyArr.filter((item) => item.status === "minus"); // 빨간색, 파란색, - 뜨게 하기
+      const plusTotal = plusItems.reduce(
+        (total, item) => total + item.price,
+        0
+      );
+      const minusTotal = minusItems.reduce(
+        (total, item) => total + item.price,
+        0
+      );
+
+      const finalBalance = plusTotal - minusTotal;
+      plusBalance.innerText = plusTotal;
+      minusBalance.innerText = minusTotal;
+      wholeBalance.innerText = finalBalance; //총 자산 계산
+    }
   }
-}
-
-loadAndDisplayData();
-
+  loadAndDisplayData();
+};
 const deleteHistory = document.getElementById("historylist-wrapper");
 deleteHistory.addEventListener("click", function (event) {
   if (event.target && event.target.id === "delete") {
     const listItem = event.target.closest("ul"); // "삭제" 버튼이 속한 부모 <ul> 요소를 찾기
     const priceElement = listItem.querySelector("#price");
-    const price = parseFloat(priceElement.textContent);
+    const price = priceElement.textContent;
 
     if (price > 0) {
       plusBalance.innerText = parseFloat(plusBalance.innerText) - price;
@@ -84,7 +85,7 @@ deleteHistory.addEventListener("click", function (event) {
     wholeBalance.innerText = parseFloat(wholeBalance.innerText) - price;
     listItem.remove();
 
-    localStorage.setItem("historyData", JSON.stringify(historyArr));
+    localStorage.setItem("historyData", JSON.stringify(historyArr)); //local storage 다시 저장
   }
 }); //삭제 가능하게 하는 코드
 
@@ -101,7 +102,7 @@ saveButton.addEventListener("click", function () {
   const inputSign = SelectPlusMinus.value;
   const inputSelect = SelectCategory.value;
   const inputText = textHolderContent.value;
-  const inputPrice = textHolderPrice.value;
+  const inputPrice = parseFloat(textHolderPrice.value);
 
   const historyEntry = getHistoryObj(inputSelect, inputText, inputPrice);
   historyArr.push(historyEntry);
@@ -109,7 +110,7 @@ saveButton.addEventListener("click", function () {
   localStorage.setItem("historyData", JSON.stringify(historyArr));
 
   addList(historyEntry);
-  loadAndDisplayData();
+  // loadAndDisplayData();
 
   textHolderPrice.value = "";
   textHolderContent.value = "";
@@ -118,6 +119,9 @@ saveButton.addEventListener("click", function () {
 function addList(insertedHistory) {
   const historySection = document.getElementById("historylist-wrapper"); //타겟
   const Template = document.getElementById("history-template"); //템플릿
+
+  const signPlus = document.getElementById("checkbox1");
+  const signMinus = document.getElementById("checkbox2");
 
   const wrapper = document.createElement("ul");
   const categoryItem = document.createElement("li");
@@ -128,7 +132,7 @@ function addList(insertedHistory) {
   categoryItem.id = "category";
   priceItem.id = "price";
   textItem.id = "text";
-  deleteButton.id = "delete";
+  deleteButton.id = "delete"; //
 
   categoryItem.innerText = insertedHistory.select;
   textItem.innerText = insertedHistory.text;
