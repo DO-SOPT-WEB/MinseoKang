@@ -19,61 +19,55 @@ const wholeBalance = document.getElementById("balance");
 const inputCheckbox = document.getElementById("plus_p");
 const outlayCheckbox = document.getElementById("minus_p");
 
-window.onload = () => {
-  let storedData = JSON.stringify(HISTORY_DATA);
-  localStorage.setItem("historyData", storedData);
-  let bringData = JSON.parse(localStorage.getItem("historyData"));
+function loadAndDisplayData() {
+  let storedData = localStorage.getItem("historyData");
+  if (storedData) {
+    historyArr = JSON.parse(storedData);
 
-  bringData.forEach((item) => {
-    const templateClone = document.importNode(template.content, true); // 복사하기
-    const categoryElement = templateClone.querySelector("#category");
-    const textElement = templateClone.querySelector("#text");
-    const priceElement = templateClone.querySelector("#price");
+    historyList.innerHTML = "";
+    historyArr.forEach((item) => {
+      const templateClone = document.importNode(template.content, true); // 복사하기
+      const categoryElement = templateClone.querySelector("#category");
+      const textElement = templateClone.querySelector("#text");
+      const priceElement = templateClone.querySelector("#price");
 
-    categoryElement.textContent = item.select;
-    textElement.textContent = item.text;
-    priceElement.textContent = item.price[0].name;
+      categoryElement.textContent = item.select;
+      textElement.textContent = item.text;
+      priceElement.textContent = item.price[0].name;
 
-    if (item.price[0].status === "minus") {
-      priceElement.textContent = `-${Math.abs(item.price[0].name)}`;
-      priceElement.classList.add("minus");
-    } else if (item.price[0].status === "plus") {
-      priceElement.textContent = `+${item.price[0].name}`;
-      priceElement.classList.add("plus");
-    }
+      if (item.price[0].status === "minus") {
+        priceElement.textContent = `-${Math.abs(item.price[0].name)}`;
+        priceElement.classList.add("minus");
+      } else if (item.price[0].status === "plus") {
+        priceElement.textContent = `+${item.price[0].name}`;
+        priceElement.classList.add("plus");
+      }
 
-    historyList.appendChild(templateClone); //초기 데이터 등록되게 하기
-  });
+      historyList.appendChild(templateClone); //초기 데이터 등록되게 하기
+    });
+    const plusItems = historyArr.filter(
+      (item) => item.price[0].status === "plus"
+    );
+    const minusItems = historyArr.filter(
+      (item) => item.price[0].status === "minus"
+    ); // 빨간색, 파란색, - 뜨게 하기
+    const plusTotal = plusItems.reduce(
+      (total, item) => total + item.price[0].name,
+      0
+    );
+    const minusTotal = minusItems.reduce(
+      (total, item) => total + item.price[0].name,
+      0
+    );
 
-  const plusItems = bringData.filter((item) => item.price[0].status === "plus");
-  const minusItems = bringData.filter(
-    (item) => item.price[0].status === "minus"
-  ); // 빨간색, 파란색, - 뜨게 하기
-  const plusTotal = plusItems.reduce(
-    (total, item) => total + item.price[0].name,
-    0
-  );
-  const minusTotal = minusItems.reduce(
-    (total, item) => total + item.price[0].name,
-    0
-  );
+    const finalBalance = plusTotal - minusTotal;
+    plusBalance.innerText = plusTotal;
+    minusBalance.innerText = minusTotal;
+    wholeBalance.innerText = finalBalance; //총 자산 계산
+  }
+}
 
-  const finalBalance = plusTotal - minusTotal;
-  plusBalance.innerText = plusTotal;
-  minusBalance.innerText = minusTotal;
-  wholeBalance.innerText = finalBalance; //총 자산 계산
-
-  // function updateHList(items) {
-  //   historyList.innerHTML = ""; // 목록 초기화
-  //   if (inputCheckbox.checked && !outlayCheckbox.checked) {
-  //     updateList(plusItems);
-  //   } else if (outlayCheckbox.checked && !inputCheckbox.checked) {
-  //     updateList(minusItems);
-  //   } else {
-  //     updateList(bringData);
-  //   }//왜 작동이 안됨!
-  // }
-};
+loadAndDisplayData();
 
 const deleteHistory = document.getElementById("historylist-wrapper");
 deleteHistory.addEventListener("click", function (event) {
@@ -89,62 +83,69 @@ deleteHistory.addEventListener("click", function (event) {
     }
     wholeBalance.innerText = parseFloat(wholeBalance.innerText) - price;
     listItem.remove();
+
+    localStorage.setItem("historyData", JSON.stringify(historyArr));
   }
-});
+}); //삭제 가능하게 하는 코드
 
 //모달 입력폼
 const inputForm = document.getElementById("input-form"); //전체 모달
-const SelectPlusMinus = inputForm.querySelector(".inout.modal"); //수입,지출 선택
-const SelectCategory = inputForm.querySelector("#select-category"); // 종류 선택
-const inputPrice = inputForm.querySelector(".price-input"); // 금액 입력창
-const inputContent = inputForm.querySelector(".content-input"); //내용 입력창
-const myHistory = document.getElementById("historylist-wrapper"); //스크롤 되는 영역
+const saveButton = inputForm.querySelector(".button.save");
 
-function mylist() {
+saveButton.addEventListener("click", function () {
+  const SelectPlusMinus = inputForm.querySelector(".inout.modal"); //수입,지출 선택
+  const SelectCategory = inputForm.querySelector("#select-category"); // 종류 선택
+  const textHolderContent = inputForm.querySelector(".content-input"); //내용 입력창
+  const textHolderPrice = inputForm.querySelector(".price-input"); // 금액 입력창
+
+  const inputSign = SelectPlusMinus.value;
+  const inputSelect = SelectCategory.value;
+  const inputText = textHolderContent.value;
+  const inputPrice = textHolderPrice.value;
+
+  const historyEntry = getHistoryObj(inputSelect, inputText, inputPrice);
+  historyArr.push(historyEntry);
+
+  localStorage.setItem("historyData", JSON.stringify(historyArr));
+
+  addList(historyEntry);
+  loadAndDisplayData();
+
+  textHolderPrice.value = "";
+  textHolderContent.value = "";
+});
+
+function addList(insertedHistory) {
   const historySection = document.getElementById("historylist-wrapper"); //타겟
   const Template = document.getElementById("history-template"); //템플릿
 
-  historySection.innerHTML = "";
-  historyArr.forEach((item) => {
-    let historycontent = Template.content.cloneNode(true);
-
-    historycontent.querySelector("#category").textContent = item.select;
-    historycontent.querySelector("#content").textContent = item.text;
-    historycontent.querySelector("#amount").textContent = item.price;
-
-    historySection.appendChild(historycontent);
-  });
-
   const wrapper = document.createElement("ul");
-  const priceItem = document.createElement("li");
-  const contentItem = document.createElement("li");
   const categoryItem = document.createElement("li");
+  const priceItem = document.createElement("li");
+  const textItem = document.createElement("li");
+  const deleteButton = document.createElement("button");
 
-  inputPrice.innerText = insertedHistory.price;
+  categoryItem.id = "category";
+  priceItem.id = "price";
+  textItem.id = "text";
+  deleteButton.id = "delete";
+
+  categoryItem.innerText = insertedHistory.select;
+  textItem.innerText = insertedHistory.text;
+
+  if (insertedHistory.select === "minus") {
+    priceItem.textContent = `-${Math.abs(insertedHistory.price)}`;
+    priceItem.classList.add("minus");
+  } else if (insertedHistory.select === "plus") {
+    priceItem.textContent = `+${insertedHistory.price}`;
+    priceItem.classList.add("plus");
+  }
 
   wrapper.appendChild(priceItem);
-  wrapper.appendChild(contentItem);
+  wrapper.appendChild(textItem);
   wrapper.appendChild(categoryItem);
-  myHistory.appendChild(wrapper);
-}
-
-function handleHistorySubmit(event) {
-  event.preventDefault(); // 새로고침 방지
-  const signing = SelectPlusMinus.value;
-  const select = SelectCategory.value;
-  const price = parseFloat(inputPrice.value);
-  const content = inputContent.value;
-
-  if (signing === "plus" || signing === "minus") {
-    const historyEntry = getHistoryObj(signing, content, price);
-    historyArr.push(historyEntry);
-    mylist(historyEntry);
-
-    inputPrice.value = "";
-    inputContent.value = "";
-  } //새로운 변수에 복사
-
-  inputForm.addEventListener("submit", handleHistorySubmit);
+  wrapper.appendChild(deleteButton);
+  historySection.appendChild(wrapper);
 }
 
 // 모달 열기
@@ -158,33 +159,26 @@ function modalClose() {
   document.querySelector(".modal_background").style.display = "none";
 }
 
-document.querySelector("#modal_btn").addEventListener("click", modalOpen);
-document.querySelector("#modal_close").addEventListener("click", modalClose);
+document.getElementById("modal_btn").addEventListener("click", modalOpen);
+document.querySelector(".button.close").addEventListener("click", modalClose);
+document.getElementById("modal_close").addEventListener("click", modalClose);
 
 //수입, 지출에 따라 선택 달라지게
 
 const checkbox1 = document.getElementById("checkbox1");
 const checkbox2 = document.getElementById("checkbox2");
-const signing = document.getElementById("select");
+const signing = document.getElementById("select-category");
 
 function updateSelectbox(event) {
   signing.innerHTML = "";
-  // const targetId = event.target.id;
-  // console.log(targetId);
-
-  // if targetId {
-
-  // }
   if (checkbox1.checked) {
-    checkbox2.checked = false;
-    const options = ["용돈", "음식"];
+    const options = ["알바", "용돈"];
     options.forEach(function (optionText) {
       const option = document.createElement("option");
       option.text = optionText;
       signing.appendChild(option);
     });
   } else if (checkbox2.checked) {
-    checkbox2.checked = false;
     const options = ["식비", "교통비"];
     options.forEach(function (optionText) {
       const option = document.createElement("option");

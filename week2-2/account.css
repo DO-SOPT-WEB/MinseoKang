@@ -170,9 +170,16 @@ input:checked + .slt_box {
 }
 
 #historylist-wrapper {
-  width: 100%;
+  width: 100vw;
   height: calc(100vh - 26.5rem);
-  overflow: scroll;
+  overflow-y: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
+  background-color: #efeff3;
+}
+
+#historylist-wrapper::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
 }
 
 #historylist-items {
@@ -294,6 +301,7 @@ footer {
   background-color: rgb(255, 0, 43);
   background: transparent;
   border-style: none;
+  cursor: pointer;
 
   top: 0.6rem;
   right: 0.6rem;
@@ -367,6 +375,7 @@ input:checked + .slt_inout {
   border-style: none;
   font-weight: 400;
   font-size: 1.2rem;
+  cursor: pointer;
 }
 
 .save {
