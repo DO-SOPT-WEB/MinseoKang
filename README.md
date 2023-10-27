@@ -1,1 +1,10 @@
 <img width="2000" alt="강민서 웰컴 키트" src="https://github.com/DO-SOPT-WEB/MinseoKang/assets/97084864/2a4ee0f2-e88f-4240-b77b-7730bcdbe647">
+<div align="center">
+<h1>😶‍🌫️ 민서의 잔디🌱</h1>
+
+
+|📅|💡|🔗|
+|:---:|:---:|:---:|
+|1주차|웨비의사진관|[`기본` `심화`](https://github.com/DO-SOPT-WEB/MinseoKang/pull/1)|
+|1주차|가계부|[`기본` `심화`](https://github.com/DO-SOPT-WEB/MinseoKang/pull/1)|
+|1주차|웹접근성과SEO|[`생각`](https://github.com/DO-SOPT-WEB/MinseoKang/pull/1)|
