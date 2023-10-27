@@ -1,5 +1,3 @@
-/* 글자수에 따른 더보기 버튼 활성화 및 작동 */
-
 const windowHeight = window.innerHeight;
 const topButton = document.getElementById("top_button");
 const moreInfoBtn = document.createElement("button");
@@ -8,14 +6,15 @@ moreInfoBtn.classList.add("moreInfoBtn");
 
 document.addEventListener("scroll", () => {
   topButton.style.opacity = window.scrollY / (windowHeight * 2);
-});
+}); // 스크롤시 탑버튼 선명해짐
 
 const springContainers = document.querySelectorAll(".part.spring");
 let description = document.querySelector(".description");
 
 springContainers.forEach((springContainer) => {
   springContainer.addEventListener("mouseenter", () => {
-    let detailText = springContainer.querySelector("p.detail").innerHTML;
+    let detailText = springContainer.querySelector(".description");
+    let title = description.querySelector("p.title");
     let detail = description.querySelector("p.detail");
   });
 });
