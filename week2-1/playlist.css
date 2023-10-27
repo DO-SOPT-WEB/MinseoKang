@@ -89,7 +89,7 @@ header {
   text-decoration: underline;
 }
 
-.description {
+.helper-text {
   text-align: center;
   font-weight: 400;
   color: grey;
@@ -132,10 +132,31 @@ header {
   margin: 0.2rem;
   transition: transform 250ms;
   flex-grow: 1;
+  filter: brightness(1);
 }
 
 .part.spring img:hover {
   transform: translateY(-0.625rem);
+  filter: brightness(0.5);
+  transition: 0.3s;
+}
+
+.part.spring img::after,
+.description {
+  display: none;
+}
+
+.title {
+  font-weight: 400;
+  font-size: 1.3rem;
+}
+
+.detail {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  word-break: keep-all;
 }
 
 .part.autumn {
@@ -246,7 +267,8 @@ footer {
   font-weight: 400;
 }
 
-.button {
+#top_button {
+  opacity: 0;
   position: fixed;
   bottom: 2.5rem;
   right: 2.5rem;
@@ -262,4 +284,16 @@ footer {
   margin: 0.625rem;
   width: 2.5rem;
   height: 2.5rem;
+}
+
+.moreInfoBtn {
+  margin-top: 0.3rem;
+  padding: 0.5rem;
+
+  border: none;
+  border-radius: 3rem;
+
+  background-color: #ffffb5;
+  font-family: "ONE-Mobile-POP";
+  font-size: 1rem;
 }
