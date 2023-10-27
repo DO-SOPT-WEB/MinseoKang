@@ -109,7 +109,7 @@ function deleteHistory(listItem) {
   //   let localStorageData = JSON.parse(storedData);
   //   localStorageData = localStorageData.filter((item) => item.price !== price);
   //   localStorage.setItem("historyData", JSON.stringify(localStorageData));
-  // } //주석풀오보기
+  // } //주석풀어보기
   if (price > 0) {
     plusBalance.innerText = (
       parseFloat(plusBalance.innerText) - price
