@@ -68,7 +68,7 @@ function loadAndDisplayData() {
       priceElement.classList.add("plus");
     }
 
-    historyList.appendChild(templateClone); //초기 데이터 등록되게 하기
+    historyList.appendChild(templateClone); //초기 데이터 등록되게 하기ㄴ
   });
   updateBalance();
   updateBalanceDisplay();
@@ -116,7 +116,7 @@ function deleteHistory(listItem) {
     ).toString();
   } else {
     minusBalance.innerText = (
-      parseFloat(minusBalance.innerText) + price
+      parseFloat(minusBalance.innerText) - price
     ).toString();
   }
   wholeBalance.innerText = (
@@ -166,8 +166,6 @@ function handleSaveButtonClick() {
   historyArr.push(historyEntry);
 
   localStorage.setItem("historyData", JSON.stringify(historyArr));
-
-  addList(historyEntry);
   loadAndDisplayData();
 
   textHolderPrice.value = "";
@@ -212,9 +210,6 @@ function addList(insertedHistory) {
   wrapper.appendChild(categoryItem);
   wrapper.appendChild(deleteButton);
   historySection.appendChild(wrapper);
-
-  historyArr.push(insertedHistory);
-  localStorage.setItem("historyData", JSON.stringify(historyArr));
 }
 
 function modalOpen() {
