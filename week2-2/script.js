@@ -164,10 +164,6 @@ document.addEventListener("click", function (event) {
   }
 });
 
-// window.onload = () => {
-//   loadAndDisplayData();
-// };
-
 loadAndDisplayData();
 
 const inputForm = document.getElementById("input-form"); //전체 모달
@@ -215,9 +211,6 @@ function addList(insertedHistory) {
   const historySection = document.getElementById("historylist-wrapper"); //타겟
   const Template = document.getElementById("history-template"); //템플릿
 
-  const signPlus = document.getElementById("checkbox1");
-  const signMinus = document.getElementById("checkbox2");
-
   const wrapper = document.createElement("ul");
   const categoryItem = document.createElement("li");
   const priceItem = document.createElement("li");
@@ -257,16 +250,15 @@ function addList(insertedHistory) {
   localStorage.setItem("historyData", JSON.stringify(historyArr));
 }
 
-// 모달 열기
 function modalOpen() {
   document.querySelector(".modal_wrap").style.display = "block";
-  document.querySelector(".modal_background").style.display = "block";
+  document.querySelector(".modal_background").style.display = "block"; // 모달 열기
 }
 
 function modalClose() {
   document.querySelector(".modal_wrap").style.display = "none";
   document.querySelector(".modal_background").style.display = "none";
-}
+} //모달 닫기
 
 document.getElementById("modal_btn").addEventListener("click", function () {
   modalOpen();
@@ -276,23 +268,46 @@ document.querySelector(".button.close").addEventListener("click", function () {
   modalClose();
   saveButton.removeEventListener("click", handleSaveButtonClick);
 });
-document.getElementById("modal_close").addEventListener("click", modalClose);
-
-//수입, 지출에 따라 선택 달라지게
+document.getElementById("modal_close").addEventListener("click", modalClose); //모달 버튼 이벤트
 
 updateSelectbox({ target: checkbox1 });
 
-// 수입, 지출에 따라 선택 달라지게
-checkbox1.addEventListener("change", updateSelectbox);
-checkbox2.addEventListener("change", updateSelectbox);
+const signPlus = document.getElementById("checkbox1");
+const signMinus = document.getElementById("checkbox2");
 
-function updateSelectbox(event) {
+checkbox1.addEventListener("change", function () {
+  if (checkbox1.checked) {
+    checkbox2.checked = false;
+  }
+  updateSelectbox();
+});
+
+checkbox2.addEventListener("change", function () {
+  if (checkbox2.checked) {
+    checkbox1.checked = false;
+  }
+  updateSelectbox();
+});
+
+function updateSelectbox() {
   SelectCategory.innerHTML = "";
-  const options =
-    event.target.id === "checkbox1" ? ["알바", "용돈"] : ["식비", "교통비"];
+  const options = [];
+
+  if (checkbox1.checked) {
+    options.push("알바", "용돈");
+  }
+
+  if (checkbox2.checked) {
+    options.push("식비", "교통비");
+  }
+
   options.forEach(function (optionText) {
     const option = document.createElement("option");
     option.text = optionText;
     SelectCategory.appendChild(option);
   });
 }
+
+// 초기 설정: checkbox1을 선택한 상태로 시작
+checkbox1.checked = true;
+updateSelectbox();

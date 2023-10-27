@@ -173,13 +173,9 @@ input:checked + .slt_box {
 #historylist-wrapper {
   width: 100vw;
   height: calc(100vh - 26.5rem);
-  overflow-y: scroll;
-  scrollbar-width: none;
+  overflow: scroll;
+  /* scrollbar-width: none; */
   background-color: #efeff3;
-}
-
-#historylist-wrapper::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera*/
 }
 
 #historylist-items {
@@ -277,6 +273,7 @@ footer {
   height: 76vh;
   position: absolute;
   border-radius: 0.7rem 0.7rem 0 0;
+  overflow-y: scroll;
 
   bottom: 0;
   left: 0;
@@ -314,7 +311,7 @@ footer {
 
 /* 모달 내부 */
 .modal_title {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 800;
   position: absolute;
   top: 0.6rem;
@@ -324,10 +321,26 @@ footer {
   padding-top: 0.6rem;
 }
 
-/* 수입 지출 커스텀*/
+.checkbox-wrapper-modal {
+  height: 100%;
+  padding: 0 20vw;
+}
+
+#select-category,
+.price-input,
+.content-input {
+  width: 80vw;
+  height: 3.2rem;
+  color: #b1b8c0;
+  border-radius: 0.5rem;
+  border-style: none;
+  background-color: #f2f4f6;
+  font-weight: 400;
+  font-size: 1.2rem;
+  margin: 0 10vw;
+}
 
 .slt_inout {
-  margin: 0 auto;
   padding: 0.8em 2.6rem;
   font-size: 1rem;
   font-weight: 600;
@@ -352,7 +365,7 @@ input:checked + .slt_inout {
 }
 
 #insert_modal {
-  padding: 3rem 2rem;
+  padding: 3rem 0rem;
   list-style: none;
   line-height: 2rem;
 }
@@ -378,6 +391,9 @@ input:checked + .slt_inout {
   cursor: pointer;
 }
 
+label {
+  padding-left: 10vw;
+}
 .save {
   background-color: #3182f6;
   position: relative;
