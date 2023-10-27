@@ -24,7 +24,7 @@ export const HISTORY_DATA = [
   },
   {
     id: 4,
-    select: "알바비",
+    select: "외주",
     text: "레디피부과",
     price: 300000,
     status: "plus",
