@@ -137,7 +137,7 @@ function handleSaveButtonClick() {
   const textHolderContent = inputForm.querySelector(".content-input"); //내용 입력창
   const textHolderPrice = inputForm.querySelector(".price-input"); // 금액 입력창
 
-  const inputStatus = SelectPlusMinus.value ? "minus" : "plus";
+  const inputStatus = SelectPlusMinus.value === "minus" ? "minus" : "plus";
   const inputSelect = SelectCategory.value;
   const inputText = textHolderContent.value;
   const inputPrice = parseFloat(textHolderPrice.value);

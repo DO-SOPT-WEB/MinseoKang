@@ -320,8 +320,11 @@ footer {
 }
 
 .checkbox-wrapper-modal {
-  height: 100%;
-  padding: 0 20vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5rem;
+  text-align: center;
 }
 
 #select-category,
@@ -339,21 +342,29 @@ footer {
 }
 
 .slt_inout {
-  padding: 0.8em 2.6rem;
+  width: 7rem;
+  height: 3rem;
   font-size: 1rem;
+  line-height: 3rem;
   font-weight: 600;
   background-color: #f2f4f6;
   border-radius: 0.5rem;
   color: #333d4b;
   cursor: pointer;
+  padding: 0;
+  margin-right: 0.5rem;
 }
 
 input:checked + .slt_inout {
-  padding: 0.8em 2.6rem;
+  width: 7rem;
+  height: 3rem;
+  font-size: 1rem;
+  line-height: 3rem;
   font-size: 1rem;
   background-color: #3182f6;
   border-radius: 0.5rem;
   color: white;
+  padding: 0;
 }
 
 .modal_item {
