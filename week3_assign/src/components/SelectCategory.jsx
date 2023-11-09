@@ -11,10 +11,10 @@ const SelectCategory = ({
     <>
       <Header>원하는 추천 방식을 골라줘</Header>
       <BtnSection>
-        {(selectOption === "" || selectOption === "personal") && (
+        {(selectOption === "" || selectOption === "type") && (
           <ChooseButton
             onClick={() => {
-              selectOptionHandler("personal");
+              selectOptionHandler("type");
             }}
           >
             <p>취향대로 추천</p>
