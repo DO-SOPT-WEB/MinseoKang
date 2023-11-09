@@ -7,47 +7,57 @@ import SpoqaSansThin from "../font/SpoqaHanSansNeo-Thin.woff";
 import reset from "styled-reset";
 
 const GlobalStyles = createGlobalStyle`
- ${reset};
+  ${reset};
 
-    body{
-	background-color: #141414;
-	font-family: 'SpoqaSansBold';
- }
   @font-face {
-        font-family: 'SpoqaSansBold';
-        src: local("SpoqaSansBold"),
-        url(${SpoqaSansBold}) format('woff');
-        font-weight: 500;
-        font-style: normal;}
-  }
-    @font-face {
-        font-family: 'SpoqaSansLight';
-        src: local("SpoqaSansLight"),
-        url(${SpoqaSansLight}) format('woff');
-        font-weight: 500;
-        font-style: normal;}
-  }
-    @font-face {
-        font-family: 'SpoqaSansMedium';
-        src: local("SpoqaSansMedium"),
-        url(${SpoqaSansMedium}) format('woff');
-        font-weight: 500;
-        font-style: normal;}
-  }
-    @font-face {
-        font-family: 'SpoqaSansRegular';
-        src: local("SpoqaSansRegular"),
-        url(${SpoqaSansRegular}) format('woff');
-        font-weight: 500;
-        font-style: normal;}
-  }
-    @font-face {
-        font-family: 'SpoqaSansThin';
-        src: local("SpoqaSansThin"),
-        url(${SpoqaSansThin}) format('woff');
-        font-weight: 500;
-        font-style: normal;}
+    font-family: 'SpoqaHanSansNeo-Bold';
+    src: local('SpoqaHanSansNeo-Bold'),
+    url(${SpoqaSansBold}) format('woff');
+    font-weight: 500;
+    font-style: normal;
   }
 
-  `;
+  @font-face {
+    font-family: 'SpoqaHanSansNeo-Light';
+    src: local('SpoqaHanSansNeo-Light'),
+    url(${SpoqaSansLight}) format('woff');
+    font-weight: 200;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'SpoqaHanSansNeo-Medium';
+    src: local('SpoqaHanSansNeo-Medium'),
+    url(${SpoqaSansMedium}) format('woff');
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'SpoqaHanSansNeo-Regular';
+    src: local('SpoqaHanSansNeo-Regular'),
+    url(${SpoqaSansRegular}) format('woff');
+    font-weight: 300;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'SpoqaHanSansNeo-Thin';
+    src: local('SpoqaHanSansNeo-Thin'),
+    url(${SpoqaSansThin}) format('woff');
+    font-weight: 100;
+    font-style: normal;
+  }
+
+  body {
+    background-color: #141414;
+    font-family: 'SpoqaHanSansNeo-Bold'; // 이 부분을 원하는 폰트로 변경
+  }
+
+  h1{
+	font-size: 1.4rem;
+	font-family: 'SpoqaHanSansNeo-Medium'
+  }
+`;
+
 export default GlobalStyles;
