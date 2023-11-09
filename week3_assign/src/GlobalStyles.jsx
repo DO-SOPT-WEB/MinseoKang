@@ -51,12 +51,13 @@ const GlobalStyles = createGlobalStyle`
 
   body {
     background-color: #141414;
+	color: red;
     font-family: 'SpoqaHanSansNeo-Bold'; // 이 부분을 원하는 폰트로 변경
   }
 
   h1{
 	font-size: 1.4rem;
-	font-family: 'SpoqaHanSansNeo-Medium'
+	font-family: 'SpoqaHanSansNeo-Medium';
   }
 `;
 

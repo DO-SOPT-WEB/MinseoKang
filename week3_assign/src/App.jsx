@@ -1,11 +1,12 @@
 import * as React from "react";
 import Header from "./components/header";
+import MainSection from "./components/MainSection";
 import GlobalStyles from "./GlobalStyles";
 
 const App = () => (
   <React.Fragment>
     <Header></Header>
-    <div>Hi, Im an app!</div>
+    <MainSection></MainSection>
     <GlobalStyles />
   </React.Fragment>
 );
