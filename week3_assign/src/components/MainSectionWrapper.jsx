@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import SelectType from "../Type/SelectTpe";
+// import SelectType from "../Type/SelectType";
 import SelectCategory from "./SelectCategory";
 
 const MainSectionWrapper = ({
@@ -11,12 +11,12 @@ const MainSectionWrapper = ({
 }) => {
   return (
     <Name>
-      {/* <SelectCategory
+      <SelectCategory
         selectOption={selectOption}
         selectOptionHandler={selectOptionHandler}
         startPickHandler={startPickHandler}
       />
-      <SelectType
+      {/* <SelectType
         selectOption={selectOption}
         selectOptionHandler={selectOptionHandler}
         startPickHandler={startPickHandler}
@@ -33,10 +33,5 @@ const Name = styled.div`
   margin-top: calc((100vh - 30rem) / 2);
   color: black;
 `;
-
-// const ChooseButtonBig = styled(ChooseButton)`
-//   width: 60rem;
-//   font-size: 24px;
-// `;
 
 export default MainSectionWrapper;
