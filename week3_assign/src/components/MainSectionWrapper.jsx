@@ -1,7 +1,7 @@
 import React from "react";
-import styled from "styled-components";
-import SelectType from "../Type/SelectTpe";
 import SelectCategory from "./SelectCategory";
+// import SelectType from "../Type/SelectType";
+import styled from "styled-components";
 
 const MainSectionWrapper = ({
   selectOption,
