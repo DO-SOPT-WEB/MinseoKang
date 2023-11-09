@@ -12,6 +12,9 @@ module.exports = {
   settings: { react: { version: "18.2" } },
   plugins: ["react-refresh"],
   extends: ["eslint:recommended", "plugin:react/recommended"],
+  rules: {
+    "react/prop-types": "off",
+  },
   // rules: {
   //   'react-refresh/only-export-components': [
   //     'warn',
