@@ -1,15 +1,31 @@
 import React from "react";
 import styled from "styled-components";
-import ChooseButton from "./ChooseButton";
+import RandomArticle from "../Random/RandomArticle";
+import TypeArticle from "../Type/TypeArticle";
 
-const MainSectionWrapper = () => {
+const MainSectionWrapper = ({
+  selectOption,
+  selectOptionHandler,
+  startPick,
+  startPickHandler,
+}) => {
   return (
     <Name>
-      <Header>
-        <h1>선택방식</h1>
-      </Header>
-      <ChooseButton>취향대로</ChooseButton>
-      <ChooseButton>랜덤</ChooseButton>
+      <Header>원하는 추천 방식을 골라줘</Header>
+      {!startPick && (
+        <RandomArticle
+          selectOption={selectOption}
+          selectOptionHandler={selectOptionHandler}
+          startPickHandler={startPickHandler}
+        />
+      )}
+      {!!startPick && (
+        <TypeArticle
+          selectOption={selectOption}
+          selectOptionHandler={selectOptionHandler}
+          startPickHandler={startPickHandler}
+        />
+      )}
     </Name>
   );
 };
@@ -29,5 +45,10 @@ const Header = styled.header`
   height: 4rem;
   background-color: red;
 `;
+
+// const ChooseButtonBig = styled(ChooseButton)`
+//   width: 60rem;
+//   font-size: 24px;
+// `;
 
 export default MainSectionWrapper;
