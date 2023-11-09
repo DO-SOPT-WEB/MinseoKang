@@ -1,12 +1,15 @@
 import React from "react";
 import styled from "styled-components";
+import ChooseButton from "./ChooseButton";
 
 const MainSectionWrapper = () => {
   return (
     <Name>
-      <Header>선택방식</Header>
-      <Selection>취향대로 추천</Selection>
-      <Selection>랜덤 추천</Selection>
+      <Header>
+        <h1>선택방식</h1>
+      </Header>
+      <ChooseButton>취향대로</ChooseButton>
+      <ChooseButton>랜덤</ChooseButton>
     </Name>
   );
 };
@@ -23,12 +26,8 @@ const Name = styled.div`
 
 const Header = styled.header`
   width: 44rem;
-  color: blue;
-`;
-
-const Selection = styled.button`
-  width: 10rem;
-  height: 10rem;
+  height: 4rem;
+  background-color: red;
 `;
 
 export default MainSectionWrapper;
