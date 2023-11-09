@@ -2,17 +2,17 @@ import * as React from "react";
 import Header from "./components/header";
 import GlobalStyles from "./GlobalStyles";
 import MainSectionWrapper from "./components/MainSectionWrapper";
-import selectData from "./components/SelectData";
+import SelectData from "./components/SelectData";
 
 const App = () => {
-  const useSelectData = () => {
+  const {
     selectOption,
-      setSelectOption,
-      startPick,
-      setStartPick,
-      selectOptionHandler,
-      startPickHandler;
-  };
+    setSelectOption,
+    startPick,
+    setStartPick,
+    selectOptionHandler,
+    startPickHandler,
+  } = SelectData();
   return (
     <>
       <GlobalStyles />

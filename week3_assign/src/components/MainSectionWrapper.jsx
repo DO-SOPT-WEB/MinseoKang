@@ -1,7 +1,17 @@
 import React from "react";
 import styled from "styled-components";
-import RandomArticle from "../Random/RandomArticle";
-import TypeArticle from "../Type/TypeArticle";
+import SelectType from "../Type/SelectTpe";
+import SelectCategory from "./SelectCategory";
+
+import PropTypes from "prop-types";
+//유효성 검사
+
+MainSectionWrapper.propTypes = {
+  selectOption: PropTypes.string.isRequired,
+  selectOptionHandler: PropTypes.func.isRequired,
+  startPick: PropTypes.bool.isRequired,
+  startPickHandler: PropTypes.func.isRequired,
+}; //유효성 검사
 
 const MainSectionWrapper = ({
   selectOption,
@@ -13,14 +23,14 @@ const MainSectionWrapper = ({
     <Name>
       <Header>원하는 추천 방식을 골라줘</Header>
       {!startPick && (
-        <RandomArticle
+        <SelectCategory
           selectOption={selectOption}
           selectOptionHandler={selectOptionHandler}
           startPickHandler={startPickHandler}
         />
       )}
       {!!startPick && (
-        <TypeArticle
+        <SelectType
           selectOption={selectOption}
           selectOptionHandler={selectOptionHandler}
           startPickHandler={startPickHandler}
