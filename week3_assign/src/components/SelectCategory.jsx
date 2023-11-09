@@ -47,6 +47,7 @@ const Header = styled.header`
   width: 44rem;
   height: 4rem;
   background-color: red;
+  font-size: 1.5rem;
 `;
 
 const BtnSection = styled.section`
