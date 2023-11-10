@@ -1,6 +1,6 @@
 import React from "react";
 import SelectCategory from "./SelectCategory";
-import ChoosePrefer from "../Prefer/choosePrefer";
+import ChoosePrefer from "../Prefer/Prefer";
 import styled from "styled-components";
 
 const MainSectionWrapper = ({
@@ -10,7 +10,7 @@ const MainSectionWrapper = ({
   startPickHandler,
 }) => {
   return (
-    <Name>
+    <Section>
       <SelectCategory
         selectOption={selectOption}
         selectOptionHandler={selectOptionHandler}
@@ -20,11 +20,11 @@ const MainSectionWrapper = ({
         selectOptionHandler={selectOptionHandler}
         startPickHandler={startPickHandler}
       />
-    </Name>
+    </Section>
   );
 };
 
-const Name = styled.div`
+const Section = styled.div`
   background-color: white;
   width: 44rem;
   height: 30rem;
