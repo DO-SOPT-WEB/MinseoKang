@@ -6,8 +6,16 @@ const moveBtn = (props) => {
 };
 
 const Btn = styled.button`
-  width: 2rem;
-  height: 1rem;
+  width: 5rem;
+  height: 3rem;
+  margin: 0 0.2rem;
+  border-radius: 0.5rem;
+  border-style: none;
+  cursor: pointer;
+  &:hover {
+    background-color: #222;
+    color: white;
+  }
 `;
 
 export default moveBtn;

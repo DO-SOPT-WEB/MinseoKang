@@ -1,22 +1,19 @@
-import React, { useState } from "react";
-import styled from "styled-components"; // 추가
+import React from "react";
+import styled from "styled-components";
 import ChooseButton from "../../components/ChooseButton";
 import useInsert from "../../Hooks/useInsert";
 import MoveBtn from "../../components/moveBtn";
 
-const First = ({ selectOptionHandler, startPickHandler, moveStep }) => {
+const First = ({ moveStep }) => {
   const { clickedOption, clickedOptionHandler } = useInsert();
 
   return (
     <Section>
-      <Header>어떤 정류를 먹고 싶어?</Header>
+      <Header>어떤 종류를 먹고 싶어?</Header>
       <BtnSection>
         <ChooseButton
           isclicked={clickedOption === 1 ? "checked" : "unchecked"}
-          onClick={() => {
-            clickedOptionHandler(1);
-            console.log("눌림");
-          }}
+          onClick={() => clickedOptionHandler(1)}
         >
           <p>한식</p>
         </ChooseButton>
@@ -34,10 +31,17 @@ const First = ({ selectOptionHandler, startPickHandler, moveStep }) => {
         </ChooseButton>
       </BtnSection>
       <MoveBtn>이전으로</MoveBtn>
-      <MoveBtn>다음으로</MoveBtn>
+      <MoveBtn
+        onClick={() => {
+          console.log("33");
+        }}
+      >
+        다음으로
+      </MoveBtn>
     </Section>
   );
 };
+
 const Section = styled.div`
   background-color: white;
   width: 44rem;

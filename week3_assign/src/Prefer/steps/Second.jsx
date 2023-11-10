@@ -4,7 +4,7 @@ import ChooseButton from "../../components/ChooseButton";
 import useInsert from "../../Hooks/useInsert";
 import MoveBtn from "../../components/moveBtn";
 
-const Second = (moveStep) => {
+const Second = ({ moveStep }) => {
   const { clickedOption, clickedOptionHandler } = useInsert();
 
   return (
@@ -30,8 +30,8 @@ const Second = (moveStep) => {
           <p>빵</p>
         </ChooseButton>
       </BtnSection>
-      <MoveBtn onClick={() => moveStep(1)}>이전으로</MoveBtn>
-      <MoveBtn onClick={() => moveStep(3)}>다음으로</MoveBtn>
+      <MoveBtn onClick={() => goToStepHandler(1)}>이전으로</MoveBtn>
+      <MoveBtn onClick={() => goToStepHandler(3)}>다음으로</MoveBtn>
     </Section>
   );
 };
