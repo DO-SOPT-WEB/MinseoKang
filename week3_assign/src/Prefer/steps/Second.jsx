@@ -1,15 +1,18 @@
 import React from "react";
-import styled from "styled-components"; // 추가
 import ChooseButton from "../../components/ChooseButton";
+import Section from "../../components/section";
+import BtnSection from "../../components/BtnSection";
+
 import useInsert from "../../Hooks/useInsert";
 import MoveBtn from "../../components/moveBtn";
+import Question from "../../components/Question";
 
 const Second = ({ moveStep }) => {
   const { clickedOption, clickedOptionHandler } = useInsert();
 
   return (
     <Section>
-      <Header>여기중에는</Header>
+      <Question>원하는 영화장르는?</Question>
       <BtnSection>
         <ChooseButton
           isclicked={clickedOption === 1 ? "checked" : "unchecked"}
@@ -35,24 +38,5 @@ const Second = ({ moveStep }) => {
     </Section>
   );
 };
-const Section = styled.div`
-  background-color: white;
-  width: 44rem;
-  height: 30rem;
-  margin-left: calc((100vw - 44rem) / 2);
-  margin-top: calc((100vh - 30rem) / 2);
-  color: black;
-`;
-
-const BtnSection = styled.section`
-  display: flex;
-  width: 44rem;
-  height: 20rem;
-  background-color: pink;
-`;
-
-const Header = styled.h1`
-  font-size: 1.5rem;
-`;
 
 export default Second;

@@ -1,51 +1,58 @@
 import React from "react";
-import styled from "styled-components";
 import ChooseButton from "./components/ChooseButton";
+import Section from "./components/section";
+import BtnSection from "./components/BtnSection";
 import useInsert from "./Hooks/useInsert";
 import MoveBtn from "./components/moveBtn";
+import Question from "./components/Question";
 
-const onboarding = ({ moveStep }) => {
+const Onboarding = ({
+  selectOption,
+  selectOptionHandler,
+  startPickHandler,
+  moveStep,
+}) => {
   const { clickedOption, clickedOptionHandler } = useInsert();
+
   return (
     <Section>
-      <Header>추천방식을 골라줘</Header>
+      <Question>추천방식을 골라줘</Question>
       <BtnSection>
-        <ChooseButton
-          isclicked={clickedOption === 1 ? "checked" : "unchecked"}
-          onClick={() => clickedOptionHandler(1)}
-        >
-          <p>취향선택</p>
-        </ChooseButton>
-        <ChooseButton
-          isclicked={clickedOption === 2 ? "checked" : "unchecked"}
-          onClick={() => clickedOptionHandler(2)}
-        >
-          <p>랜덤</p>
-        </ChooseButton>
+        {selectOption !== "random" && (
+          <ChooseButton
+            isclicked={clickedOption === 1 ? "checked" : "unchecked"}
+            onClick={() => {
+              clickedOptionHandler(1);
+              selectOptionHandler("type");
+            }}
+          >
+            <p>추첨</p>
+          </ChooseButton>
+        )}
+        {selectOption !== "type" && (
+          <ChooseButton
+            isclicked={clickedOption === 2 ? "checked" : "unchecked"}
+            onClick={() => {
+              clickedOptionHandler(2);
+              selectOptionHandler("random");
+            }}
+          >
+            <p>랜덤</p>
+          </ChooseButton>
+        )}
       </BtnSection>
-      <MoveBtn onClick={() => moveStep(1)}>시작하기</MoveBtn>
+      {selectOption !== "" && (
+        <MoveBtn
+          onClick={() => {
+            moveStep(1);
+            startPickHandler(true);
+          }}
+        >
+          시작하기
+        </MoveBtn>
+      )}
     </Section>
   );
 };
 
-const Section = styled.div`
-  background-color: white;
-  width: 44rem;
-  height: 30rem;
-  margin-left: calc((100vw - 44rem) / 2);
-  margin-top: calc((100vh - 30rem) / 2);
-  color: black;
-`;
-
-const BtnSection = styled.section`
-  display: flex;
-  width: 44rem;
-  height: 20rem;
-  background-color: pink;
-`;
-
-const Header = styled.h1`
-  font-size: 1.5rem;
-`;
-
-export default onboarding;
+export default Onboarding;

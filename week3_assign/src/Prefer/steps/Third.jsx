@@ -1,52 +1,51 @@
-import React from "react";
-import styled from "styled-components"; // 추가
+import React, { useState } from "react";
+import styled from "styled-components";
+import Section from "../../components/section";
+import BtnSection from "../../components/BtnSection";
 import ChooseButton from "../../components/ChooseButton";
 import useInsert from "../../Hooks/useInsert";
 import MoveBtn from "../../components/moveBtn";
+import Question from "../../components/Question";
+import Result from "./result";
+import { MOVIE_DATA, MOVIE_TITLE } from "../../assets/data";
 
 const Third = ({ moveStep }) => {
-  const { clickedOption, clickedOptionHandler } = useInsert();
+  const { clickedOption, clickedOptionHandler, pickedArr } = useInsert();
+  const [movieTitle, setMovieTitle] = useState("");
+  const [imgSrc, setImgSrc] = useState("");
+
+  const ResultBtn = () => {
+    let result = [];
+    for (const [key, value] of Object.entries(pickedArr)) {
+      result.push(value);
+    }
+    let resultImgSrc = `src/assets/img/p${result[0]}_${result[1]}_${result[2]}.jpeg`;
+    setMovieTitle(MOVIE_TITLE[result[0]][result[1]][result[2]]);
+    setImgSrc(resultImgSrc);
+  };
 
   return (
     <Section>
-      <Header>여기중에는</Header>
+      <Question>영상의 길이는?</Question>
       <BtnSection>
         <ChooseButton
           isclicked={clickedOption === 1 ? "checked" : "unchecked"}
           onClick={() => clickedOptionHandler(1)}
         >
-          <p>밥</p>
+          <p>드라마</p>
         </ChooseButton>
         <ChooseButton
           isclicked={clickedOption === 2 ? "checked" : "unchecked"}
           onClick={() => clickedOptionHandler(2)}
         >
-          <p>면</p>
+          <p>영화</p>
         </ChooseButton>
       </BtnSection>
       <MoveBtn onClick={() => moveStep(3)}>이전으로</MoveBtn>
       <MoveBtn onClick={() => moveStep(4)}>결과보기</MoveBtn>
+      {moveStep === 4 && <Result pickedArr={pickedArr} />}
     </Section>
   );
 };
-const Section = styled.div`
-  background-color: white;
-  width: 44rem;
-  height: 30rem;
-  margin-left: calc((100vw - 44rem) / 2);
-  margin-top: calc((100vh - 30rem) / 2);
-  color: black;
-`;
-
-const BtnSection = styled.section`
-  display: flex;
-  width: 44rem;
-  height: 20rem;
-  background-color: pink;
-`;
-
-const Header = styled.h1`
-  font-size: 1.5rem;
-`;
 
 export default Third;

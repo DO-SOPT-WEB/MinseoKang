@@ -33,11 +33,7 @@ const ChoosePrefer = ({ selectOptionHandler, startPickHandler }) => {
         />
       )}
       {goToStep === 3 && (
-        <Third
-          selectOptionHandler={selectOptionHandler}
-          startPickHandler={startPickHandler}
-          moveStep={setGoToStep}
-        />
+        <Third startPickHandler={startPickHandler} moveStep={setGoToStep} />
       )}
     </>
   );
