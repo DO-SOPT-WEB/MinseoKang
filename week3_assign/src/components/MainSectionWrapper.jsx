@@ -1,6 +1,6 @@
 import React from "react";
 import SelectCategory from "./SelectCategory";
-// import SelectType from "../Type/SelectType";
+import ChoosePrefer from "../Prefer/choosePrefer";
 import styled from "styled-components";
 
 const MainSectionWrapper = ({
@@ -16,11 +16,10 @@ const MainSectionWrapper = ({
         selectOptionHandler={selectOptionHandler}
         startPickHandler={startPickHandler}
       />
-      {/* <SelectType
-        selectOption={selectOption}
+      <ChoosePrefer
         selectOptionHandler={selectOptionHandler}
         startPickHandler={startPickHandler}
-      /> */}
+      />
     </Name>
   );
 };

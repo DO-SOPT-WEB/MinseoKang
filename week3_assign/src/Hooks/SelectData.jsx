@@ -2,12 +2,10 @@ import { useState } from "react";
 
 function SelectData() {
   const [selectOption, setSelectOption] = useState("");
-  const [startPick, setStartPick] = useState(false);
-
   const selectOptionHandler = (selected) => {
     setSelectOption(selected);
   };
-
+  const [startPick, setStartPick] = useState(false);
   const startPickHandler = (isStart) => {
     setSelectOption(isStart);
   };
