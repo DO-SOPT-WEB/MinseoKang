@@ -11,11 +11,11 @@ const MainSectionWrapper = ({
 }) => {
   return (
     <Section>
-      <SelectCategory
+      {/* <SelectCategory
         selectOption={selectOption}
         selectOptionHandler={selectOptionHandler}
         startPickHandler={startPickHandler}
-      />
+      /> */}
       <ChoosePrefer
         selectOptionHandler={selectOptionHandler}
         startPickHandler={startPickHandler}

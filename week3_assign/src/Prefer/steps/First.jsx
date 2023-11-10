@@ -31,13 +31,7 @@ const First = ({ moveStep }) => {
         </ChooseButton>
       </BtnSection>
       <MoveBtn>이전으로</MoveBtn>
-      <MoveBtn
-        onClick={() => {
-          console.log("33");
-        }}
-      >
-        다음으로
-      </MoveBtn>
+      <MoveBtn onClick={() => moveStep(2)}>다음으로</MoveBtn>
     </Section>
   );
 };

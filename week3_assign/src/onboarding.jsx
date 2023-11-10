@@ -1,34 +1,33 @@
 import React from "react";
-import styled from "styled-components"; // 추가
-import ChooseButton from "../../components/ChooseButton";
-import useInsert from "../../Hooks/useInsert";
-import MoveBtn from "../../components/moveBtn";
+import styled from "styled-components";
+import ChooseButton from "./components/ChooseButton";
+import useInsert from "./Hooks/useInsert";
+import MoveBtn from "./components/moveBtn";
 
-const Third = ({ moveStep }) => {
+const onboarding = ({ moveStep }) => {
   const { clickedOption, clickedOptionHandler } = useInsert();
-
   return (
     <Section>
-      <Header>여기중에는</Header>
+      <Header>추천방식을 골라줘</Header>
       <BtnSection>
         <ChooseButton
           isclicked={clickedOption === 1 ? "checked" : "unchecked"}
           onClick={() => clickedOptionHandler(1)}
         >
-          <p>밥</p>
+          <p>취향선택</p>
         </ChooseButton>
         <ChooseButton
           isclicked={clickedOption === 2 ? "checked" : "unchecked"}
           onClick={() => clickedOptionHandler(2)}
         >
-          <p>면</p>
+          <p>랜덤</p>
         </ChooseButton>
       </BtnSection>
-      <MoveBtn onClick={() => moveStep(3)}>이전으로</MoveBtn>
-      <MoveBtn onClick={() => moveStep(4)}>결과보기</MoveBtn>
+      <MoveBtn onClick={() => moveStep(1)}>시작하기</MoveBtn>
     </Section>
   );
 };
+
 const Section = styled.div`
   background-color: white;
   width: 44rem;
@@ -49,4 +48,4 @@ const Header = styled.h1`
   font-size: 1.5rem;
 `;
 
-export default Third;
+export default onboarding;

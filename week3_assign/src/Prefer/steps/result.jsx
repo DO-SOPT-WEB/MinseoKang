@@ -1,13 +1,14 @@
-import styled from "styled-components";
-import DATA from "../assets";
-import Title from "./Layout/Title";
-import Buttons from "./Layout/Buttons";
 import React from "react";
+import styled from "styled-components"; // 추가
+import ChooseButton from "../../components/ChooseButton";
+import BtnSection from "../../components/BtnSection";
+import useInsert from "../../Hooks/useInsert";
+import MoveBtn from "../../components/moveBtn";
 
 const result = ({}) => {
   return (
     <Section>
-      <Header>어떤 종류를 먹고 싶어?</Header>
+      <Header>결과</Header>
       <BtnSection></BtnSection>
       <MoveBtn>처음으로</MoveBtn>
     </Section>
@@ -15,19 +16,11 @@ const result = ({}) => {
 };
 
 const Section = styled.div`
-  background-color: white;
+  background-color: red;
   width: 44rem;
   height: 30rem;
   margin-left: calc((100vw - 44rem) / 2);
   margin-top: calc((100vh - 30rem) / 2);
-  color: black;
-`;
-
-const BtnSection = styled.section`
-  display: flex;
-  width: 44rem;
-  height: 20rem;
-  background-color: pink;
 `;
 
 const Header = styled.h1`

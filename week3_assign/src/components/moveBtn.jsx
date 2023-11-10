@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const moveBtn = (props) => {
-  return <Btn>{props.children}</Btn>;
+  return <Btn onClick={props.onClick}>{props.children}</Btn>;
 };
 
 const Btn = styled.button`
