@@ -1,10 +1,10 @@
-const MOVIE_DATA = [
+const FOOD_DATA = [
   ["인디/밴드", "k-pop", "팝송"],
   ["신나는", "잔잔한", "주인장 추천"],
   ["여자", "남자", "상관없어!"],
 ];
 
-const MOVIE_TITLE = [
+const FOOD_TITLE = [
   [
     ["블랙미러", "에밀리, 파리에 가다", "루머의 루머의 루머"],
     ["최유리 - 바람", "데이식스 - hihello", "데이먼스이어 - yours"],
@@ -34,4 +34,4 @@ const MOVIE_TITLE = [
   ],
 ];
 
-export { MOVIE_DATA, MOVIE_TITLE };
+export { FOOD_DATA, FOOD_TITLE };

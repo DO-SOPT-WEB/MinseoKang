@@ -7,12 +7,12 @@ import useInsert from "../../Hooks/useInsert";
 import MoveBtn from "../../components/moveBtn";
 import Question from "../../components/Question";
 
-const Second = ({ moveStep }) => {
+const Second = ({ selectOptionHandler, secondChoice, moveStep }) => {
   const { clickedOption, clickedOptionHandler } = useInsert();
 
   return (
     <Section>
-      <Question>원하는 영화장르는?</Question>
+      <Question>그 중에서는?</Question>
       <BtnSection>
         <ChooseButton
           isclicked={clickedOption === 1 ? "checked" : "unchecked"}

@@ -3,37 +3,53 @@ import Onboarding from "../onboarding";
 import First from "./steps/First";
 import Second from "./steps/Second";
 import Third from "./steps/Third";
+import Result from "./steps/result";
 
 // ChoosePrefer 컴포넌트는 현재 선택된 단계를 상태로 관리
 const ChoosePrefer = ({ selectOptionHandler, startPickHandler }) => {
   const [goToStep, setGoToStep] = useState(0);
-  console.log(goToStep);
+  const [firstChoice, setFirstChoice] = useState("");
+  const [secondChoice, setSecondChoice] = useState("");
+  const [thirdChoice, setThirdChoice] = useState("");
 
   return (
     <>
       {goToStep === 0 && (
         <Onboarding
-          selectOptionHandler={selectOptionHandler}
-          startPickHandler={startPickHandler}
+          setselectOptionHandler={selectOptionHandler}
+          setstartPickHandler={startPickHandler}
           moveStep={setGoToStep}
         />
       )}
       {goToStep === 1 && (
         <First
-          selectOptionHandler={selectOptionHandler}
-          startPickHandler={startPickHandler}
+          setselectOptionHandler={selectOptionHandler}
+          setfirstChoice={setFirstChoice}
           moveStep={setGoToStep}
         />
       )}
       {goToStep === 2 && (
         <Second
-          selectOptionHandler={selectOptionHandler}
-          startPickHandler={startPickHandler}
+          setselectOptionHandler={selectOptionHandler}
+          setsecondChoice={setSecondChoice}
           moveStep={setGoToStep}
         />
       )}
       {goToStep === 3 && (
-        <Third startPickHandler={startPickHandler} moveStep={setGoToStep} />
+        <Third
+          setselectOptionHandler={selectOptionHandler}
+          setthirdChoice={setThirdChoice}
+          moveStep={setGoToStep}
+        />
+      )}
+      {goToStep === 4 && (
+        <Result
+          selectOptionHandler={selectOptionHandler}
+          setfirstChoice={setFirstChoice}
+          setsecondChoice={setSecondChoice}
+          setthirdChoice={setThirdChoice}
+          setmoveStep={setGoToStep}
+        />
       )}
     </>
   );

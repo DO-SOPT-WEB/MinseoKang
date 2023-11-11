@@ -5,7 +5,7 @@ function Header() {
   return (
     <>
       <HeaderBox>
-        <h1>🎬넷플릭스 뭐보지🎬</h1>
+        <h1>점메추</h1>
         <HeaderBtn>처음으로</HeaderBtn>
       </HeaderBox>
     </>

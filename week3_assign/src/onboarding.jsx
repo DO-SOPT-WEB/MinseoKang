@@ -22,8 +22,10 @@ const Onboarding = ({
           <ChooseButton
             isclicked={clickedOption === 1 ? "checked" : "unchecked"}
             onClick={() => {
-              clickedOptionHandler(1);
-              selectOptionHandler("type");
+              {
+                clickedOptionHandler(1);
+                selectOptionHandler("type");
+              }
             }}
           >
             <p>추첨</p>
@@ -33,8 +35,10 @@ const Onboarding = ({
           <ChooseButton
             isclicked={clickedOption === 2 ? "checked" : "unchecked"}
             onClick={() => {
-              clickedOptionHandler(2);
-              selectOptionHandler("random");
+              {
+                clickedOptionHandler(2);
+                selectOptionHandler("random");
+              }
             }}
           >
             <p>랜덤</p>
