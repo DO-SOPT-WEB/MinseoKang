@@ -12,43 +12,45 @@ const ChoosePrefer = ({ selectOptionHandler, startPickHandler }) => {
   const [secondChoice, setSecondChoice] = useState("");
   const [thirdChoice, setThirdChoice] = useState("");
 
+  const [startPick, setStartPick] = useState(false);
+
   return (
     <>
       {goToStep === 0 && (
         <Onboarding
-          setselectOptionHandler={selectOptionHandler}
-          setstartPickHandler={startPickHandler}
+          selectOptionHandler={selectOptionHandler}
+          startPickHandler={startPickHandler}
           moveStep={setGoToStep}
         />
       )}
       {goToStep === 1 && (
         <First
-          setselectOptionHandler={selectOptionHandler}
-          setfirstChoice={setFirstChoice}
+          selectOptionHandler={selectOptionHandler}
+          setFirstChoice={setFirstChoice}
           moveStep={setGoToStep}
         />
       )}
       {goToStep === 2 && (
         <Second
-          setselectOptionHandler={selectOptionHandler}
-          setsecondChoice={setSecondChoice}
+          selectOptionHandler={selectOptionHandler}
+          setSecondChoice={setSecondChoice}
           moveStep={setGoToStep}
         />
       )}
       {goToStep === 3 && (
         <Third
-          setselectOptionHandler={selectOptionHandler}
-          setthirdChoice={setThirdChoice}
+          selectOptionHandler={selectOptionHandler}
+          setThirdChoice={setThirdChoice}
           moveStep={setGoToStep}
         />
       )}
       {goToStep === 4 && (
         <Result
           selectOptionHandler={selectOptionHandler}
-          setfirstChoice={setFirstChoice}
-          setsecondChoice={setSecondChoice}
-          setthirdChoice={setThirdChoice}
-          setmoveStep={setGoToStep}
+          setFirstChoice={setFirstChoice}
+          setSecondChoice={setSecondChoice}
+          setThirdChoice={setThirdChoice}
+          moveStep={setGoToStep}
         />
       )}
     </>

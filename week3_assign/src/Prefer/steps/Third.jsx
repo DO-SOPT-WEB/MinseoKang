@@ -5,8 +5,12 @@ import ChooseButton from "../../components/ChooseButton";
 import useInsert from "../../Hooks/useInsert";
 import MoveBtn from "../../components/moveBtn";
 import Question from "../../components/Question";
-const Third = ({ selectOptionHandler, thirdChoice, moveStep }) => {
+const Third = ({ selectOptionHandler, setThirdChoice, moveStep }) => {
   const { clickedOption, clickedOptionHandler } = useInsert();
+  const handleButtonClick = (value) => {
+    clickedOptionHandler(value);
+    setThirdChoice(value);
+  };
 
   return (
     <Section>
@@ -14,13 +18,13 @@ const Third = ({ selectOptionHandler, thirdChoice, moveStep }) => {
       <BtnSection>
         <ChooseButton
           isclicked={clickedOption === 1 ? "checked" : "unchecked"}
-          onClick={() => clickedOptionHandler(1)}
+          onClick={handleButtonClick}
         >
           <p>국물 O</p>
         </ChooseButton>
         <ChooseButton
           isclicked={clickedOption === 2 ? "checked" : "unchecked"}
-          onClick={() => clickedOptionHandler(2)}
+          onClick={handleButtonClick}
         >
           <p>국물 X</p>
         </ChooseButton>

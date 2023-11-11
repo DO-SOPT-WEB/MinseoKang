@@ -17,19 +17,15 @@ const Result = ({
   const [movieTitle, setMovieTitle] = useState("");
 
   const determineResult = () => {
-    // 여기에 이미지와 영화 제목을 결정하는 로직 추가
-    // pickedArr를 이용하여 적절한 데이터를 가져와서 설정
+    console.log("ee");
   };
 
-  useEffect(() => {
-    determineResult();
-  }, []);
   return (
     <Section>
       <Question>결과</Question>
       <img src={imgSrc} alt="result"></img>
       <h1>{movieTitle}</h1>
-      <MoveBtn>처음으로</MoveBtn>
+      <MoveBtn onClick={() => moveStep(0)}>처음으로</MoveBtn>
     </Section>
   );
 };
