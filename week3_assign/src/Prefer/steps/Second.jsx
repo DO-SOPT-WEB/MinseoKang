@@ -2,6 +2,7 @@ import React from "react";
 import ChooseButton from "../../components/ChooseButton";
 import Section from "../../components/section";
 import BtnSection from "../../components/BtnSection";
+import BtnWapper from "../../components/BtnWrapper";
 
 import useInsert from "../../Hooks/useInsert";
 import MoveBtn from "../../components/moveBtn";
@@ -37,8 +38,10 @@ const Second = ({ selectOptionHandler, setSecondChoice, moveStep }) => {
           <p>빵</p>
         </ChooseButton>
       </BtnSection>
-      <MoveBtn onClick={() => moveStep(1)}>이전으로</MoveBtn>
-      <MoveBtn onClick={() => moveStep(3)}>다음으로</MoveBtn>
+      <BtnWapper>
+        <MoveBtn onClick={() => moveStep(1)}>이전으로</MoveBtn>
+        <MoveBtn onClick={() => moveStep(3)}>다음으로</MoveBtn>
+      </BtnWapper>
     </Section>
   );
 };

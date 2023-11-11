@@ -6,6 +6,7 @@ const moveBtn = (props) => {
 };
 
 const Btn = styled.button`
+  margin-left: 10rem;
   width: 5rem;
   height: 3rem;
   margin: 0 0.2rem;

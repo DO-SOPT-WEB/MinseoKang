@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components"; // 추가
 import Section from "../../components/section";
-import { FOOD_DATA, FOOD_TITLE } from "../../assets/data";
+import Data from "../../assets/data";
 import useInsert from "../../Hooks/useInsert";
 import MoveBtn from "../../components/moveBtn";
 import Question from "../../components/Question";

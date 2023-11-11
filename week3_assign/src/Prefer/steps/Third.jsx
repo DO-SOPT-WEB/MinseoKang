@@ -5,6 +5,7 @@ import ChooseButton from "../../components/ChooseButton";
 import useInsert from "../../Hooks/useInsert";
 import MoveBtn from "../../components/moveBtn";
 import Question from "../../components/Question";
+import BtnWapper from "../../components/BtnWrapper";
 const Third = ({ selectOptionHandler, setThirdChoice, moveStep }) => {
   const { clickedOption, clickedOptionHandler } = useInsert();
   const handleButtonClick = (value) => {
@@ -29,8 +30,10 @@ const Third = ({ selectOptionHandler, setThirdChoice, moveStep }) => {
           <p>국물 X</p>
         </ChooseButton>
       </BtnSection>
-      <MoveBtn onClick={() => moveStep(3)}>이전으로</MoveBtn>
-      <MoveBtn onClick={() => moveStep(4)}>결과보기</MoveBtn>
+      <BtnWapper>
+        <MoveBtn onClick={() => moveStep(3)}>이전으로</MoveBtn>
+        <MoveBtn onClick={() => moveStep(4)}>결과보기</MoveBtn>
+      </BtnWapper>
     </Section>
   );
 };
