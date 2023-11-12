@@ -5,7 +5,7 @@ import MoveBtn from "../../components/moveBtn";
 import Title from "../../components/Title";
 import BtnWapper from "../../components/BtnWrapper";
 
-const Result = ({ filterList, setPreferStage }) => {
+const Result = ({ filterList, resetPreferStage }) => {
   const result = filterList();
 
   return (
@@ -17,7 +17,11 @@ const Result = ({ filterList, setPreferStage }) => {
       </ImgSection>
       <ResultName>{result.name}</ResultName>
       <BtnWapper>
-        <MoveBtn onClick={() => setPreferStage(0)}>
+        <MoveBtn
+          onClick={() => {
+            resetPreferStage();
+          }}
+        >
           <p>처음으로</p>
         </MoveBtn>
       </BtnWapper>

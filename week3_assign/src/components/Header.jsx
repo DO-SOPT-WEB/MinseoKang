@@ -2,12 +2,12 @@ import React from "react";
 
 import styled from "styled-components";
 
-function Header() {
+function Header(resetStep) {
   return (
     <>
       <HeaderBox>
         <H1>❤️오늘의 넷플릭스 추천🎬</H1>
-        <Begin>처음으로</Begin>
+        <Begin onClick={resetStep}>처음으로</Begin>
       </HeaderBox>
     </>
   );

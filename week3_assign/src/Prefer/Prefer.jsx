@@ -10,6 +10,7 @@ import BtnWapper from "../components/BtnWrapper";
 import Section from "../components/section";
 import MoveBtn from "../components/moveBtn";
 import Title from "../components/Title";
+import reset from "styled-reset";
 
 // ChoosePrefer 컴포넌트는 현재 선택된 단계를 상태로 관리
 const Preference = () => {
@@ -17,8 +18,6 @@ const Preference = () => {
   const [secondChoice, setSecondChoice] = useState("");
   const [thirdChoice, setThirdChoice] = useState("");
   const [preferStage, setPreferStage] = useState("");
-
-  // const [startPick, setStartPick] = useState(false);
 
   const filterList = () => {
     const firstFilterList = Data.filter(
@@ -33,6 +32,13 @@ const Preference = () => {
 
     const finalFilterList = thirdFilterList[0];
     return finalFilterList;
+  };
+
+  const resetPreferStage = () => {
+    setFirstChoice("");
+    setSecondChoice("");
+    setThirdChoice("");
+    setPreferStage(0);
   };
 
   const putResult = () => {
@@ -93,6 +99,7 @@ const Preference = () => {
             setFirstChoice={setFirstChoice}
             setSecondChoice={setSecondChoice}
             setThirdChoice={setThirdChoice}
+            resetPreferStage={resetPreferStage}
           />
         );
 

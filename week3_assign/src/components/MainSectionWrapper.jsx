@@ -10,6 +10,9 @@ import Header from "./header";
 
 const MainSectionWrapper = () => {
   const [currentStep, setCurrentStep] = useState("");
+  const resetStep = () => {
+    setCurrentStep("");
+  };
   const Main = () => {
     switch (currentStep) {
       case "random":
@@ -42,7 +45,7 @@ const MainSectionWrapper = () => {
   };
   return (
     <>
-      <Header></Header>
+      <Header resetStep={resetStep}></Header>
       <MainStyle>{Main()}</MainStyle>
     </>
   );
