@@ -16,6 +16,7 @@ const Third = ({ setPreferStage, setThirdChoice, thirdChoice }) => {
           onClick={() => {
             setThirdChoice("soup");
           }}
+          isselected={thirdChoice === "soup"}
           className={thirdChoice === "soup" ? "selected" : ""}
         >
           <p>국물</p>
@@ -24,6 +25,7 @@ const Third = ({ setPreferStage, setThirdChoice, thirdChoice }) => {
           onClick={() => {
             setThirdChoice("noodle");
           }}
+          isselected={thirdChoice === "soupX"}
           className={thirdChoice === "soupX" ? "selected" : ""}
         >
           <p>국물없음</p>

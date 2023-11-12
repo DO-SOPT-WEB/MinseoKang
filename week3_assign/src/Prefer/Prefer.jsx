@@ -1,9 +1,15 @@
 import React, { useState } from "react";
+import TypeSelect from "../components/TypeSelect";
 import First from "./steps/First";
 import Second from "./steps/Second";
 import Third from "./steps/Third";
 import Result from "./steps/result";
 import data from "../assets/data";
+import BtnSection from "../components/BtnSection";
+import BtnWapper from "../components/BtnWrapper";
+import Section from "../components/section";
+import Question from "../components/Question";
+import MoveBtn from "../components/moveBtn";
 
 // ChoosePrefer 컴포넌트는 현재 선택된 단계를 상태로 관리
 const Preference = () => {
@@ -21,7 +27,7 @@ const Preference = () => {
     const secondFilterList = firstFilterList.filter(
       (item) => item.category[1] === secondChoice
     );
-    const thirdFilterList = secondFilterLista.filter(
+    const thirdFilterList = secondFilterList.filter(
       (item) => item.category[2] === thirdChoice
     );
 
@@ -33,16 +39,23 @@ const Preference = () => {
     switch (preferStage) {
       case 0:
         return (
-          <>
-            <p>취향대로 추천해줄께</p>
-            <button
-              onClick={() => {
-                setPreferStage(1);
-              }}
-            >
-              start
-            </button>
-          </>
+          <Section>
+            <Question>추천방식</Question>
+            <BtnSection>
+              <TypeSelect>
+                <p>취향대로 추천해줄께</p>
+              </TypeSelect>
+            </BtnSection>
+            <BtnWapper>
+              <MoveBtn
+                onClick={() => {
+                  setPreferStage(1);
+                }}
+              >
+                start
+              </MoveBtn>
+            </BtnWapper>
+          </Section>
         );
 
       case 1:
@@ -85,16 +98,23 @@ const Preference = () => {
 
       default:
         return (
-          <>
-            <p>취향대로 추천해줄께</p>
-            <button
-              onClick={() => {
-                setPreferStage(1);
-              }}
-            >
-              start
-            </button>
-          </>
+          <Section>
+            <Question>추천방식</Question>
+            <BtnSection>
+              <TypeSelect>
+                <p>취향대로 추천해줄께</p>
+              </TypeSelect>
+            </BtnSection>
+            <BtnWapper>
+              <MoveBtn
+                onClick={() => {
+                  setPreferStage(1);
+                }}
+              >
+                start
+              </MoveBtn>
+            </BtnWapper>
+          </Section>
         );
     }
   };

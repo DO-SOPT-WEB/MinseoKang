@@ -17,6 +17,7 @@ const First = ({ setPreferStage, setFirstChoice, firstChoice }) => {
           onClick={() => {
             setFirstChoice("korea");
           }}
+          isselected={firstChoice === "korea"}
           className={firstChoice === "korea" ? "selected" : ""}
         >
           <p>한식</p>
@@ -25,6 +26,7 @@ const First = ({ setPreferStage, setFirstChoice, firstChoice }) => {
           onClick={() => {
             setFirstChoice("china");
           }}
+          isselected={firstChoice === "china"}
           className={firstChoice === "china" ? "selected" : ""}
         >
           <p>중식</p>
@@ -33,6 +35,7 @@ const First = ({ setPreferStage, setFirstChoice, firstChoice }) => {
           onClick={() => {
             setFirstChoice("japan");
           }}
+          isselected={firstChoice === "japan"}
           className={firstChoice === "japan" ? "selected" : ""}
         >
           <p>일식</p>

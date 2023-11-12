@@ -3,7 +3,7 @@ import Prefer from "../Prefer/Prefer";
 import BtnSection from "./BtnSection";
 import ChooseButton from "./ChooseButton";
 import Question from "./Question";
-import Random from "../Prefer/Random/RandomResult";
+import Random from "../Prefer/Random/random";
 import Section from "./section";
 
 const MainSectionWrapper = () => {

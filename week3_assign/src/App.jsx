@@ -1,31 +1,24 @@
-import React, { useState } from "react";
+import React from "react";
+import styled from "styled-components";
 import Header from "./components/header";
 import GlobalStyles from "./GlobalStyles";
 import MainSectionWrapper from "./components/MainSectionWrapper";
-import SelectData from "./Hooks/SelectData";
 
 const App = () => {
-  const [goToStep, setGoToStep] = useState(0);
-  const {
-    selectOption,
-    setSelectOption,
-    startPick,
-    setStartPick,
-    selectOptionHandler,
-    startPickHandler,
-  } = SelectData();
   return (
     <>
       <GlobalStyles />
       <Header />
-      <MainSectionWrapper
-        selectOption={selectOption}
-        selectOptionHandler={selectOptionHandler}
-        setStartPick={setStartPick}
-        startPickHandler={startPickHandler}
-      />
+      <SectionWrapper>
+        <MainSectionWrapper></MainSectionWrapper>
+      </SectionWrapper>
     </>
   );
 };
 
+const SectionWrapper = styled.div`
+  align-items: 100%;
+  display: flex;
+  justify-content: center;
+`;
 export default App;

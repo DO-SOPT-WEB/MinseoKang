@@ -1,16 +1,13 @@
 import React from "react";
+
 import styled from "styled-components";
-import MoveBtn from "./moveBtn";
 
-function Header({ moveStep }) {
-  // useInsert 훅을 통해 얻은 clickedOption와 clickedOptionHandler를 사용하지 않습니다.
-  // const { clickedOption, clickedOptionHandler } = useInsert();
-
+function Header() {
   return (
     <>
       <HeaderBox>
-        <h1>점메추</h1>
-        <MoveBtn onClick={() => moveStep(0)}>처음으로</MoveBtn>
+        <h1>오늘 뭐보지</h1>
+        <Begin>처음으로</Begin>
       </HeaderBox>
     </>
   );
@@ -18,18 +15,17 @@ function Header({ moveStep }) {
 
 const HeaderBox = styled.header`
   display: flex;
-  width: 100vw;
-  height: 3rem;
   background-color: pink;
   position: relative;
-  font-family: "Spoqa Han Sans", "Spoqa Han Sans JP", "Sans-serif";
+  color: black;
+  padding: 1rem;
 `;
 
-// HeaderBtn은 사용되지 않으므로 제거합니다.
-// const HeaderBtn = styled.button`
-//   color: pink;
-//   position: absolute;
-//   right: 3rem;
-// `;
+const Begin = styled.button`
+  width: 5rem;
+
+  position: absolute;
+  right: 1rem;
+`;
 
 export default Header;

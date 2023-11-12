@@ -1,8 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
-const moveBtn = (props) => {
-  return <Btn onClick={props.onClick}>{props.children}</Btn>;
+const MoveBtn = (props) => {
+  return (
+    <Btn disabled={props.disabled} onClick={props.onClick}>
+      {props.children}
+    </Btn>
+  );
 };
 
 const Btn = styled.button`
@@ -13,10 +17,12 @@ const Btn = styled.button`
   border-radius: 0.5rem;
   border-style: none;
   cursor: pointer;
+  background-color: ${(props) => (props.disabled ? "#fff" : "white")};
+  color: ${(props) => (props.disabled ? "#fff" : "#141414")};
   &:hover {
     background-color: #222;
     color: white;
   }
 `;
 
-export default moveBtn;
+export default MoveBtn;

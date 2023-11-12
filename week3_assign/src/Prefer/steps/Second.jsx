@@ -16,25 +16,28 @@ const Second = ({ setPreferStage, setSecondChoice, secondChoice }) => {
           onClick={() => {
             setSecondChoice("rice");
           }}
+          isselected={secondChoice === "rice"}
           className={secondChoice === "rice" ? "selected" : ""}
         >
-          <p>한식</p>
+          <p>쌀</p>
         </ChooseButton>
         <ChooseButton
           onClick={() => {
             setSecondChoice("noodle");
           }}
+          isselected={secondChoice === "noodle"}
           className={secondChoice === "noodle" ? "selected" : ""}
         >
-          <p>중식</p>
+          <p>면</p>
         </ChooseButton>
         <ChooseButton
           onClick={() => {
             setSecondChoice("beef");
           }}
+          isselected={secondChoice === "beef"}
           className={secondChoice === "beef" ? "selected" : ""}
         >
-          <p>일식</p>
+          <p>고기</p>
         </ChooseButton>
       </BtnSection>
       <BtnWapper>

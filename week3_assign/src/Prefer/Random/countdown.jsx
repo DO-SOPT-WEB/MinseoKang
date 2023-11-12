@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import RandomResult from "./RandomResult";
 
 const CountDown = ({ setRandomType }) => {
   const [time, setTime] = useState(3);
