@@ -4,7 +4,7 @@ const BtnWapper = styled.div`
   display: flex;
   width: 44rem;
   height: 3rem;
-  background-color: red;
+  margin-top: 1rem;
   justify-content: center;
 `;
 

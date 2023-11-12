@@ -3,8 +3,8 @@ import styled from "styled-components";
 const BtnSection = styled.section`
   display: flex;
   justify-content: center;
-  background-color: pink;
-  height: 16rem;
+  height: 14.2rem;
+  padding: 0 1rem;
 `;
 
 export default BtnSection;

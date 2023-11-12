@@ -8,8 +8,8 @@ import Data from "../assets/data";
 import BtnSection from "../components/BtnSection";
 import BtnWapper from "../components/BtnWrapper";
 import Section from "../components/section";
-import Question from "../components/Question";
 import MoveBtn from "../components/moveBtn";
+import Title from "../components/Title";
 
 // ChoosePrefer 컴포넌트는 현재 선택된 단계를 상태로 관리
 const Preference = () => {
@@ -40,7 +40,7 @@ const Preference = () => {
       case 0:
         return (
           <Section>
-            <Question>추천방식</Question>
+            <Title>추천방식</Title>
             <BtnSection>
               <TypeSelect>
                 <p>취향대로 추천해줄께</p>
@@ -52,7 +52,7 @@ const Preference = () => {
                   setPreferStage(1);
                 }}
               >
-                start
+                <p1>시작하기</p1>
               </MoveBtn>
             </BtnWapper>
           </Section>
@@ -99,7 +99,7 @@ const Preference = () => {
       default:
         return (
           <Section>
-            <Question>추천방식</Question>
+            <Title>추천방식</Title>
             <BtnSection>
               <TypeSelect>
                 <p>취향대로 추천해줄께</p>
@@ -111,7 +111,7 @@ const Preference = () => {
                   setPreferStage(1);
                 }}
               >
-                start
+                <p1>시작하기</p1>
               </MoveBtn>
             </BtnWapper>
           </Section>

@@ -56,8 +56,21 @@ const GlobalStyles = createGlobalStyle`
   }
 
   h1{
-	font-size: 1.4rem;
+	font-size: 1.3rem;
 	font-family: 'SpoqaHanSansNeo-Medium';
+  }
+
+  p{
+    font-size: 1rem;
+    font-family: 'SpoqaHanSansNeo-Medium';
+  }
+    p1{
+    font-size: 0.8rem;
+    font-family: 'SpoqaHanSansNeo-Medium';
+  }
+   p2{
+    font-size: 0.8rem;
+    font-family: 'SpoqaHanSansNeo-Light';
   }
 `;
 

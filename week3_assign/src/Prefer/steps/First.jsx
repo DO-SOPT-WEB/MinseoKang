@@ -5,12 +5,17 @@ import BtnSection from "../../components/BtnSection";
 import MoveBtn from "../../components/moveBtn";
 import Question from "../../components/Question";
 import BtnWapper from "../../components/BtnWrapper";
+import QuestionWrapper from "../../components/QuestionWrapper";
+import Nav from "../../components/Nav";
 
 const First = ({ setPreferStage, setFirstChoice, firstChoice }) => {
   return (
     <Section>
-      <Question>어떤 장르를 보고 싶어?</Question>
-      <p>1/3</p>
+      <QuestionWrapper>
+        <Question>어떤 장르를 보고 싶어?</Question>
+        <Nav>1/3</Nav>
+      </QuestionWrapper>
+
       <BtnSection>
         <br></br>
         <ChooseButton
@@ -42,7 +47,9 @@ const First = ({ setPreferStage, setFirstChoice, firstChoice }) => {
         </ChooseButton>
       </BtnSection>
       <BtnWapper>
-        <MoveBtn onClick={() => setPreferStage(0)}>이전으로</MoveBtn>
+        <MoveBtn onClick={() => setPreferStage(0)}>
+          <p1>이전으로</p1>
+        </MoveBtn>
         {firstChoice === "" ? (
           <MoveBtn
             onClick={() => {
@@ -50,7 +57,7 @@ const First = ({ setPreferStage, setFirstChoice, firstChoice }) => {
             }}
             disabled
           >
-            다음으로
+            <p1>다음으로</p1>
           </MoveBtn>
         ) : (
           <MoveBtn
@@ -58,7 +65,7 @@ const First = ({ setPreferStage, setFirstChoice, firstChoice }) => {
               setPreferStage(2);
             }}
           >
-            다음으로
+            <p1>다음으로</p1>
           </MoveBtn>
         )}
       </BtnWapper>

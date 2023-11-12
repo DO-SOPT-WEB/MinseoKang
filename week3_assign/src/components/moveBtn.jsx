@@ -12,16 +12,17 @@ const MoveBtn = (props) => {
 const Btn = styled.button`
   margin-left: 10rem;
   width: 5rem;
-  height: 3rem;
+  height: 2.4rem;
   margin: 0 0.2rem;
   border-radius: 0.5rem;
   border-style: none;
   cursor: pointer;
-  background-color: ${(props) => (props.disabled ? "#fff" : "")};
-  color: ${(props) => (props.disabled ? "#fff" : "#141414")};
+  color: ${(props) => (props.disabled ? "#2e2e2e" : "black")};
+  background-color: ${(props) => (props.disabled ? "#4d4d4d" : "#e9e9e9")};
+
+  font-weight: 300;
   &:hover {
-    background-color: #222;
-    color: white;
+    background-color: #a1a1a1;
   }
 `;
 

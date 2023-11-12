@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 import Prefer from "../Prefer/Prefer";
 import BtnSection from "./BtnSection";
 import ChooseButton from "./ChooseButton";
-import Question from "./Question";
+import Title from "./Title";
 import Random from "../Prefer/Random/random";
 import Section from "./section";
 import Header from "./header";
@@ -18,21 +19,21 @@ const MainSectionWrapper = () => {
       default:
         return (
           <Section>
-            <Question>원하는 추천방식</Question>
+            <Title>원하는 추천방식</Title>
             <BtnSection>
               <ChooseButton
                 onClick={() => {
                   setCurrentStep("prefer");
                 }}
               >
-                취향대로
+                <p>취향대로</p>
               </ChooseButton>
               <ChooseButton
                 onClick={() => {
                   setCurrentStep("random");
                 }}
               >
-                랜덤으로
+                <p>랜덤으로</p>
               </ChooseButton>
             </BtnSection>
           </Section>
@@ -42,9 +43,12 @@ const MainSectionWrapper = () => {
   return (
     <>
       <Header></Header>
-      {Main()}
+      <MainStyle>{Main()}</MainStyle>
     </>
   );
 };
 
+const MainStyle = styled.div`
+  margin-left: calc((100vw - 44rem) / 2);
+`;
 export default MainSectionWrapper;

@@ -6,7 +6,7 @@ function Header() {
   return (
     <>
       <HeaderBox>
-        <h1>오늘 뭐보지</h1>
+        <H1>❤️오늘의 넷플릭스 추천🎬</H1>
         <Begin>처음으로</Begin>
       </HeaderBox>
     </>
@@ -15,10 +15,13 @@ function Header() {
 
 const HeaderBox = styled.header`
   display: flex;
-  background-color: pink;
   position: relative;
-  color: black;
+  color: #e9e9e9;
   padding: 1rem;
+`;
+
+const H1 = styled.h1`
+  font-size: 1.3rem;
 `;
 
 const Begin = styled.button`
