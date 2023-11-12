@@ -4,7 +4,7 @@ import First from "./steps/First";
 import Second from "./steps/Second";
 import Third from "./steps/Third";
 import Result from "./steps/result";
-import data from "../assets/data";
+import Data from "../assets/data";
 import BtnSection from "../components/BtnSection";
 import BtnWapper from "../components/BtnWrapper";
 import Section from "../components/section";
@@ -21,7 +21,7 @@ const Preference = () => {
   // const [startPick, setStartPick] = useState(false);
 
   const filterList = () => {
-    const firstFilterList = data.filter(
+    const firstFilterList = Data.filter(
       (item) => item.category[0] === firstChoice
     );
     const secondFilterList = firstFilterList.filter(
@@ -72,7 +72,7 @@ const Preference = () => {
         return (
           <Second
             setPreferStage={setPreferStage}
-            secondChoice={setSecondChoice}
+            secondChoice={secondChoice}
             setSecondChoice={setSecondChoice}
           />
         );

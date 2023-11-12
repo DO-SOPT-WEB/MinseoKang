@@ -9,26 +9,26 @@ import BtnWapper from "../../components/BtnWrapper";
 const Third = ({ setPreferStage, setThirdChoice, thirdChoice }) => {
   return (
     <Section>
-      <Question>마지막으로</Question>
+      <Question>마지막으로 영상의 종류를 선택해줘</Question>
       <p>3/3</p>
       <BtnSection>
         <ChooseButton
           onClick={() => {
-            setThirdChoice("soup");
+            setThirdChoice("drama");
           }}
-          isselected={thirdChoice === "soup"}
-          className={thirdChoice === "soup" ? "selected" : ""}
+          $isselected={thirdChoice === "drama"}
+          className={thirdChoice === "drama" ? "selected" : ""}
         >
-          <p>국물</p>
+          <p>드라마</p>
         </ChooseButton>
         <ChooseButton
           onClick={() => {
-            setThirdChoice("noodle");
+            setThirdChoice("movie");
           }}
-          isselected={thirdChoice === "soupX"}
-          className={thirdChoice === "soupX" ? "selected" : ""}
+          $isselected={thirdChoice === "movie"}
+          className={thirdChoice === "movie" ? "selected" : ""}
         >
-          <p>국물없음</p>
+          <p>영화</p>
         </ChooseButton>
       </BtnSection>
       <BtnWapper>

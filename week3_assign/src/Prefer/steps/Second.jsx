@@ -9,35 +9,35 @@ import BtnWapper from "../../components/BtnWrapper";
 const Second = ({ setPreferStage, setSecondChoice, secondChoice }) => {
   return (
     <Section>
-      <Question>어떤 종류를 먹고 싶어?</Question>
+      <Question>어느 나라 영상을 보고싶어?</Question>
       <p>2/3</p>
       <BtnSection>
         <ChooseButton
           onClick={() => {
-            setSecondChoice("rice");
+            setSecondChoice("domestic");
           }}
-          isselected={secondChoice === "rice"}
-          className={secondChoice === "rice" ? "selected" : ""}
+          $isselected={secondChoice === "domestic"}
+          className={secondChoice === "domestic" ? "selected" : ""}
         >
-          <p>쌀</p>
+          <p>국내</p>
         </ChooseButton>
         <ChooseButton
           onClick={() => {
-            setSecondChoice("noodle");
+            setSecondChoice("oversea");
           }}
-          isselected={secondChoice === "noodle"}
-          className={secondChoice === "noodle" ? "selected" : ""}
+          $isselected={secondChoice === "oversea"}
+          className={secondChoice === "oversea" ? "selected" : ""}
         >
-          <p>면</p>
+          <p>해외</p>
         </ChooseButton>
         <ChooseButton
           onClick={() => {
-            setSecondChoice("beef");
+            setSecondChoice("asia");
           }}
-          isselected={secondChoice === "beef"}
-          className={secondChoice === "beef" ? "selected" : ""}
+          $isselected={secondChoice === "asia"}
+          className={secondChoice === "asia" ? "selected" : ""}
         >
-          <p>고기</p>
+          <p>아시아</p>
         </ChooseButton>
       </BtnSection>
       <BtnWapper>

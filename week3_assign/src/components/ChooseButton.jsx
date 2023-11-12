@@ -11,7 +11,7 @@ const ChooseButton = styled.article`
   margin: 0 0.2rem;
   cursor: pointer;
 
-  background-color: ${(props) => (props.isselected ? "green" : "white")};
+  background-color: ${(props) => (props.$isselected ? "green" : "white")};
   &:hover {
     background-color: #222;
   }

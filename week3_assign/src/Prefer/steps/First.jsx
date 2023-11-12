@@ -9,36 +9,36 @@ import BtnWapper from "../../components/BtnWrapper";
 const First = ({ setPreferStage, setFirstChoice, firstChoice }) => {
   return (
     <Section>
-      <Question>어떤 종류를 먹고 싶어?</Question>
+      <Question>어떤 장르를 보고 싶어?</Question>
       <p>1/3</p>
       <BtnSection>
         <br></br>
         <ChooseButton
           onClick={() => {
-            setFirstChoice("korea");
+            setFirstChoice("romance");
           }}
-          isselected={firstChoice === "korea"}
-          className={firstChoice === "korea" ? "selected" : ""}
+          $isselected={firstChoice === "romance"}
+          className={firstChoice === "romance" ? "selected" : ""}
         >
-          <p>한식</p>
+          <p>로맨스</p>
         </ChooseButton>
         <ChooseButton
           onClick={() => {
-            setFirstChoice("china");
+            setFirstChoice("thriller");
           }}
-          isselected={firstChoice === "china"}
-          className={firstChoice === "china" ? "selected" : ""}
+          $isselected={firstChoice === "thriller"}
+          className={firstChoice === "thriller" ? "selected" : ""}
         >
-          <p>중식</p>
+          <p>스릴러</p>
         </ChooseButton>
         <ChooseButton
           onClick={() => {
-            setFirstChoice("japan");
+            setFirstChoice("sf");
           }}
-          isselected={firstChoice === "japan"}
-          className={firstChoice === "japan" ? "selected" : ""}
+          $isselected={firstChoice === "sf"}
+          className={firstChoice === "sf" ? "selected" : ""}
         >
-          <p>일식</p>
+          <p>SF</p>
         </ChooseButton>
       </BtnSection>
       <BtnWapper>

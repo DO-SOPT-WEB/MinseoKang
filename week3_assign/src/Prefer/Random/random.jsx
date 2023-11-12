@@ -7,7 +7,17 @@ const Random = () => {
   const type = () => {
     setRandom(true);
   };
-  return <div></div>;
+  return (
+    <>
+      {!random && (
+        <>
+          <p>랜덤</p>
+          <button onClick={result}> 시작하기</button>
+        </>
+      )}
+      {random && <Countdown setRandom={setRandom} />}
+    </>
+  );
 };
 
 export default Random;

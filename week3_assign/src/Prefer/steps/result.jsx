@@ -10,7 +10,7 @@ const Result = ({ filterList, setPreferStage }) => {
     <Section>
       <Question>결과</Question>
       <p>{result.name}</p>
-      {/* <img src={result.img} alt={result.name}></img> */}
+      <img src={result.img} alt={result.name}></img>
       <MoveBtn onClick={() => setPreferStage(0)}>처음으로</MoveBtn>
     </Section>
   );

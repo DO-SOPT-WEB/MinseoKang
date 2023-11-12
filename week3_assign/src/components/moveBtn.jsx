@@ -17,7 +17,7 @@ const Btn = styled.button`
   border-radius: 0.5rem;
   border-style: none;
   cursor: pointer;
-  background-color: ${(props) => (props.disabled ? "#fff" : "white")};
+  background-color: ${(props) => (props.disabled ? "#fff" : "")};
   color: ${(props) => (props.disabled ? "#fff" : "#141414")};
   &:hover {
     background-color: #222;

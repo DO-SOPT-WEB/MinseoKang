@@ -12,9 +12,7 @@ const CountDown = ({ setRandomType }) => {
       {time ? (
         time
       ) : (
-        <>
-          <RandomResult setRandomType={setRandomType} />
-        </>
+        <>{/* <RandomResult setRandomType={setRandomType} /> */}</>
       )}
     </>
   );

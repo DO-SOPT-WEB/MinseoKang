@@ -1,113 +1,113 @@
-// import china_beefsoup from "../image/china_beefsoup.jpg";
-// import japan_rice from "../image/japan_rice.jpg";
-// import japan_beefsoup from "../image/japan_beefsoup.jpg";
-// import china_rice from "../image/china_rice.jpg";
-// import china_noodleO from "../image/china_noodleO.jpg";
-// import china_noodleX from "../image/china_noodleX.jpg";
-// import china_seafood from "../image/china_seafood.jpg";
-// import china_soup from "../image/china_soup.jpg";
-// import japan_fish from "../image/Japan_fish.jpg";
-// import japan_noodleO from "../image/japan_noodleO.jpg";
-// import japan_noodleX from "../image/Japan_noodleX.jpg";
-// import japan_soup from "../image/japan_soup.jpg";
-// import korea_beef from "../image/korea_beef.jpg";
-// import korea_beefsoup from "../image/korea_beefsoup.jpg";
-// import korea_noodleO from "../image/korea_noodleO.jpg";
-// import korea_noodleX from "../image/korea_noodleX.jpg";
-// import korea_rice from "../image/korea_rice.jpg";
-// import korea_soup from "";
+import rdd from "./rdd.jpg";
+import sdd from "./sdd.jpg";
+import tad from "./tad.jpg";
+import tdm from "./tdm.jpg";
+import sad from "./sad.jpg";
+import tom from "./tom.jpg";
+import ram from "./ram.jpg";
+import tam from "./ram.png";
+import rod from "./rod.jpeg";
+import sam from "./sam.png";
+import rad from "./rad.jpg";
+import tdd from "./tdd.jpg";
+import tod from "./tod.jpg";
+import rom from "./rom.jpg";
+import sod from "./sod.jpg";
+import rdm from "./rdm.jpg";
+import som from "./som.jpg";
+import sdm from "./sdm.jpg";
 
-const data = [
+const Data = [
   {
-    name: "국밥",
-    category: ["korea", "rice", "soup"],
-    // img: korea_soup,
+    name: "그 해 우리는",
+    category: ["romance", "domestic", "drama"],
+    img: rdd,
   },
   {
-    name: "돈지루",
-    category: ["japan", "rice", "soup"],
-    // img: japan_soup,
+    name: "고요의 바다",
+    category: ["sf", "domestic", "drama"],
+    img: sdd,
   },
   {
-    name: "마라탕",
-    category: ["china", "beef", "soup"],
-    // img: china_beefsoup,
+    name: "그녀의 이름은 난노",
+    category: ["thriller", "asia", "drama"],
+    img: tad,
   },
   {
-    name: "차오판",
-    category: ["china", "rice", "soupX"],
-    // img: china_rice,
+    name: "스마트폰을 떨어뜨렸을 뿐인데",
+    category: ["thriller", "domestic", "movie"],
+    img: tdm,
   },
   {
-    name: "스키야키",
-    category: ["japan", "beef", "soup"],
-    // img: japan_beefsoup,
+    name: "삼체",
+    category: ["sf", "asia", "drama"],
+    img: sad,
   },
   {
-    name: "러깐미엔",
-    category: ["china", "noodle", "soupX"],
-    // img: china_noodleX,
+    name: "메간",
+    category: ["thriller", "oversea", "movie"],
+    img: tom,
   },
   {
-    name: "소고기",
-    category: ["korea", "beef", "soupX"],
-    // img: korea_beef,
+    name: "너의 췌장을 먹고 싶어",
+    category: ["romance", "asia", "movie"],
+    img: ram,
   },
   {
-    name: "마라샹궈",
-    category: ["china", "beef", "soupX"],
-    // img: china_seafood,
+    name: "데스노트",
+    category: ["thriller", "asia", "movie"],
+    img: tam,
   },
   {
-    name: "잔치국수",
-    category: ["korea", "noodle", "soup"],
-    // img: korea_noodleO,
+    name: "에밀리, 파리에 가다",
+    category: ["romance", "oversea", "drama"],
+    img: rod,
   },
   {
-    name: "사시미",
-    category: ["japan", "beef", "soupX"],
-    // img: japan_fish,
+    name: "에브리씽 에브리웨어 올앳원스",
+    category: ["sf", "asia", "movie"],
+    img: sam,
   },
   {
-    name: "갈비탕",
-    category: ["korea", "beef", "soup"],
-    // img: korea_beefsoup,
+    name: "아름다웠던 우리에게",
+    category: ["romance", "asia", "drama"],
+    img: rad,
   },
   {
-    name: "짬뽕밥",
-    category: ["china", "rice", "soup"],
-    // img: china_soup,
+    name: "스윗트홈",
+    category: ["thriller", "domestic", "drama"],
+    img: tdd,
   },
   {
-    name: "돈부리",
-    category: ["japan", "rice", "soupX"],
-    // img: japan_rice,
+    name: "승리호",
+    category: ["sf", "domestic", "movie"],
+    img: sdm,
   },
   {
-    name: "탄탄면",
-    category: ["china", "noodle", "soup"],
-    // img: china_noodleO,
+    name: "기묘한 이야기",
+    category: ["thriller", "oversea", "drama"],
+    img: tod,
   },
   {
-    name: "비빔면",
-    category: ["korea", "noodle", "soupX"],
-    // img: korea_noodleX,
+    name: "노트북",
+    category: ["romance", "oversea", "movie"],
+    img: rom,
   },
   {
-    name: "라멘",
-    category: ["japan", "noodle", "soup"],
-    // img: japan_noodleO,
+    name: "블랙미러",
+    category: ["sf", "oversea", "drama"],
+    img: sod,
   },
   {
-    name: "볶음밥",
-    category: ["korea", "rice", "soupX"],
-    // img: korea_rice,
+    name: "20세기 소녀",
+    category: ["romance", "domestic", "movie"],
+    img: rdm,
   },
   {
-    name: "야끼소바",
-    category: ["japan", "noodle", "soupX"],
-    // img: japan_noodleX,
+    name: "어메이징 스파이더맨",
+    category: ["sf", "oversea", "movie"],
+    img: som,
   },
 ];
 
-export default data;
+export default Data;

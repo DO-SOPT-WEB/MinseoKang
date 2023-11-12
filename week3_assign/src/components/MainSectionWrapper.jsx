@@ -5,6 +5,7 @@ import ChooseButton from "./ChooseButton";
 import Question from "./Question";
 import Random from "../Prefer/Random/random";
 import Section from "./section";
+import Header from "./header";
 
 const MainSectionWrapper = () => {
   const [currentStep, setCurrentStep] = useState("");
@@ -38,7 +39,12 @@ const MainSectionWrapper = () => {
         );
     }
   };
-  return <>{Main()}</>;
+  return (
+    <>
+      <Header></Header>
+      {Main()}
+    </>
+  );
 };
 
 export default MainSectionWrapper;
