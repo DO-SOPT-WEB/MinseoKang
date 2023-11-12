@@ -25,10 +25,16 @@ const H1 = styled.h1`
 `;
 
 const Begin = styled.button`
-  width: 5rem;
-
   position: absolute;
   right: 1rem;
+  width: 5rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  border-style: none;
+  cursor: pointer;
+  &:hover {
+    background-color: #a1a1a1;
+  }
 `;
 
 export default Header;
