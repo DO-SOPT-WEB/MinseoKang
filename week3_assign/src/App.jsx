@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "./components/header";
 import GlobalStyles from "./GlobalStyles";
 import MainSectionWrapper from "./components/MainSectionWrapper";
 import SelectData from "./Hooks/SelectData";
 
 const App = () => {
+  const [goToStep, setGoToStep] = useState(0);
   const {
     selectOption,
     setSelectOption,

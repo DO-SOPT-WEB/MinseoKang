@@ -12,7 +12,7 @@ const ChooseButton = styled.article`
   cursor: pointer;
 
   background-color: ${(props) =>
-    props.isclicked === "checked" ? "green" : "white"};
+    props.$isclicked === "checked" ? "green" : "white"};
   &:hover {
     background-color: #222;
   }

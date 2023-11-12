@@ -1,31 +1,17 @@
-import React, { useState } from "react";
-import styled from "styled-components"; // 추가
+import React from "react";
 import Section from "../../components/section";
-import Data from "../../assets/data";
-import useInsert from "../../Hooks/useInsert";
 import MoveBtn from "../../components/moveBtn";
 import Question from "../../components/Question";
 
-const Result = ({
-  setFirstChoice,
-  setSecondChoice,
-  setThirdChoice,
-  moveStep,
-}) => {
-  const { clickedOption, clickedOptionHandler } = useInsert();
-  const [imgSrc, setimgSrc] = useState("");
-  const [movieTitle, setMovieTitle] = useState("");
-
-  const determineResult = () => {
-    console.log("ee");
-  };
+const Result = ({ filterList, setPreferStage }) => {
+  const result = filterList();
 
   return (
     <Section>
       <Question>결과</Question>
-      <img src={imgSrc} alt="result"></img>
-      <h1>{movieTitle}</h1>
-      <MoveBtn onClick={() => moveStep(0)}>처음으로</MoveBtn>
+      <p>{result.name}</p>
+      {/* <img src={result.img} alt={result.name}></img> */}
+      <MoveBtn onClick={() => setPreferStage(0)}>처음으로</MoveBtn>
     </Section>
   );
 };

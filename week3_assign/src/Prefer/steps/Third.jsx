@@ -1,38 +1,54 @@
 import React from "react";
+import ChooseButton from "../../components/ChooseButton";
 import Section from "../../components/section";
 import BtnSection from "../../components/BtnSection";
-import ChooseButton from "../../components/ChooseButton";
-import useInsert from "../../Hooks/useInsert";
 import MoveBtn from "../../components/moveBtn";
 import Question from "../../components/Question";
 import BtnWapper from "../../components/BtnWrapper";
-const Third = ({ selectOptionHandler, setThirdChoice, moveStep }) => {
-  const { clickedOption, clickedOptionHandler } = useInsert();
-  const handleButtonClick = (value) => {
-    clickedOptionHandler(value);
-    setThirdChoice(value);
-  };
 
+const Third = ({ setPreferStage, setThirdChoice, thirdChoice }) => {
   return (
     <Section>
-      <Question>국물 유무</Question>
+      <Question>마지막으로</Question>
+      <p>3/3</p>
       <BtnSection>
         <ChooseButton
-          isclicked={clickedOption === 1 ? "checked" : "unchecked"}
-          onClick={handleButtonClick}
+          onClick={() => {
+            setThirdChoice("soup");
+          }}
+          className={thirdChoice === "soup" ? "selected" : ""}
         >
-          <p>국물 O</p>
+          <p>국물</p>
         </ChooseButton>
         <ChooseButton
-          isclicked={clickedOption === 2 ? "checked" : "unchecked"}
-          onClick={handleButtonClick}
+          onClick={() => {
+            setThirdChoice("noodle");
+          }}
+          className={thirdChoice === "soupX" ? "selected" : ""}
         >
-          <p>국물 X</p>
+          <p>국물없음</p>
         </ChooseButton>
       </BtnSection>
       <BtnWapper>
-        <MoveBtn onClick={() => moveStep(3)}>이전으로</MoveBtn>
-        <MoveBtn onClick={() => moveStep(4)}>결과보기</MoveBtn>
+        <MoveBtn onClick={() => setPreferStage(2)}>이전으로</MoveBtn>
+        {thirdChoice === "" ? (
+          <MoveBtn
+            onClick={() => {
+              setPreferStage(4);
+            }}
+            disabled
+          >
+            다음으로
+          </MoveBtn>
+        ) : (
+          <MoveBtn
+            onClick={() => {
+              setPreferStage(4);
+            }}
+          >
+            다음으로
+          </MoveBtn>
+        )}
       </BtnWapper>
     </Section>
   );
