@@ -3,14 +3,14 @@
 <h1>😶‍🌫️ 민서의 잔디🌱</h1>
 
 
-|📅|💡|🔗|
-|:---:|:---:|:---:|
+|📅|💡|🔗|⭐️|
+|:---:|:---:|:---:|:---:|
 |1주차|웨비의사진관|[`기본` `심화`](https://github.com/DO-SOPT-WEB/MinseoKang/pull/1)|
 |1주차|가계부|[`기본` `심화`](https://github.com/DO-SOPT-WEB/MinseoKang/pull/1)|
 |1주차|웹접근성과SEO|[`생각`](https://github.com/DO-SOPT-WEB/MinseoKang/pull/1)|
 |2주차|웨비의사진관|[`기본`](https://github.com/DO-SOPT-WEB/MinseoKang/pull/2)|
 |2주차|가계부|[`기본`](https://github.com/DO-SOPT-WEB/MinseoKang/pull/3)|
 |2주차|명령형 프로그래밍과 선언형 프로그래밍|[`생각`](https://github.com/DO-SOPT-WEB/MinseoKang/pull/4)|
-|3주차|점메추|[`기본`](https://myassignments.neocities.org)|
+|3주차|점메추|[`기본`](https://github.com/DO-SOPT-WEB/MinseoKang/pull/4)|[`배포`](https://myassignments.neocities.org)|
 |2주차|리액트에 대해|[`생각`](https://github.com/DO-SOPT-WEB/MinseoKang/pull/6)|
 
