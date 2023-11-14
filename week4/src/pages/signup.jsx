@@ -8,10 +8,9 @@ const Signup = () => {
   return (
     <div>
       <Contentbox>
-        <Title>Login</Title>
-        <InputForm></InputForm>
-        <Cta.Main type="button">Login</Cta.Main>
-        <Cta.Secondary type="button">회원가입</Cta.Secondary>
+        <Title>회원가입</Title>
+        <InputForm.SignForm></InputForm.SignForm>
+        <Cta.Main type="button">회원가입</Cta.Main>
       </Contentbox>
     </div>
   );

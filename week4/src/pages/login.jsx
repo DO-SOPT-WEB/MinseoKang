@@ -9,7 +9,7 @@ const Login = () => {
     <div>
       <Contentbox>
         <Title>Login</Title>
-        <InputForm></InputForm>
+        <InputForm.LoginForm></InputForm.LoginForm>
         <Cta.Main type="button">Login</Cta.Main>
         <Cta.Secondary type="button">회원가입</Cta.Secondary>
       </Contentbox>
