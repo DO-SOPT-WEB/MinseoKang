@@ -1,11 +1,20 @@
 import React from "react";
+import Contentbox from "../components/contentBox";
+import Title from "../components/Title";
+import InputForm from "../components/inputForm";
+import Cta from "../components/cta";
 
-const login = () => {
+const Login = () => {
   return (
     <div>
-      <h1>my homepage</h1>
+      <Contentbox>
+        <Title>Login</Title>
+        <InputForm></InputForm>
+        <Cta.Main type="button">Login</Cta.Main>
+        <Cta.Secondary type="button">회원가입</Cta.Secondary>
+      </Contentbox>
     </div>
   );
 };
 
-export default login;
+export default Login;

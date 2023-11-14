@@ -4,17 +4,20 @@ import reset from "styled-reset";
 export const GlobalStyle = createGlobalStyle`
 ${reset}
 
-#root, body, html{
-    width: 100%;
-    height: 100vh;
-    margin: 0 auto;
+body{
+  background-color: #f2f3f7;
+  width: 100%;
+  margin: 0 auto;
 }
 
+}
 
 *{
-    ${({ theme }) => theme.font};
-    box-sizing: border-box;
+    font-family: 'IBM Plex Sans KR', sans-serif;
+font-family: 'Questrial', sans-serif;
+
 }
+
 `;
 
 export default GlobalStyle;
