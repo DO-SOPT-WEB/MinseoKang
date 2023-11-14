@@ -3,6 +3,7 @@ import styled from "styled-components";
 const Main = styled.button`
   width: 25rem;
   height: 2.5rem;
+
   border-style: none;
   border-radius: 0.4rem;
   background-color: ${({ theme }) => theme.yellow};

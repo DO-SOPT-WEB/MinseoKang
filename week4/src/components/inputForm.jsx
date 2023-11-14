@@ -91,11 +91,11 @@ const Textholder = styled.input`
 `;
 const ShortTextholder = styled.input`
   background-color: ${({ theme }) => theme.gray1};
-  color: grey;
   height: 2.5rem;
-  width: 15rem;
+  width: 12.5rem;
   border-style: none;
   border-radius: 0.4rem;
+  padding-left: 1rem;
 
   &::placeholder {
     color: ${({ theme }) => theme.gray2};
@@ -104,6 +104,8 @@ const ShortTextholder = styled.input`
 
 const Btn = styled.button`
   background-color: ${({ theme }) => theme.gray2};
+  color: ${({ theme }) => theme.gray3};
+  font-weight: 500;
   border-style: none;
   height: 2.5rem;
   width: 4rem;
