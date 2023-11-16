@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import apiClient from "../api/axios";
 import Contentbox from "../components/contentBox";
 import Title from "../components/Title";
 import InputForm from "../components/inputForm";
@@ -18,10 +18,9 @@ const Signup = () => {
     navigate(`/login`);
   };
 
-  const postData = async (e) => {
-    e.preventDefault();
+  const postData = async () => {
     try {
-      const { test } = await axios.post(
+      const { test } = await apiClient.post(
         `${import.meta.env.VITE_BASE_URL}/api/v1/members`,
         {
           username: username,
@@ -31,7 +30,7 @@ const Signup = () => {
       );
       console.log({ test });
     } catch (err) {
-      console.log("에러:", err);
+      console.log(err);
     }
   };
 

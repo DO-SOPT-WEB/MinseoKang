@@ -1,28 +1,50 @@
 import React, { useState } from "react";
-import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 import { Link } from "react-router-dom";
 import Contentbox from "../components/contentBox";
 import Title from "../components/Title";
 import InputForm from "../components/inputForm";
 import Cta from "../components/cta";
+import apiClient from "../api/axios";
 
 const Login = () => {
   const [idValue, setIdValue] = useState("");
   const [pwValue, setPwValue] = useState("");
 
+  const navigate = useNavigate();
+
+  //id 비밀번호
   const handleLogin = async () => {
     try {
-      const { response } = await axios.post(
-        `${import.meta.env.VITE_BASE_URL}/api/v1/members/sign-in`,
-        {
-          username: idValue,
-          password: pwValue,
-        }
-      );
-      console.log({ response });
+      const response = await apiClient.post("/api/v1/members/sign-in", {
+        username: idValue,
+        password: pwValue,
+      });
+      await profile(); // 사용자 정보 조회
+      const userId = response.data.id;
+      navigate(`/mypage/${userId}`, {
+        state: {
+          username: response.data.username,
+          nickname: response.data.nickname,
+        },
+      });
     } catch (err) {
-      console.log("에러", err);
+      console.log(err);
+    }
+  };
+
+  const profile = async () => {
+    try {
+      const { response } = await apiClient.get("api/v1/members/{memberId}", {
+        params: {
+          id: response.data.id,
+          username: response.data.username,
+          nickname: response.data.nickname,
+        },
+      });
+    } catch (err) {
+      console.log(err);
     }
   };
 
