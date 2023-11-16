@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import apiClient from "../api/axios";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import styled from "styled-components";
 import Contentbox from "../components/contentBox";
 import Title from "../components/Title";
@@ -34,6 +34,9 @@ const Mypage = () => {
             <p>닉네임: {nickname}</p>
           </Info>
         </UserWrapper>
+        <Link to="/login">
+          <Logout type="button">로그아웃</Logout>
+        </Link>
       </Contentbox>
     </>
   );
@@ -43,6 +46,14 @@ const UserWrapper = styled.section`
   display: flex;
   height: 8rem;
   padding: 1rem;
+`;
+
+const Logout = styled.button`
+  border-style: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.4rem;
+  background-color: ${({ theme }) => theme.yellow};
+  cursor: pointer;
 `;
 
 export default Mypage;

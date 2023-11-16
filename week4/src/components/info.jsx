@@ -12,7 +12,9 @@ const info = styled.div`
   & > p {
     background-color: ${({ theme }) => theme.gray1};
     line-height: 2.5rem;
-    padding-left: 0.3rem;
+    padding-left: 0.6rem;
+    font-weight: 500;
+    border-radius: 0.4rem;
   }
 `;
 

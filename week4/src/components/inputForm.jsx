@@ -35,6 +35,7 @@ const SignForm = ({
   setUsername,
   setPassword,
   setNickname,
+  doubleCheck,
 }) => {
   return (
     <>
@@ -47,7 +48,9 @@ const SignForm = ({
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           ></ShortTextholder>{" "}
-          <Btn>중복확인</Btn>
+          <Btn type="button" onClick={doubleCheck}>
+            중복확인
+          </Btn>
         </Wrapper>
         <Wrapper>
           <Name>비밀번호</Name>
@@ -58,13 +61,13 @@ const SignForm = ({
             onChange={(e) => setPassword(e.target.value)}
           ></Textholder>
         </Wrapper>
-        {/* <Wrapper>
+        <Wrapper>
           <Name>비밀번호 확인</Name>
           <Textholder
             type="text"
             placeholder="비밀번호를 다시 한번 입력해주세요"
           ></Textholder>
-        </Wrapper> */}
+        </Wrapper>
         <Wrapper>
           <Name>닉네임</Name>
           <Textholder
@@ -129,6 +132,7 @@ const Btn = styled.button`
   margin-left: 0.5rem;
   border-style: none;
   border-radius: 0.4rem;
+  cursor: pointer;
 `;
 
 const inputForm = {

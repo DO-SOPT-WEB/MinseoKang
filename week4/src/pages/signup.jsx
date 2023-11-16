@@ -10,7 +10,7 @@ const Signup = () => {
   const [username, setUsername] = useState("");
   const [nickname, setNickname] = useState("");
   const [password, setPassword] = useState("");
-  // const [isExist, setIsExist] = useState("");
+  const [isExist, setIsExist] = useState("");
   const [signupButton, setSignupButton] = useState(false);
 
   const navigate = useNavigate();
@@ -18,6 +18,7 @@ const Signup = () => {
     navigate(`/login`);
   };
 
+  // 미입력시 회원가입 비활성화
   const activateBtn = () => {
     if (username && nickname && password) {
       setSignupButton(true);
@@ -29,6 +30,7 @@ const Signup = () => {
     }
   };
 
+  // 회원정보 등록 API
   const postData = async () => {
     try {
       const response = await apiClient.post("/api/v1/members", {
@@ -42,6 +44,26 @@ const Signup = () => {
     }
   };
 
+  // 중복 체크 API
+  const doubleCheck = async () => {
+    try {
+      const response = await apiClient.get(`/api/v1/members/check`, {
+        params: {
+          username: username,
+        },
+      });
+
+      if (response.data === "true") {
+        setIsExist(true);
+        console.log("true");
+      } else {
+        console.log("ㅜ얼아");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div>
       <Contentbox>
@@ -50,9 +72,11 @@ const Signup = () => {
           username={username}
           password={password}
           nickname={nickname}
+          isExist={isExist}
           setUsername={setUsername}
           setPassword={setPassword}
           setNickname={setNickname}
+          doubleCheck={doubleCheck}
         />
         <Cta.Main
           type="button"
