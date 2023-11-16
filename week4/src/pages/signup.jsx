@@ -11,11 +11,22 @@ const Signup = () => {
   const [nickname, setNickname] = useState("");
   const [password, setPassword] = useState("");
   // const [isExist, setIsExist] = useState("");
-  // const [signupButton, setSignupButton] = useState(false);
+  const [signupButton, setSignupButton] = useState(false);
 
   const navigate = useNavigate();
   const goToLogin = () => {
     navigate(`/login`);
+  };
+
+  const activateBtn = () => {
+    if (username && nickname && password) {
+      setSignupButton(true);
+      goToLogin();
+      alert("회원가입 완료");
+      postData();
+    } else {
+      alert("빈칸을 모두 채워주세요!");
+    }
   };
 
   const postData = async () => {
@@ -46,9 +57,7 @@ const Signup = () => {
         <Cta.Main
           type="button"
           onClick={() => {
-            postData();
-            goToLogin();
-            alert("회원가입 완료");
+            activateBtn();
           }}
         >
           회원가입
