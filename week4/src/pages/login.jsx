@@ -21,28 +21,8 @@ const Login = () => {
         username: idValue,
         password: pwValue,
       });
-      await profile(); // 사용자 정보 조회
-      const userId = response.data.id;
-      navigate(`/mypage/${userId}`, {
-        state: {
-          username: response.data.username,
-          nickname: response.data.nickname,
-        },
-      });
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  const profile = async () => {
-    try {
-      const { response } = await apiClient.get("api/v1/members/{memberId}", {
-        params: {
-          id: response.data.id,
-          username: response.data.username,
-          nickname: response.data.nickname,
-        },
-      });
+      console.log(response.data.id);
+      navigate(`/mypage/${response.data.id}`);
     } catch (err) {
       console.log(err);
     }

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const info = styled.p`
+const info = styled.div`
   height: 2rem;
   transform: translate(0, -50%);
   height: 5rem;

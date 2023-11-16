@@ -20,15 +20,12 @@ const Signup = () => {
 
   const postData = async () => {
     try {
-      const { test } = await apiClient.post(
-        `${import.meta.env.VITE_BASE_URL}/api/v1/members`,
-        {
-          username: username,
-          nickname: nickname,
-          password: password,
-        }
-      );
-      console.log({ test });
+      const response = await apiClient.post("/api/v1/members", {
+        username: username,
+        nickname: nickname,
+        password: password,
+      });
+      console.log(response);
     } catch (err) {
       console.log(err);
     }

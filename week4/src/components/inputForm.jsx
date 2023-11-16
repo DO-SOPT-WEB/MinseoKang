@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import React from "react";
 
-const LoginForm = () => {
+const LoginForm = ({ idValue, setIdValue, pwValue, setPwValue }) => {
   return (
     <>
       <Input>
@@ -10,6 +10,8 @@ const LoginForm = () => {
           <Textholder
             type="text"
             placeholder="아이디를 입력하세요"
+            value={idValue}
+            onChange={(e) => setIdValue(e.target.value)}
           ></Textholder>
         </Wrapper>
         <Wrapper>
@@ -17,6 +19,8 @@ const LoginForm = () => {
           <Textholder
             type="text"
             placeholder="비밀번호를 입력하세요"
+            value={pwValue}
+            onChange={(e) => setPwValue(e.target.value)}
           ></Textholder>
         </Wrapper>
       </Input>
