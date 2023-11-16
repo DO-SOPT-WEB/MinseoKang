@@ -1,21 +1,27 @@
-import React from "react";
-// import { useParams } from "react-router-dom";
-// import axios from "axios";
+import React, { useState } from "react";
+import apiClient from "../api/axios";
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import Contentbox from "../components/contentBox";
 import Title from "../components/Title";
 import Info from "../components/info";
 
-const UserID = () => {
-  //유저 프로필 불러오기
-  const profile = async (userId) => {
+const Mypage = () => {
+  let { userId } = useParams();
+  const [username, setUsername] = useState("");
+  const [nickname, setNickname] = useState("");
+
+  const getLoginData = async () => {
     try {
-      const bringProfile = await apiClient.get(`api/v1/members/${userId}`);
-      console.log("프로필데이터", bringProfile);
+      const response = await apiClient.get(`/api/v1/members/${userId}`, {});
+      setUsername(response.data.username);
+      setNickname(response.data.nickname);
     } catch (err) {
-      console.log("프로필오류", userId);
+      console.log(err);
     }
   };
+
+  getLoginData();
 
   return (
     <>
@@ -24,8 +30,8 @@ const UserID = () => {
         <UserWrapper>
           <img src="/src/assets/profile.png" alt="프로필이미지"></img>
           <Info>
-            {/* <p>아이디: {state.id}</p>
-            <p>닉네임: {state.nickname}</p> */}
+            <p>아이디: {username}</p>
+            <p>닉네임: {nickname}</p>
           </Info>
         </UserWrapper>
       </Contentbox>
@@ -39,4 +45,4 @@ const UserWrapper = styled.section`
   padding: 1rem;
 `;
 
-export default UserID;
+export default Mypage;
