@@ -1,10 +1,13 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import Contentbox from "../components/contentBox";
 import Title from "../components/Title";
 import Info from "../components/info";
 
 const UserID = () => {
+  const { params } = useParams();
+
   return (
     <div>
       <Contentbox>
@@ -12,7 +15,7 @@ const UserID = () => {
         <UserWrapper>
           <img src="/src/assets/profile.png"></img>
           <Info>
-            <p>ID:</p>
+            <p>ID:{params.userID}</p>
             <p>닉네임:</p>
           </Info>
         </UserWrapper>

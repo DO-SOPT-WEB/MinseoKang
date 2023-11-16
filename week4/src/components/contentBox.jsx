@@ -12,5 +12,6 @@ const contentBox = styled.section`
   top: 45%;
   transform: translate(-50%, -50%);
   border-radius: 1.3rem;
+  box-shadow: 5px 5px 5px lightgray;
 `;
 export default contentBox;
