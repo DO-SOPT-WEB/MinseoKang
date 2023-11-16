@@ -24,7 +24,14 @@ const LoginForm = () => {
   );
 };
 
-const SignForm = () => {
+const SignForm = ({
+  username,
+  password,
+  nickname,
+  setUsername,
+  setPassword,
+  setNickname,
+}) => {
   return (
     <>
       <Input>
@@ -33,6 +40,8 @@ const SignForm = () => {
           <ShortTextholder
             type="text"
             placeholder="아이디를 입력하세요"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
           ></ShortTextholder>{" "}
           <Btn>중복확인</Btn>
         </Wrapper>
@@ -41,20 +50,24 @@ const SignForm = () => {
           <Textholder
             type="text"
             placeholder="비밀번호를 입력하세요"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           ></Textholder>
         </Wrapper>
-        <Wrapper>
+        {/* <Wrapper>
           <Name>비밀번호 확인</Name>
           <Textholder
             type="text"
             placeholder="비밀번호를 다시 한번 입력해주세요"
           ></Textholder>
-        </Wrapper>
+        </Wrapper> */}
         <Wrapper>
           <Name>닉네임</Name>
           <Textholder
             type="text"
             placeholder="닉네임을 입력해주세요"
+            value={nickname}
+            onChange={(e) => setNickname(e.target.value)}
           ></Textholder>
         </Wrapper>
       </Input>

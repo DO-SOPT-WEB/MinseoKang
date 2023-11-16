@@ -1,28 +1,37 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
+// import axios from "axios";
 import styled from "styled-components";
 import Contentbox from "../components/contentBox";
 import Title from "../components/Title";
 import Info from "../components/info";
 
 const UserID = () => {
-  const { params } = useParams();
+  // const { userId } = useParams();
+  // const targetId = DATA.find(({ username }) => username == userId);
 
   return (
-    <div>
+    <>
       <Contentbox>
         <Title>My Page</Title>
         <UserWrapper>
           <img src="/src/assets/profile.png"></img>
           <Info>
-            <p>ID:{params.userID}</p>
-            <p>닉네임:</p>
+            <ul>
+              {/* {DATA.map((user) => (
+                <li key={user.username}>ID: {user.id}</li>
+              ))}
+              {DATA.map((user) => (
+                <li key={user.nickname}>닉네임: {user.id}</li>
+              ))} */}
+            </ul>
           </Info>
         </UserWrapper>
       </Contentbox>
-    </div>
+    </>
   );
 };
+
 const UserWrapper = styled.section`
   display: flex;
   height: 8rem;
