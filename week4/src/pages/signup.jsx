@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Contentbox from "../components/contentBox";
 import Title from "../components/Title";
@@ -10,17 +11,25 @@ const Signup = () => {
   const [nickname, setNickname] = useState("");
   const [password, setPassword] = useState("");
   // const [isExist, setIsExist] = useState("");
-  const [signupButton, setSignupButton] = useState(false);
+  // const [signupButton, setSignupButton] = useState(false);
+
+  const navigate = useNavigate();
+  const goToLogin = () => {
+    navigate(`/login`);
+  };
 
   const postData = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`${import.meta.env.VITE_BASE_URL}/api/v1/members`, {
-        username: username,
-        nickname: nickname,
-        password: password,
-      });
-      console.log("성공");
+      const { test } = await axios.post(
+        `${import.meta.env.VITE_BASE_URL}/api/v1/members`,
+        {
+          username: username,
+          nickname: nickname,
+          password: password,
+        }
+      );
+      console.log({ test });
     } catch (err) {
       console.log("에러:", err);
     }
@@ -38,7 +47,14 @@ const Signup = () => {
           setPassword={setPassword}
           setNickname={setNickname}
         />
-        <Cta.Main type="button" onClick={postData}>
+        <Cta.Main
+          type="button"
+          onClick={() => {
+            postData();
+            goToLogin();
+            alert("회원가입 완료");
+          }}
+        >
           회원가입
         </Cta.Main>
       </Contentbox>
