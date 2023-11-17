@@ -13,6 +13,7 @@ const Login = () => {
   const [idValue, setIdValue] = useState("");
   const [pwValue, setPwValue] = useState("");
   const [showToast, setShowToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState("");
 
   const handleToastClose = () => {
     setShowToast(false);
@@ -29,6 +30,11 @@ const Login = () => {
       console.log(response.data.id);
       navigate(`/mypage/${response.data.id}`);
     } catch (err) {
+      if (err.response && err.response.data) {
+        setToastMessage(err.response.data.message);
+      } else {
+        setToastMessage("사용자를 찾을 수 없습니다");
+      }
       setShowToast(true);
     }
   };
@@ -57,10 +63,7 @@ const Login = () => {
       </Contentbox>
 
       {showToast && (
-        <ToastMessage
-          message="로그인에 실패했습니다"
-          onClose={handleToastClose}
-        />
+        <ToastMessage message={toastMessage} onClose={handleToastClose} />
       )}
     </div>
   );
