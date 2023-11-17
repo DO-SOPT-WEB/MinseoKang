@@ -26,7 +26,8 @@ const Signup = () => {
       nickname &&
       password &&
       passwordCheck &&
-      password === passwordCheck
+      password === passwordCheck &&
+      !isExist
     ) {
       await doubleCheck();
       setSignupButton(true);
