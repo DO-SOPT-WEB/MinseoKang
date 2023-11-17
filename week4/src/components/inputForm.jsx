@@ -31,9 +31,11 @@ const LoginForm = ({ idValue, setIdValue, pwValue, setPwValue }) => {
 const SignForm = ({
   username,
   password,
+  passwordCheck,
   nickname,
   setUsername,
   setPassword,
+  setPasswordCheck,
   setNickname,
   doubleCheck,
   isExist,
@@ -77,6 +79,8 @@ const SignForm = ({
           <Textholder
             type="text"
             placeholder="비밀번호를 다시 한번 입력해주세요"
+            value={passwordCheck}
+            onChange={(e) => setPasswordCheck(e.target.value)}
           ></Textholder>
         </Wrapper>
         <Wrapper>

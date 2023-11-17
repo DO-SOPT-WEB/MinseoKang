@@ -10,6 +10,7 @@ const Signup = () => {
   const [username, setUsername] = useState("");
   const [nickname, setNickname] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordCheck, setPasswordCheck] = useState("");
   const [isExist, setIsExist] = useState("");
   const [signupButton, setSignupButton] = useState(false);
 
@@ -20,13 +21,13 @@ const Signup = () => {
 
   // 미입력시 회원가입 비활성화
   const activateBtn = () => {
-    if (username && nickname && password) {
+    if (username && nickname && password && password == passwordCheck) {
       setSignupButton(true);
       goToLogin();
       alert("회원가입 완료");
       postData();
     } else {
-      alert("빈칸을 모두 채워주세요!");
+      alert("회원가입 실패");
     }
   };
 
@@ -71,10 +72,12 @@ const Signup = () => {
         <InputForm.SignForm
           username={username}
           password={password}
+          passwordCheck={passwordCheck}
           nickname={nickname}
           isExist={isExist}
           setUsername={setUsername}
           setPassword={setPassword}
+          setPasswordCheck={setPasswordCheck}
           setNickname={setNickname}
           doubleCheck={doubleCheck}
         />
