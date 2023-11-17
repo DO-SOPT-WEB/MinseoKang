@@ -53,11 +53,11 @@ const Signup = () => {
         },
       });
 
-      if (response.data === "true") {
+      if (response.data.isExist) {
         setIsExist(true);
-        console.log("true");
+        alert("이미 존재하는 아아디입니다!");
       } else {
-        console.log("ㅜ얼아");
+        setIsExist(false);
       }
     } catch (err) {
       console.log(err);

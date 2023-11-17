@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React from "react";
+import React, { useState } from "react";
 
 const LoginForm = ({ idValue, setIdValue, pwValue, setPwValue }) => {
   return (
@@ -36,7 +36,10 @@ const SignForm = ({
   setPassword,
   setNickname,
   doubleCheck,
+  isExist,
 }) => {
+  const [isClicked, setIsClicked] = useState(false);
+
   return (
     <>
       <Input>
@@ -48,7 +51,15 @@ const SignForm = ({
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           ></ShortTextholder>{" "}
-          <Btn type="button" onClick={doubleCheck}>
+          <Btn
+            type="button"
+            onClick={() => {
+              doubleCheck();
+              setIsClicked(true);
+            }}
+            isExist={isExist} // isExist 값을 전달
+            isClicked={isClicked} // isClicked 값을 전달
+          >
             중복확인
           </Btn>
         </Wrapper>
@@ -123,8 +134,16 @@ const ShortTextholder = styled.input`
 `;
 
 const Btn = styled.button`
-  background-color: ${({ theme }) => theme.gray2};
-  color: ${({ theme }) => theme.gray3};
+  background-color: ${({ theme, isExist, isClicked }) => {
+    if (isClicked === true) {
+      return isExist ? theme.red50 : theme.blue50;
+    } else if (isClicked === false) {
+      return theme.gray2;
+    } else {
+      return theme.gray2;
+    }
+  }};
+
   font-weight: 500;
   border-style: none;
   height: 2.5rem;

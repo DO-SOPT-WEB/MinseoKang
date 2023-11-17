@@ -4,6 +4,8 @@ const theme = {
   gray2: "#BABECC",
   gray3: "#4E515C",
   yellow: "#faeD62",
+  red50: "#FF334B",
+  blue50: "#4D73FF",
   black: "#101011",
 };
 
