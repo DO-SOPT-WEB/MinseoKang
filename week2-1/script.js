@@ -10,11 +10,3 @@ document.addEventListener("scroll", () => {
 
 const springContainers = document.querySelectorAll(".part.spring");
 let description = document.querySelector(".description");
-
-springContainers.forEach((springContainer) => {
-  springContainer.addEventListener("mouseenter", () => {
-    let detailText = springContainer.querySelector(".description");
-    let title = description.querySelector("p.title");
-    let detail = description.querySelector("p.detail");
-  });
-});
