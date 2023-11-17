@@ -21,7 +21,13 @@ const Signup = () => {
 
   // 미입력시 회원가입 비활성화
   const activateBtn = async () => {
-    if (username && nickname && password && password === passwordCheck) {
+    if (
+      username &&
+      nickname &&
+      password &&
+      passwordCheck &&
+      password === passwordCheck
+    ) {
       await doubleCheck();
       setSignupButton(true);
       return !isExist;
@@ -84,7 +90,7 @@ const Signup = () => {
   //
   useEffect(() => {
     doubleCheck();
-  }, []);
+  }, [username]);
 
   return (
     <div>
