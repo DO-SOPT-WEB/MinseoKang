@@ -13,6 +13,7 @@ const Signup = () => {
   const [passwordCheck, setPasswordCheck] = useState("");
   const [isExist, setIsExist] = useState("");
   const [signupButton, setSignupButton] = useState(false);
+  const [isClicked, setIsClicked] = useState(false);
 
   const navigate = useNavigate();
   const goToLogin = () => {
@@ -22,16 +23,16 @@ const Signup = () => {
   // 미입력시 회원가입 비활성화
   const activateBtn = async () => {
     if (
+      isClicked &&
       username &&
       nickname &&
       password &&
       passwordCheck &&
-      password === passwordCheck &&
-      !isExist
+      password === passwordCheck
     ) {
       await doubleCheck();
       setSignupButton(true);
-      return !isExist;
+      return true;
     } else {
       setSignupButton(false);
       return false;
@@ -85,13 +86,13 @@ const Signup = () => {
 
   // 값 변경시 리렌더
   useEffect(() => {
-    activateBtn();
-  }, [username, nickname, password, passwordCheck]);
+    setIsClicked(false);
+  }, [username]);
 
   //
   useEffect(() => {
-    doubleCheck();
-  }, [username]);
+    activateBtn();
+  }, [isClicked, username, nickname, password, passwordCheck]);
 
   return (
     <div>
@@ -103,11 +104,13 @@ const Signup = () => {
           passwordCheck={passwordCheck}
           nickname={nickname}
           isExist={isExist}
+          isClicked={isClicked}
           setUsername={setUsername}
           setPassword={setPassword}
           setPasswordCheck={setPasswordCheck}
           setNickname={setNickname}
           doubleCheck={doubleCheck}
+          setIsClicked={setIsClicked}
         />
         <Cta.Main
           type="button"

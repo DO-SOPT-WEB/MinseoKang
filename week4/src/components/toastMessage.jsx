@@ -27,6 +27,7 @@ const Toast = styled.div`
   background-color: gray;
   color: white;
   left: 50%;
+  width: auto;
   transform: translate(-50%, -50%);
 `;
 

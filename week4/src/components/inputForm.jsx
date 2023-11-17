@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React, { useState } from "react";
+import React from "react";
 
 const LoginForm = ({ idValue, setIdValue, pwValue, setPwValue }) => {
   return (
@@ -39,9 +39,9 @@ const SignForm = ({
   setNickname,
   doubleCheck,
   isExist,
+  isClicked,
+  setIsClicked,
 }) => {
-  const [isClicked, setIsClicked] = useState(false);
-
   return (
     <>
       <Input>
