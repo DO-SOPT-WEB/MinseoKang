@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import apiClient from "../api/axios";
 import Contentbox from "../components/contentBox";
@@ -20,14 +20,30 @@ const Signup = () => {
   };
 
   // 미입력시 회원가입 비활성화
-  const activateBtn = () => {
-    if (username && nickname && password && password == passwordCheck) {
+  const activateBtn = async () => {
+    if (username && nickname && password && password === passwordCheck) {
+      await doubleCheck();
       setSignupButton(true);
-      goToLogin();
-      alert("회원가입 완료");
-      postData();
+      return !isExist;
     } else {
-      alert("회원가입 실패");
+      setSignupButton(false);
+      return false;
+    }
+  };
+
+  // 클릭시 이동 및 데이터 전송
+  const goToLoginHandler = async () => {
+    const ActivateSuccess = await activateBtn();
+    if (ActivateSuccess) {
+      try {
+        await postData();
+        goToLogin();
+        alert("회원가입 완료");
+      } catch (err) {
+        console.log("회원가입 실패", err);
+      }
+    } else {
+      console.log(ActivateSuccess);
     }
   };
 
@@ -54,16 +70,21 @@ const Signup = () => {
         },
       });
 
-      if (response.data.isExist) {
-        setIsExist(true);
-        alert("이미 존재하는 아아디입니다!");
-      } else {
-        setIsExist(false);
-      }
+      setIsExist(response.data.isExist);
     } catch (err) {
-      console.log(err);
+      console.log("중복 체크 에러", err);
     }
   };
+
+  // 값 변경시 리렌더
+  useEffect(() => {
+    activateBtn();
+  }, [username, nickname, password, passwordCheck]);
+
+  //
+  useEffect(() => {
+    doubleCheck();
+  }, []);
 
   return (
     <div>
@@ -83,8 +104,9 @@ const Signup = () => {
         />
         <Cta.Main
           type="button"
+          style={{ opacity: signupButton ? 1 : 0.4 }}
           onClick={() => {
-            activateBtn();
+            goToLoginHandler();
           }}
         >
           회원가입
